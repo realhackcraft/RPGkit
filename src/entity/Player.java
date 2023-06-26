@@ -11,6 +11,7 @@ import utils.Utils;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.List;
 
 import static java.awt.event.KeyEvent.*;
 import static utils.Direction.*;
@@ -33,25 +34,58 @@ public class Player extends Entity {
 
     public void loadDataFromLDtk() {
         Level[] levels = gamePanel.ldtk.getLevels();
-        for (Level level : levels) {
-            if (level.getIdentifier().equals("Level_0")) {
-                for (LayerInstance layer : level.getLayerInstances()) {
-                    if (layer.getIdentifier().equals("Entities") && layer.getType().equals("Entities")) {
-                        for (EntityInstance entity : layer.getEntityInstances()) {
-                            if (entity.getIdentifier().equals("PlayerStart")) {
-                                this.x = entity.getPx()[0];
-                                this.y = entity.getPx()[1];
-                                for (FieldInstance field : entity.getFieldInstances()) {
-                                    if (field.getIdentifier().equals("Direction")) {
-                                        this.direction = Direction.valueOf((String) field.getValue());
-                                    } else if (field.getIdentifier().equals("Speed")) {
-                                        this.speed = (double) field.getValue();
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+//        for (Level level : levels) {
+//            if (level.getIdentifier().equals("Level_0")) {
+//                for (LayerInstance layer : level.getLayerInstances()) {
+//                    if (layer.getIdentifier().equals("Entities") && layer.getType().equals("Entities")) {
+//                        for (EntityInstance entity : layer.getEntityInstances()) {
+//                            if (entity.getIdentifier().equals("PlayerStart")) {
+//                                this.x = entity.getPx()[0];
+//                                this.y = entity.getPx()[1];
+//                                for (FieldInstance field : entity.getFieldInstances()) {
+//                                    if (field.getIdentifier().equals("Direction")) {
+//                                        this.direction = Direction.valueOf((String) field.getValue());
+//                                    } else if (field.getIdentifier().equals("Speed")) {
+//                                        this.speed = (double) field.getValue();
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+
+        Level targetLevel = Utils.objects.findObjectWithFieldValue(
+                List.of(levels), "identifier", "Level_0");
+        if (targetLevel == null) {
+            return;
+        }
+
+        LayerInstance targetLayer = Utils.objects.findObjectWithFieldValue(
+                List.of(targetLevel.getLayerInstances()),
+                "identifier",
+                "Entities");
+        if (targetLayer == null || !targetLayer.getType().equals("Entities")) {
+            return;
+        }
+
+        EntityInstance targetEntity = Utils.objects.findObjectWithFieldValue(
+                List.of(targetLayer.getEntityInstances()),
+                "identifier",
+                "PlayerStart");
+        if (targetEntity == null) {
+            return;
+        }
+
+        this.x = targetEntity.getPx()[0];
+        this.y = targetEntity.getPx()[1];
+
+        for (FieldInstance field : targetEntity.getFieldInstances()) {
+            if (field.getIdentifier().equals("Direction")) {
+                this.direction = Direction.valueOf((String) field.getValue());
+            } else if (field.getIdentifier().equals("Speed")) {
+                this.speed = (double) field.getValue();
             }
         }
     }
