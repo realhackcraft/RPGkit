@@ -44,6 +44,8 @@ public class Player extends Entity {
                                 for (FieldInstance field : entity.getFieldInstances()) {
                                     if (field.getIdentifier().equals("Direction")) {
                                         this.direction = Direction.valueOf((String) field.getValue());
+                                    } else if (field.getIdentifier().equals("Speed")) {
+                                        this.speed = (double) field.getValue();
                                     }
                                 }
                             }
@@ -52,7 +54,6 @@ public class Player extends Entity {
                 }
             }
         }
-        this.speed = 0.05;
     }
 
     @Override
