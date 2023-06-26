@@ -22,15 +22,13 @@ public class Player extends Entity {
     public Player(GamePanel gamePanel, KeyHandler keyHandler) {
         this.gamePanel = gamePanel;
         this.keyHandler = keyHandler;
-        this.direction = DOWN;
-        this.spritesheet = new Spritesheet(16, 16);
+        this.tileSet = new TileSet(gamePanel.ldtk.getDefs().getTilesets()[0]);
         loadDataFromLDtk();
         loadSpritesheet();
     }
 
     private void loadSpritesheet() {
-        spritesheet.loadImage("/player/images/player.png");
-        spritesheet.cut();
+        tileSet.cut();
     }
 
     public void loadDataFromLDtk() {
@@ -80,10 +78,10 @@ public class Player extends Entity {
     @Override
     public void draw(Graphics2D g2d) {
         BufferedImage frame = switch (this.direction) {
-            case UP -> spritesheet.getFrame(0, 0);
-            case LEFT -> spritesheet.getFrame(0, 1);
-            case DOWN -> spritesheet.getFrame(0, 2);
-            case RIGHT -> Utils.images.flipHorizontal(spritesheet.getFrame(0, 1));
+            case UP -> tileSet.getFrame(0, 0);
+            case LEFT -> tileSet.getFrame(0, 1);
+            case DOWN -> tileSet.getFrame(0, 2);
+            case RIGHT -> Utils.images.flipHorizontal(tileSet.getFrame(0, 1));
         };
 
         g2d.scale(gamePanel.tileScale, gamePanel.tileScale);

@@ -215,19 +215,19 @@
 					"entityInstances": [
 						{
 							"__identifier": "PlayerStart",
-							"__grid": [4,7],
+							"__grid": [10,3],
 							"__pivot": [0,0],
 							"__tags": [],
-							"__tile": { "tilesetUid": 5, "x": 32, "y": 0, "w": 16, "h": 16 },
+							"__tile": { "tilesetUid": 5, "x": 0, "y": 0, "w": 16, "h": 16 },
 							"__smartColor": "#BE4A2F",
 							"iid": "05a68700-ed50-11ed-b831-91a938ffd418",
 							"width": 16,
 							"height": 16,
 							"defUid": 1,
-							"px": [64,112],
-							"fieldInstances": [{ "__identifier": "Direction", "__type": "LocalEnum.Direction", "__value": "DOWN", "__tile": { "tilesetUid": 5, "x": 32, "y": 0, "w": 16, "h": 16 }, "defUid": 4, "realEditorValues": [{
+							"px": [160,48],
+							"fieldInstances": [{ "__identifier": "Direction", "__type": "LocalEnum.Direction", "__value": "UP", "__tile": { "tilesetUid": 5, "x": 0, "y": 0, "w": 16, "h": 16 }, "defUid": 4, "realEditorValues": [{
 								"id": "V_String",
-								"params": ["DOWN"]
+								"params": ["UP"]
 							}] }]
 						}
 					]

@@ -7,7 +7,6 @@ import java.nio.charset.Charset;
 import java.util.Objects;
 
 public class StringUtils {
-    //    TODO
     public String loadFileAsString(String path, Charset charset) throws IOException {
         URL url = Objects.requireNonNull(getClass().getResource(path));
         InputStream is = url.openStream();
