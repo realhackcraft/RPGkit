@@ -103,7 +103,7 @@ public class TileSet {
             this.image = ImageIO.read(Objects.requireNonNull(getClass().getResource(path)));
             this.colCount = image.getWidth() / this.tileSet.getTileGridSize();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Error loading image: " + path);
         }
     }
 
