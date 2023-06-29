@@ -142,7 +142,7 @@ public class GamePanel extends JPanel implements Runnable {
             String json = Utils.strings.loadFileAsString("/world/Test.ldtk", StandardCharsets.US_ASCII);
             ldtk = Converter.fromJsonString(json);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Error loading LDtk file");
         }
 
         drawables.add(new Player(this, keyHandler));
