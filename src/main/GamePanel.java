@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 /**
  * This class represents a JPanel used as the main game panel to display the game.
@@ -100,11 +101,13 @@ public class GamePanel extends JPanel implements Runnable {
      * It provides methods to register listeners and notify them when a key event occurs.
      */
     KeyHandler keyHandler = new KeyHandler();
-
     /**
-     * Represents a player in the game.
+     * The drawables array list contains all the objects that need to be drawn on the screen.
+     * <p>
+     * This array list is used by the paintComponent method to draw all the objects on the screen.
+     * It is populated by the game loop and cleared at the end of each iteration.
      */
-    Player player;
+    ArrayList<Drawable> drawables = new ArrayList<>();
 
     /**
      * Creates a new GamePanel with preferred dimensions based on screenWidth and screenHeight constants.
@@ -120,7 +123,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     /**
-     * Creates
+     * Creates a new thread and starts the game loop.
      */
     public void start() {
         gameThread = new Thread(this);
@@ -142,7 +145,7 @@ public class GamePanel extends JPanel implements Runnable {
             e.printStackTrace();
         }
 
-        player = new Player(this, keyHandler);
+        drawables.add(new Player(this, keyHandler));
 
         double drawInterval = 1000000000.0 / FPS;
         double deltaRatio = 0;
@@ -171,7 +174,9 @@ public class GamePanel extends JPanel implements Runnable {
      * @param delta time in milliseconds since last update
      */
     public void update(double delta) {
-        player.update(delta);
+        for (Drawable drawable : drawables) {
+            drawable.update(delta);
+        }
     }
 
     /**
@@ -192,9 +197,11 @@ public class GamePanel extends JPanel implements Runnable {
     public void draw(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         try {
-            player.draw(g2d);
+            for (Drawable drawable : drawables) {
+                drawable.draw(g2d);
+            }
         } catch (NullPointerException e) {
-            System.err.println("Player not initialized yet");
+            System.err.println("Initialising");
         }
         g2d.dispose();
     }
