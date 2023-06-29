@@ -1,10 +1,10 @@
 package entity;
 
+import main.Drawable;
+import main.TileSet;
 import utils.Direction;
 
-import java.awt.*;
-
-public abstract class Entity {
+public abstract class Entity implements Drawable {
     /**
      * This variable represents a floating-point value of type {@code double}.
      * It can be used to store and manipulate decimal numbers with a higher precision than the {@code float} data type.
@@ -36,18 +36,4 @@ public abstract class Entity {
      * Represents a direction that can be used to move objects in a game or application.
      */
     public Direction direction;
-
-    /**
-     * Updates the object based on the given time delta.
-     *
-     * @param delta The time elapsed in seconds since the last update.
-     */
-    public abstract void update(double delta);
-
-    /**
-     * Draws the object using the given Graphics2D object.
-     *
-     * @param g2d The Graphics2D object used for drawing.
-     */
-    public abstract void draw(Graphics2D g2d);
 }

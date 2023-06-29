@@ -1,4 +1,4 @@
-package entity;
+package main;
 
 import LDtk.TilesetDefinition;
 import utils.Utils;
@@ -123,9 +123,9 @@ public class TileSet {
         for (long y = 0; y < image.getHeight(); y += this.tileSet.getTileGridSize() + this.tileSet.getSpacing()) {
             for (long x = 0; x < image.getWidth(); x += this.tileSet.getTileGridSize() + this.tileSet.getSpacing()) {
                 BufferedImage sprite = image.getSubimage((int) x,
-                                                         (int) y,
-                                                         (int) this.tileSet.getTileGridSize(),
-                                                         (int) this.tileSet.getTileGridSize());
+                        (int) y,
+                        (int) this.tileSet.getTileGridSize(),
+                        (int) this.tileSet.getTileGridSize());
                 frames.add(sprite);
             }
         }

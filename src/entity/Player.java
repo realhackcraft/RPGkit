@@ -4,9 +4,9 @@ import LDtk.EntityInstance;
 import LDtk.FieldInstance;
 import LDtk.LayerInstance;
 import LDtk.Level;
-import main.Drawable;
 import main.GamePanel;
 import main.KeyHandler;
+import main.TileSet;
 import utils.Direction;
 import utils.Utils;
 
@@ -22,7 +22,7 @@ import static utils.Direction.*;
  * It loads data from the LDtk level editor using its loadDataFromLDtk() method, and updates the player's position and direction using its update() method. It also draws the player's frame using its draw() method.
  */
 
-public class Player extends Entity implements Drawable {
+public class Player extends Entity {
     /**
      * The gamePanel variable refers to the GamePanel object which is responsible for handling the game graphics,
      * rendering and updating the game objects and handling the user interactions.
