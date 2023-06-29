@@ -4,6 +4,7 @@ import LDtk.EntityInstance;
 import LDtk.FieldInstance;
 import LDtk.LayerInstance;
 import LDtk.Level;
+import main.Drawable;
 import main.GamePanel;
 import main.KeyHandler;
 import utils.Direction;
@@ -21,7 +22,7 @@ import static utils.Direction.*;
  * It loads data from the LDtk level editor using its loadDataFromLDtk() method, and updates the player's position and direction using its update() method. It also draws the player's frame using its draw() method.
  */
 
-public class Player extends Entity {
+public class Player extends Entity implements Drawable {
     /**
      * The gamePanel variable refers to the GamePanel object which is responsible for handling the game graphics,
      * rendering and updating the game objects and handling the user interactions.
@@ -118,7 +119,6 @@ public class Player extends Entity {
      * If the 'D' key is pressed, the character moves to the right and faces to the right.
      *
      * @param delta the time elapsed since the last update call
-     * @throws NullPointerException if the key handler is null
      */
     @Override
     public void update(double delta) {
