@@ -27,13 +27,7 @@ public class TileSet {
     ArrayList<BufferedImage> frames = new ArrayList<>();
 
     /**
-     * Represents the number of columns in a table.
-     * <p>
-     * This variable stores the total count of columns present in a table. The type of this variable is a long to accommodate
-     * large tables that may have more than the maximum value of an int.
-     *
-     * @see Table
-     * @since 1.0
+     * Represents the number of columns in the TileSet.
      */
     private long colCount;
 
