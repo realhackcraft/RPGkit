@@ -1,18 +1,13 @@
 package entity;
 
-import LDtk.EntityInstance;
-import LDtk.FieldInstance;
-import LDtk.LayerInstance;
-import LDtk.Level;
 import main.GamePanel;
 import main.KeyHandler;
+import main.LDtkLoader;
 import main.TileSet;
-import utils.Direction;
 import utils.Utils;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.util.List;
 
 import static java.awt.event.KeyEvent.*;
 import static utils.Direction.*;
@@ -56,59 +51,7 @@ public class Player extends Entity {
         this.gamePanel = gamePanel;
         this.keyHandler = keyHandler;
         this.tileSet = new TileSet(gamePanel.ldtk.getDefs().getTilesets()[0]);
-        loadDataFromLDtk();
-        loadSpritesheet();
-    }
-
-    /**
-     * Cuts the sprite sheet into individual tile images and sets them in the TileSet object.
-     */
-    private void loadSpritesheet() {
-        tileSet.cut();
-    }
-
-    /**
-     * Loads game data from LDtk and extracts required information to initialize the game character.
-     * Finds and sets the starting position, direction, and speed of the game character
-     * based on the entity instance and its field values in the "Entities" layer of the "Level_0" level.
-     *
-     * @throws NullPointerException if required LDtk data cannot be found or accessed
-     */
-    public void loadDataFromLDtk() {
-        Level[] levels = gamePanel.ldtk.getLevels();
-
-        Level targetLevel = Utils.objects.findObjectWithFieldValue(
-                List.of(levels), "identifier", "Level_0");
-        if (targetLevel == null) {
-            return;
-        }
-
-        LayerInstance targetLayer = Utils.objects.findObjectWithFieldValue(
-                List.of(targetLevel.getLayerInstances()),
-                "identifier",
-                "Entities");
-        if (targetLayer == null || !targetLayer.getType().equals("Entities")) {
-            return;
-        }
-
-        EntityInstance targetEntity = Utils.objects.findObjectWithFieldValue(
-                List.of(targetLayer.getEntityInstances()),
-                "identifier",
-                "PlayerStart");
-        if (targetEntity == null) {
-            return;
-        }
-
-        this.x = targetEntity.getPx()[0];
-        this.y = targetEntity.getPx()[1];
-
-        for (FieldInstance field : targetEntity.getFieldInstances()) {
-            if (field.getIdentifier().equals("Direction")) {
-                this.direction = Direction.valueOf((String) field.getValue());
-            } else if (field.getIdentifier().equals("Speed")) {
-                this.speed = (double) field.getValue();
-            }
-        }
+        LDtkLoader.loadPlayer(this, gamePanel.ldtk);
     }
 
     /**

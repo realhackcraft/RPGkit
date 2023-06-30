@@ -56,6 +56,7 @@ public class TileSet {
     public TileSet(TilesetDefinition tileSet) {
         this.tileSet = tileSet;
         loadImage('/' + Utils.paths.normalizePath("world/" + tileSet.getRelPath()));
+        cut();
     }
 
     /**
@@ -80,18 +81,6 @@ public class TileSet {
     }
 
     /**
-     * Sets the image property of the TileSet object and updates the colCount property based
-     * on the image's width and the tile grid size property of the TileSet object.
-     *
-     * @param image the BufferedImage that represents the image to be loaded as the
-     *              TileSet object's image property
-     */
-    public void loadImage(BufferedImage image) {
-        this.image = image;
-        this.colCount = (image.getWidth() - 2 * this.tileSet.getPadding()) / this.tileSet.getTileGridSize();
-    }
-
-    /**
      * Loads the image from the given file path using the ImageIO class and sets the image property
      * of the TileSet object. It also updates the colCount property based on the image's width and
      * the tile grid size property of the TileSet object.
@@ -113,9 +102,9 @@ public class TileSet {
      *
      * @throws NullPointerException if the loaded image is null
      */
-    public void cut() {
-        for (long y = 0; y < image.getHeight(); y += this.tileSet.getTileGridSize() + this.tileSet.getSpacing()) {
-            for (long x = 0; x < image.getWidth(); x += this.tileSet.getTileGridSize() + this.tileSet.getSpacing()) {
+    private void cut() {
+        for (long y = this.tileSet.getPadding(); y < image.getHeight(); y += this.tileSet.getTileGridSize() + this.tileSet.getSpacing()) {
+            for (long x = this.tileSet.getPadding(); x < image.getWidth(); x += this.tileSet.getTileGridSize() + this.tileSet.getSpacing()) {
                 BufferedImage sprite = image.getSubimage((int) x,
                         (int) y,
                         (int) this.tileSet.getTileGridSize(),
