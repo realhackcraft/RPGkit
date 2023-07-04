@@ -1,20 +1,21 @@
 package LDtk;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import java.io.IOException;
-import com.fasterxml.jackson.annotation.*;
 
 public enum WorldLayout {
     FREE, GRID_VANIA, LINEAR_HORIZONTAL, LINEAR_VERTICAL;
 
     @JsonValue
     public String toValue() {
-        switch (this) {
-            case FREE: return "Free";
-            case GRID_VANIA: return "GridVania";
-            case LINEAR_HORIZONTAL: return "LinearHorizontal";
-            case LINEAR_VERTICAL: return "LinearVertical";
-        }
-        return null;
+        return switch (this) {
+            case FREE -> "Free";
+            case GRID_VANIA -> "GridVania";
+            case LINEAR_HORIZONTAL -> "LinearHorizontal";
+            case LINEAR_VERTICAL -> "LinearVertical";
+        };
     }
 
     @JsonCreator

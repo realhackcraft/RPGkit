@@ -17,7 +17,7 @@ public class Main {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Mining For Gold");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
+        frame.setResizable(true);
 
         GamePanel gamePanel = new GamePanel();
         gamePanel.start();

@@ -48,6 +48,16 @@ public class TileSet {
     private BufferedImage image;
 
     /**
+     * Represents a unique identifier.
+     *
+     * <p>
+     * The uid variable stores a unique identifier value of type long.
+     * This value is used to uniquely identify entities in the system.
+     * </p>
+     */
+    public long uid;
+
+    /**
      * Constructor for creating a TileSet object.
      *
      * @param tileSet the TilesetDefinition object for setting tileset details
@@ -55,6 +65,7 @@ public class TileSet {
      */
     public TileSet(TilesetDefinition tileSet) {
         this.tileSet = tileSet;
+        this.uid = tileSet.getUid();
         loadImage('/' + Utils.paths.normalizePath("world/" + tileSet.getRelPath()));
         cut();
     }
@@ -87,7 +98,7 @@ public class TileSet {
      *
      * @param path the String file path of the image to be loaded
      */
-    private void loadImage(String path) {
+    public void loadImage(String path) {
         try {
             this.image = ImageIO.read(Objects.requireNonNull(getClass().getResource(path)));
             this.colCount = image.getWidth() / this.tileSet.getTileGridSize();
@@ -106,11 +117,15 @@ public class TileSet {
         for (long y = this.tileSet.getPadding(); y < image.getHeight(); y += this.tileSet.getTileGridSize() + this.tileSet.getSpacing()) {
             for (long x = this.tileSet.getPadding(); x < image.getWidth(); x += this.tileSet.getTileGridSize() + this.tileSet.getSpacing()) {
                 BufferedImage sprite = image.getSubimage((int) x,
-                        (int) y,
-                        (int) this.tileSet.getTileGridSize(),
-                        (int) this.tileSet.getTileGridSize());
+                                                         (int) y,
+                                                         (int) this.tileSet.getTileGridSize(),
+                                                         (int) this.tileSet.getTileGridSize());
                 frames.add(sprite);
             }
         }
+    }
+
+    public boolean equals(TileSet tileSet) {
+        return this.tileSet.getIdentifier().equals(tileSet.tileSet.getIdentifier());
     }
 }
