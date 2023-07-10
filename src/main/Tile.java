@@ -4,9 +4,9 @@ import LDtk.TileInstance;
 
 public class Tile {
     public TileSet tileSet;
-    public long[] worldPosition = new long[2];
+    public long[] worldPosition;
     public long[] screenPosition = new long[2];
-    public long[] tileSetPosition = new long[2];
+    public long[] tileSetPosition;
 
     public Tile(TileInstance tile, TileSet tileSet) {
         this.tileSet = tileSet;
