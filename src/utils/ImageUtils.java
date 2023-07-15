@@ -47,4 +47,11 @@ public class ImageUtils {
         AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
         return op.filter(image, null);
     }
+
+    public BufferedImage scale(BufferedImage image, int xFactor, int yFactor) {
+        AffineTransform transform = new AffineTransform();
+        transform.scale(xFactor, yFactor);
+        AffineTransformOp op = new AffineTransformOp(transform, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
+        return op.filter(image, null);
+    }
 }

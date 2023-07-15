@@ -3,6 +3,7 @@ package main;
 import LDtk.Converter;
 import LDtk.LDtk;
 import entity.Player;
+import managers.LayerManager;
 import utils.Utils;
 
 import javax.swing.*;
@@ -87,6 +88,7 @@ public class GamePanel extends JPanel implements Runnable {
      * methods of the LDtk object.
      */
     public LDtk ldtk;
+    public LayerManager layerManager = new LayerManager();
 
     /**
      * The game thread which is responsible for running the game loop and updating the game state.
@@ -100,7 +102,7 @@ public class GamePanel extends JPanel implements Runnable {
      * KeyHandler class is responsible for handling key events.
      * It provides methods to register listeners and notify them when a key event occurs.
      */
-    KeyHandler keyHandler = new KeyHandler();
+    public KeyHandler keyHandler = new KeyHandler();
     /**
      * The drawables array list contains all the objects that need to be drawn on the screen.
      * <p>
@@ -108,6 +110,10 @@ public class GamePanel extends JPanel implements Runnable {
      * It is populated by the game loop and cleared at the end of each iteration.
      */
     ArrayList<Drawable> drawables = new ArrayList<>();
+
+    public Player player;
+
+    public static LDtkLoader lDtkLoader = LDtkLoader.get();
 
     /**
      * Creates a new GamePanel with preferred dimensions based on screenWidth and screenHeight constants.
@@ -127,6 +133,20 @@ public class GamePanel extends JPanel implements Runnable {
      */
     public void start() {
         gameThread = new Thread(this);
+
+        try {
+            String json = Utils.strings.loadFileAsString("/world/Test.ldtk", StandardCharsets.US_ASCII);
+            ldtk = Converter.fromJsonString(json);
+        } catch (IOException e) {
+            System.err.println("Error loading LDtk file");
+        }
+
+        lDtkLoader.loadTilesets(ldtk);
+        lDtkLoader.loadMap(ldtk, this);
+
+        player = new Player(this, keyHandler);
+        drawables.add(player);
+
         gameThread.start();
     }
 
@@ -138,15 +158,6 @@ public class GamePanel extends JPanel implements Runnable {
      */
     @Override
     public void run() {
-        try {
-            String json = Utils.strings.loadFileAsString("/world/Test.ldtk", StandardCharsets.US_ASCII);
-            ldtk = Converter.fromJsonString(json);
-        } catch (IOException e) {
-            System.err.println("Error loading LDtk file");
-        }
-
-        drawables.add(new Player(this, keyHandler));
-
         double drawInterval = 1000000000.0 / FPS;
         double deltaRatio = 0;
         double delta = 0;
@@ -174,6 +185,7 @@ public class GamePanel extends JPanel implements Runnable {
      * @param delta time in milliseconds since last update
      */
     public void update(double delta) {
+        layerManager.update(delta);
         for (Drawable drawable : drawables) {
             drawable.update(delta);
         }
@@ -197,6 +209,7 @@ public class GamePanel extends JPanel implements Runnable {
     public void draw(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         try {
+            layerManager.draw(g2d);
             for (Drawable drawable : drawables) {
                 drawable.draw(g2d);
             }

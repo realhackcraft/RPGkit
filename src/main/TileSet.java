@@ -6,7 +6,6 @@ import utils.Utils;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -24,12 +23,7 @@ public class TileSet {
      * @see java.util.ArrayList
      * @see java.awt.image.BufferedImage
      */
-    ArrayList<BufferedImage> frames = new ArrayList<>();
-
-    /**
-     * Represents the number of columns in the TileSet.
-     */
-    private long colCount;
+    BufferedImage[][] frames;
 
     /**
      * This is a private final variable that holds the definition of a Tileset.
@@ -57,6 +51,8 @@ public class TileSet {
      */
     public long uid;
 
+    public long tileSize;
+
     /**
      * Constructor for creating a TileSet object.
      *
@@ -66,18 +62,9 @@ public class TileSet {
     public TileSet(TilesetDefinition tileSet) {
         this.tileSet = tileSet;
         this.uid = tileSet.getUid();
+        this.tileSize = tileSet.getTileGridSize();
         loadImage('/' + Utils.paths.normalizePath("world/" + tileSet.getRelPath()));
         cut();
-    }
-
-    /**
-     * Returns the specific frame of the TileSet object's frames collection.
-     *
-     * @param frame the index of the requested frame
-     * @return the BufferedImage of the requested frame
-     */
-    public BufferedImage getFrame(int frame) {
-        return frames.get(frame);
     }
 
     /**
@@ -87,8 +74,8 @@ public class TileSet {
      * @param col the integer value representing the column index of the requested frame
      * @return the BufferedImage of the requested frame referenced by row and column indices
      */
-    public BufferedImage getFrame(int row, int col) {
-        return frames.get((int) (col + row * colCount));
+    public BufferedImage getFrame(int col, int row) {
+        return frames[col][row];
     }
 
     /**
@@ -101,7 +88,6 @@ public class TileSet {
     public void loadImage(String path) {
         try {
             this.image = ImageIO.read(Objects.requireNonNull(getClass().getResource(path)));
-            this.colCount = image.getWidth() / this.tileSet.getTileGridSize();
         } catch (IOException e) {
             System.err.println("Error loading image: " + path);
         }
@@ -114,13 +100,18 @@ public class TileSet {
      * @throws NullPointerException if the loaded image is null
      */
     private void cut() {
+        long tileCol = image.getWidth() / (this.tileSet.getTileGridSize() + this.tileSet.getSpacing());
+        long tileRow = image.getHeight() / (this.tileSet.getTileGridSize() + this.tileSet.getSpacing());
+        frames = new BufferedImage[(int) tileCol][(int) tileRow];
         for (long y = this.tileSet.getPadding(); y < image.getHeight(); y += this.tileSet.getTileGridSize() + this.tileSet.getSpacing()) {
+            long framesY = y / (this.tileSet.getTileGridSize() + this.tileSet.getSpacing());
             for (long x = this.tileSet.getPadding(); x < image.getWidth(); x += this.tileSet.getTileGridSize() + this.tileSet.getSpacing()) {
+                long framesX = x / (this.tileSet.getTileGridSize() + this.tileSet.getSpacing());
                 BufferedImage sprite = image.getSubimage((int) x,
                                                          (int) y,
                                                          (int) this.tileSet.getTileGridSize(),
                                                          (int) this.tileSet.getTileGridSize());
-                frames.add(sprite);
+                frames[(int) framesX][(int) framesY] = sprite;
             }
         }
     }

@@ -2,6 +2,8 @@ package main;
 
 import LDtk.*;
 import entity.Player;
+import managers.TileManager;
+import managers.TileSetManager;
 import utils.Direction;
 import utils.Utils;
 
@@ -9,19 +11,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LDtkLoader {
-    public static final ArrayList<TileSet> tileSets = new ArrayList<>();
-    public static final ArrayList<Tile> tiles = new ArrayList<>();
+    public static LDtkLoader loader;
 
-    public static void loadTilesets(LDtk ldtk) {
+    public void loadTilesets(LDtk ldtk) {
         TilesetDefinition[] tilesetDefinitions = ldtk.getDefs().getTilesets();
         for (TilesetDefinition tilesetDefinition : tilesetDefinitions) {
             TileSet tileSet = new TileSet(tilesetDefinition);
             tileSet.loadImage('/' + Utils.paths.normalizePath("world/" + tilesetDefinition.getRelPath()));
-            tileSets.add(tileSet);
+            TileSetManager.tileSets.add(tileSet);
         }
     }
 
-    public static void loadPlayer(Player player, LDtk ldtk) {
+    public void loadPlayer(Player player, LDtk ldtk) {
         Level targetLevel = findLevel(ldtk, "Level_0");
         if (targetLevel == null) {
             return;
@@ -57,7 +58,7 @@ public class LDtkLoader {
         }
     }
 
-    private static double[] getEntityPosition(EntityInstance entity, LayerInstance layer, Level level, WorldLayout worldLayout) {
+    private double[] getEntityPosition(EntityInstance entity, LayerInstance layer, Level level, WorldLayout worldLayout) {
         double[] position = new double[2];
         position[0] = (entity.getPx()[0] - entity.getPivot()[0] * entity.getWidth()) + layer.getPxTotalOffsetX();
         position[1] = (entity.getPx()[1] - entity.getPivot()[1] * entity.getHeight()) + layer.getPxTotalOffsetY();
@@ -69,7 +70,7 @@ public class LDtkLoader {
         return position;
     }
 
-    public static void loadMap(LDtk ldtk) {
+    public void loadMap(LDtk ldtk, GamePanel gamePanel) {
         Level targetLevel = findLevel(ldtk, "Level_0");
         if (targetLevel == null) {
             return;
@@ -83,20 +84,29 @@ public class LDtkLoader {
         }
 
         for (LayerInstance layer : tileLayers) {
-            for (TileSet tileset : tileSets) {
+            TileManager tileManager = new TileManager();
+            gamePanel.layerManager.tiles.add(tileManager);
+            for (TileSet tileset : TileSetManager.tileSets) {
                 if (tileset.uid == layer.getTilesetDefUid()) {
                     for (TileInstance tile : layer.getGridTiles()) {
-                        tiles.add(new Tile(tile, tileset));
+                        tileManager.tiles.add(new Tile(tile, tileset, gamePanel));
                     }
                 }
             }
         }
     }
 
-    private static Level findLevel(LDtk ldtk, String identifier) {
+    private Level findLevel(LDtk ldtk, String identifier) {
         Level[] levels = ldtk.getLevels();
 
         return Utils.objects.findObjectWithFieldValue(
                 List.of(levels), "identifier", identifier);
+    }
+
+    public static LDtkLoader get() {
+        if (loader == null) {
+            loader = new LDtkLoader();
+        }
+        return loader;
     }
 }

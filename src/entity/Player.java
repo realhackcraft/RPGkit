@@ -2,7 +2,6 @@ package entity;
 
 import main.GamePanel;
 import main.KeyHandler;
-import main.LDtkLoader;
 import main.TileSet;
 import utils.Utils;
 
@@ -51,7 +50,7 @@ public class Player extends Entity {
         this.gamePanel = gamePanel;
         this.keyHandler = keyHandler;
         this.tileSet = new TileSet(gamePanel.ldtk.getDefs().getTilesets()[0]);
-        LDtkLoader.loadPlayer(this, gamePanel.ldtk);
+        GamePanel.lDtkLoader.loadPlayer(this, gamePanel.ldtk);
     }
 
     /**
@@ -66,19 +65,19 @@ public class Player extends Entity {
     @Override
     public void update(double delta) {
         if (keyHandler.isKeyPressed(VK_W)) {
-            this.y -= this.speed * 10;
+//            this.y -= this.speed * delta;
             this.direction = UP;
         }
         if (keyHandler.isKeyPressed(VK_A)) {
-            this.x -= this.speed * 10;
+//            this.x -= this.speed * delta;
             this.direction = LEFT;
         }
         if (keyHandler.isKeyPressed(VK_S)) {
-            this.y += this.speed * 10;
+//            this.y += this.speed * delta;
             this.direction = DOWN;
         }
         if (keyHandler.isKeyPressed(VK_D)) {
-            this.x += this.speed * 10;
+//            this.x += this.speed * delta;
             this.direction = RIGHT;
         }
     }
@@ -97,9 +96,9 @@ public class Player extends Entity {
     public void draw(Graphics2D g2d) {
         BufferedImage frame = switch (this.direction) {
             case UP -> tileSet.getFrame(0, 0);
-            case LEFT -> tileSet.getFrame(0, 1);
-            case DOWN -> tileSet.getFrame(0, 2);
-            case RIGHT -> Utils.images.flipHorizontal(tileSet.getFrame(0, 1));
+            case LEFT -> tileSet.getFrame(1, 0);
+            case DOWN -> tileSet.getFrame(2, 0);
+            case RIGHT -> Utils.images.flipHorizontal(tileSet.getFrame(1, 0));
         };
 
         g2d.scale(gamePanel.tileScale, gamePanel.tileScale);
