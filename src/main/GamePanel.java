@@ -30,21 +30,6 @@ public class GamePanel extends JPanel implements Runnable {
     public final int tileScale = 4;
 
     /**
-     * The maximum number of columns allowed for a screen display.
-     * This variable is a constant and is set to 16.
-     */
-    public final int maxScreenCol = 16;
-
-    /**
-     * The maximum value of a screen row.
-     * <p>
-     * This variable is a final integer value that represents the maximum number of rows on a screen.
-     * It is set to 12, which means that any screen with more than 12 rows will either require scrolling or
-     * display outside the viewport.
-     */
-    public final int maxScreenRow = 12;
-
-    /**
      * Frames per second for the application.
      * <p>
      * This variable represents the constant frames per second that the application is rendered at.
@@ -52,7 +37,7 @@ public class GamePanel extends JPanel implements Runnable {
      *
      * @since 1.0.0
      */
-    private static final int FPS = 120;
+    private static int FPS;
 
     /**
      * The size of a single tile after applying the tile scale factor.
@@ -65,13 +50,13 @@ public class GamePanel extends JPanel implements Runnable {
      * This is calculated by multiplying the scaledTileSize by the maximum number
      * of screen columns.
      */
-    public final int screenWidth = scaledTileSize * maxScreenCol;
+    public int screenWidth;
 
     /**
      * The constant variable that represents the height of the screen, calculated by multiplying the scaled tile size and the maximum number of rows that the screen can contain.
      * This variable is shared across all instances of the application and cannot be modified once initialized.
      */
-    public final int screenHeight = scaledTileSize * maxScreenRow;
+    public int screenHeight;
 
 
     /**
@@ -108,6 +93,7 @@ public class GamePanel extends JPanel implements Runnable {
     public static LDtkLoader lDtkLoader = LDtkLoader.get();
 
     private static GamePanel INSTANCE;
+    private boolean started = false;
 
     /**
      * Creates a new GamePanel with preferred dimensions based on screenWidth and screenHeight constants.
@@ -115,9 +101,7 @@ public class GamePanel extends JPanel implements Runnable {
      * It is focusable and listens to key events using keyHandler.
      */
     private GamePanel() {
-        setPreferredSize(new Dimension(screenWidth, screenHeight));
         setBackground(Color.WHITE);
-        setDoubleBuffered(true);
         setFocusable(true);
         addKeyListener(keyHandler);
     }
@@ -141,6 +125,7 @@ public class GamePanel extends JPanel implements Runnable {
         LDtkLoader.centerPlayer();
 
         gameThread.start();
+        started = true;
     }
 
     /**
@@ -198,12 +183,23 @@ public class GamePanel extends JPanel implements Runnable {
      */
     public void draw(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        try {
-            layerManager.draw(g2d);
-        } catch (NullPointerException e) {
-            System.err.println("Initialising");
-        }
+        layerManager.draw(g2d);
         g2d.dispose();
+    }
+
+    public void setJFrame(JFrame frame) {
+        GraphicsDevice gd = frame.getGraphicsConfiguration().getDevice();
+        DisplayMode dm = gd.getDisplayMode();
+        screenWidth = dm.getWidth();
+        screenHeight = dm.getHeight();
+        setPreferredSize(new Dimension(screenWidth, screenHeight));
+
+        System.out.println(screenWidth + " " + screenHeight);
+
+        if (started) {
+            return;
+        }
+        FPS = dm.getRefreshRate();
     }
 
     public static GamePanel getInstance() {

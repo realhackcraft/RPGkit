@@ -20,9 +20,11 @@ public class Main {
         frame.setResizable(true);
 
         GamePanel gamePanel = GamePanel.getInstance();
+        gamePanel.setJFrame(frame);
         gamePanel.start();
         frame.add(gamePanel);
         frame.pack();
+
 
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
