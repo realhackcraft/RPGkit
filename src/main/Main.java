@@ -10,12 +10,12 @@ import javax.swing.*;
 
 public class Main {
     /**
-     * Sets up and runs the Mining For Gold game JFrame.
+     * Sets up and runs the Life Simulator 9000 game JFrame.
      *
      * @param args command line arguments, not used
      */
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Mining For Gold");
+        JFrame frame = new JFrame("Life Simulator 9000");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
 

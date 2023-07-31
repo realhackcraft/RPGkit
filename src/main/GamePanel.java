@@ -10,7 +10,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 
 /**
  * This class represents a JPanel used as the main game panel to display the game.
@@ -103,13 +102,6 @@ public class GamePanel extends JPanel implements Runnable {
      * It provides methods to register listeners and notify them when a key event occurs.
      */
     public KeyHandler keyHandler = new KeyHandler();
-    /**
-     * The drawables array list contains all the objects that need to be drawn on the screen.
-     * <p>
-     * This array list is used by the paintComponent method to draw all the objects on the screen.
-     * It is populated by the game loop and cleared at the end of each iteration.
-     */
-    ArrayList<Drawable> drawables = new ArrayList<>();
 
     public Player player;
 
@@ -146,8 +138,7 @@ public class GamePanel extends JPanel implements Runnable {
         player = new Player(keyHandler);
         lDtkLoader.loadTilesets(ldtk);
         lDtkLoader.loadMap(ldtk);
-
-        drawables.add(player);
+        LDtkLoader.centerPlayer();
 
         gameThread.start();
     }
@@ -188,9 +179,6 @@ public class GamePanel extends JPanel implements Runnable {
      */
     public void update(double delta) {
         layerManager.update(delta);
-        for (Drawable drawable : drawables) {
-            drawable.update(delta);
-        }
     }
 
     /**

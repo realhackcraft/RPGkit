@@ -481,7 +481,7 @@
 					"entityInstances": [
 						{
 							"__identifier": "PlayerStart",
-							"__grid": [10,11],
+							"__grid": [31,9],
 							"__pivot": [0.5,0.5],
 							"__tags": [],
 							"__tile": { "tilesetUid": 5, "x": 0, "y": 0, "w": 16, "h": 16 },
@@ -490,7 +490,7 @@
 							"width": 16,
 							"height": 16,
 							"defUid": 1,
-							"px": [168,184],
+							"px": [504,152],
 							"fieldInstances": [
 								{ "__identifier": "Direction", "__type": "LocalEnum.Direction", "__value": "UP", "__tile": { "tilesetUid": 5, "x": 0, "y": 0, "w": 16, "h": 16 }, "defUid": 4, "realEditorValues": [{
 									"id": "V_String",

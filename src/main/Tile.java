@@ -9,9 +9,9 @@ import java.awt.image.BufferedImage;
 import static java.awt.event.KeyEvent.*;
 
 public class Tile implements Drawable {
+    public final double[] screenPosition = new double[2];
     public TileSet tileSet;
     public long[] worldPosition;
-    public double[] screenPosition = new double[2];
     public long[] tileSetPosition;
     public GamePanel gamePanel;
     public BufferedImage image;

@@ -106,4 +106,24 @@ public class LDtkLoader {
         }
         return loader;
     }
+
+    public static void centerPlayer() {
+        GamePanel gamePanel = GamePanel.getInstance();
+//        loop over every drawable in gamePanel.layerManager.drawables
+//        if drawable is player
+//        set player position to center of level
+//        if drawable is tileManager
+//        loop over every tile in tileManager.tiles
+//        set tile position to itself + gamePanel.width / 2 and itself + gamePanel.height / 2
+        for (Drawable drawable : gamePanel.layerManager.drawables) {
+            if (drawable instanceof TileManager tileManager) {
+                for (Tile tile : tileManager.tiles) {
+                    tile.screenPosition[0] -= (gamePanel.player.x * gamePanel.tileScale) - ((double) gamePanel.screenWidth / 2);
+                    tile.screenPosition[1] -= (gamePanel.player.y * gamePanel.tileScale) - ((double) gamePanel.screenHeight / 2);
+                }
+            }
+        }
+        gamePanel.player.x = (double) gamePanel.screenWidth / 2;
+        gamePanel.player.y = (double) gamePanel.screenHeight / 2;
+    }
 }
