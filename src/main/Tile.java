@@ -33,6 +33,14 @@ public class Tile implements Drawable {
 
     @Override
     public void draw(Graphics2D g2d) {
+//        If the tile isn't non the screen, don't draw it.
+        if (screenPosition[0] + gamePanel.scaledTileSize < 0 ||
+                screenPosition[0] > gamePanel.getWidth() ||
+                screenPosition[1] + gamePanel.scaledTileSize < 0 ||
+                screenPosition[1] > gamePanel.getHeight()) {
+            return;
+        }
+//        Draw the tile on the screen based on its screenPosition.
         g2d.drawImage(
                 image,
                 (int) screenPosition[0],

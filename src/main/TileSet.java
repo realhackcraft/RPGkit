@@ -50,6 +50,7 @@ public class TileSet {
      * </p>
      */
     public long uid;
+    public String identifier;
 
     public long tileSize;
 
@@ -62,6 +63,7 @@ public class TileSet {
     public TileSet(TilesetDefinition tileSet) {
         this.tileSet = tileSet;
         this.uid = tileSet.getUid();
+        this.identifier = tileSet.getIdentifier();
         this.tileSize = tileSet.getTileGridSize();
         loadImage('/' + Utils.paths.normalizePath("world/" + tileSet.getRelPath()));
         cut();

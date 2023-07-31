@@ -115,12 +115,14 @@ public class GamePanel extends JPanel implements Runnable {
 
     public static LDtkLoader lDtkLoader = LDtkLoader.get();
 
+    private static GamePanel INSTANCE;
+
     /**
      * Creates a new GamePanel with preferred dimensions based on screenWidth and screenHeight constants.
      * The panel has a white background and is double buffered.
      * It is focusable and listens to key events using keyHandler.
      */
-    public GamePanel() {
+    private GamePanel() {
         setPreferredSize(new Dimension(screenWidth, screenHeight));
         setBackground(Color.WHITE);
         setDoubleBuffered(true);
@@ -141,10 +143,10 @@ public class GamePanel extends JPanel implements Runnable {
             System.err.println("Error loading LDtk file");
         }
 
+        player = new Player(keyHandler);
         lDtkLoader.loadTilesets(ldtk);
-        lDtkLoader.loadMap(ldtk, this);
+        lDtkLoader.loadMap(ldtk);
 
-        player = new Player(this, keyHandler);
         drawables.add(player);
 
         gameThread.start();
@@ -210,12 +212,17 @@ public class GamePanel extends JPanel implements Runnable {
         Graphics2D g2d = (Graphics2D) g;
         try {
             layerManager.draw(g2d);
-            for (Drawable drawable : drawables) {
-                drawable.draw(g2d);
-            }
         } catch (NullPointerException e) {
             System.err.println("Initialising");
         }
         g2d.dispose();
+    }
+
+    public static GamePanel getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new GamePanel();
+        }
+
+        return INSTANCE;
     }
 }

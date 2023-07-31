@@ -2,7 +2,6 @@ package entity;
 
 import main.GamePanel;
 import main.KeyHandler;
-import main.TileSet;
 import utils.Utils;
 
 import java.awt.*;
@@ -17,16 +16,6 @@ import static utils.Direction.*;
  */
 
 public class Player extends Entity {
-    /**
-     * The gamePanel variable refers to the GamePanel object which is responsible for handling the game graphics,
-     * rendering and updating the game objects and handling the user interactions.
-     * <p>
-     * This variable is set as final since it is not expected to change during the course of execution once it is initialized.
-     * <p>
-     * Usage: Once initialized, the gamePanel variable can be used to perform various operations on the gamePanel object.
-     */
-    private final GamePanel gamePanel;
-
     /**
      * This class represents a Key Handler that is responsible for handling all types of keyboard events/inputs,
      * including key presses and key releases.
@@ -43,14 +32,10 @@ public class Player extends Entity {
     /**
      * Initializes a new instance of the Player class with the specified GamePanel and KeyHandler.
      *
-     * @param gamePanel  The GamePanel object that represents the game panel.
      * @param keyHandler The KeyHandler object that handles the key events.
      */
-    public Player(GamePanel gamePanel, KeyHandler keyHandler) {
-        this.gamePanel = gamePanel;
+    public Player(KeyHandler keyHandler) {
         this.keyHandler = keyHandler;
-        this.tileSet = new TileSet(gamePanel.ldtk.getDefs().getTilesets()[0]);
-        GamePanel.lDtkLoader.loadPlayer(this, gamePanel.ldtk);
     }
 
     /**
@@ -101,9 +86,8 @@ public class Player extends Entity {
             case RIGHT -> Utils.images.flipHorizontal(tileSet.getFrame(1, 0));
         };
 
-        g2d.scale(gamePanel.tileScale, gamePanel.tileScale);
-        g2d.drawImage(frame, (int) this.x, (int) this.y, gamePanel);
-        g2d.scale(1, 1);
+        frame = Utils.images.scale(frame, GamePanel.getInstance().tileScale, GamePanel.getInstance().tileScale);
+        g2d.drawImage(frame, (int) this.x, (int) this.y, GamePanel.getInstance());
     }
 
 }

@@ -22,34 +22,14 @@ public class LDtkLoader {
         }
     }
 
-    public void loadPlayer(Player player, LDtk ldtk) {
-        Level targetLevel = findLevel(ldtk, "Level_0");
-        if (targetLevel == null) {
-            return;
-        }
-
-        LayerInstance targetLayer = Utils.objects.findObjectWithFieldValue(
-                List.of(targetLevel.getLayerInstances()),
-                "identifier",
-                "Entities");
-        if (targetLayer == null || !targetLayer.getType().equals("Entities")) {
-            return;
-        }
-
-        EntityInstance targetEntity = Utils.objects.findObjectWithFieldValue(
-                List.of(targetLayer.getEntityInstances()),
-                "identifier",
-                "PlayerStart");
-        if (targetEntity == null) {
-            return;
-        }
-
-        double[] playerPosition = getEntityPosition(targetEntity, targetLayer, targetLevel, ldtk.getWorldLayout());
+    public void loadPlayer(Player player, LDtk ldtk, EntityInstance entity, LayerInstance layer, Level level) {
+        double[] playerPosition = getEntityPosition(entity, layer, level, ldtk.getWorldLayout());
 
         player.x = playerPosition[0];
         player.y = playerPosition[1];
+        player.tileSet = TileSetManager.getTileSet("Player");
 
-        for (FieldInstance field : targetEntity.getFieldInstances()) {
+        for (FieldInstance field : entity.getFieldInstances()) {
             if (field.getIdentifier().equals("Direction")) {
                 player.direction = Direction.valueOf((String) field.getValue());
             } else if (field.getIdentifier().equals("Speed")) {
@@ -70,7 +50,8 @@ public class LDtkLoader {
         return position;
     }
 
-    public void loadMap(LDtk ldtk, GamePanel gamePanel) {
+    public void loadMap(LDtk ldtk) {
+        GamePanel gamePanel = GamePanel.getInstance();
         Level targetLevel = findLevel(ldtk, "Level_0");
         if (targetLevel == null) {
             return;
@@ -80,16 +61,32 @@ public class LDtkLoader {
         for (LayerInstance layer : targetLevel.getLayerInstances()) {
             if (layer.getType().equals("Tiles")) {
                 tileLayers.add(layer);
+            } else if (layer.getType().equals("Entities")) {
+                for (EntityInstance entity : layer.getEntityInstances()) {
+                    if (entity.getIdentifier().equals("PlayerStart")) {
+                        tileLayers.add(layer);
+                    }
+                }
             }
         }
 
         for (LayerInstance layer : tileLayers) {
-            TileManager tileManager = new TileManager();
-            gamePanel.layerManager.tiles.add(tileManager);
-            for (TileSet tileset : TileSetManager.tileSets) {
-                if (tileset.uid == layer.getTilesetDefUid()) {
-                    for (TileInstance tile : layer.getGridTiles()) {
-                        tileManager.tiles.add(new Tile(tile, tileset, gamePanel));
+            if (layer.getType().equals("Entities")) {
+                if (layer.getEntityInstances().length == 1) {
+                    EntityInstance entity = layer.getEntityInstances()[0];
+                    if (entity.getIdentifier().equals("PlayerStart")) {
+                        loadPlayer(gamePanel.player, ldtk, entity, layer, targetLevel);
+                        gamePanel.layerManager.drawables.add(gamePanel.player);
+                    }
+                }
+            } else if (layer.getType().equals("Tiles")) {
+                for (TileSet tileset : TileSetManager.tileSets) {
+                    if (tileset.uid == layer.getTilesetDefUid()) {
+                        TileManager tileManager = new TileManager();
+                        for (TileInstance tile : layer.getGridTiles()) {
+                            tileManager.tiles.add(new Tile(tile, tileset, gamePanel));
+                        }
+                        gamePanel.layerManager.drawables.add(tileManager);
                     }
                 }
             }

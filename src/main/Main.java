@@ -19,7 +19,7 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
 
-        GamePanel gamePanel = new GamePanel();
+        GamePanel gamePanel = GamePanel.getInstance();
         gamePanel.start();
         frame.add(gamePanel);
         frame.pack();
