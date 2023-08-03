@@ -7,6 +7,8 @@ import managers.TileSetManager;
 import utils.Direction;
 import utils.Utils;
 
+import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +30,15 @@ public class LDtkLoader {
         player.x = playerPosition[0];
         player.y = playerPosition[1];
         player.tileSet = TileSetManager.getTileSet("Player");
+        player.width = player.tileSet.tileSize;
+        player.height = player.tileSet.tileSize;
+//        TODO: reference the player's image to only add collision to feet.
+        player.hitbox = new Rectangle();
+
+        player.hitbox.width = (int) (player.width * GamePanel.getInstance().tileScale / 4);
+        player.hitbox.height = (int) (player.height * GamePanel.getInstance().tileScale / 4);
+
+        player.collision = true;
 
         for (FieldInstance field : entity.getFieldInstances()) {
             if (field.getIdentifier().equals("Direction")) {
@@ -84,7 +95,11 @@ public class LDtkLoader {
                     if (tileset.uid == layer.getTilesetDefUid()) {
                         TileManager tileManager = new TileManager();
                         for (TileInstance tile : layer.getGridTiles()) {
-                            tileManager.tiles.add(new Tile(tile, tileset, gamePanel));
+                            try {
+                                tileManager.tiles.add(new Tile(tile, tileset, targetLevel));
+                            } catch (IOException e) {
+                                throw new RuntimeException("Cannot get tile metadata.", e);
+                            }
                         }
                         gamePanel.layerManager.drawables.add(tileManager);
                     }
@@ -109,20 +124,10 @@ public class LDtkLoader {
 
     public static void centerPlayer() {
         GamePanel gamePanel = GamePanel.getInstance();
-//        loop over every drawable in gamePanel.layerManager.drawables
-//        if drawable is player
-//        set player position to center of level
-//        if drawable is tileManager
-//        loop over every tile in tileManager.tiles
-//        set tile position to itself + gamePanel.width / 2 and itself + gamePanel.height / 2
-        for (Drawable drawable : gamePanel.layerManager.drawables) {
-            if (drawable instanceof TileManager tileManager) {
-                for (Tile tile : tileManager.tiles) {
-                    tile.screenPosition[0] -= (gamePanel.player.x * gamePanel.tileScale) - ((double) gamePanel.screenWidth / 2);
-                    tile.screenPosition[1] -= (gamePanel.player.y * gamePanel.tileScale) - ((double) gamePanel.screenHeight / 2);
-                }
-            }
-        }
+
+        Camera.xOffset -= (gamePanel.player.x * gamePanel.tileScale) - ((double) gamePanel.screenWidth / 2);
+        Camera.yOffset -= (gamePanel.player.y * gamePanel.tileScale) - ((double) gamePanel.screenHeight / 2);
+
         gamePanel.player.x = (double) gamePanel.screenWidth / 2;
         gamePanel.player.y = (double) gamePanel.screenHeight / 2;
     }

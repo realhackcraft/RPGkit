@@ -4,6 +4,8 @@ import main.Drawable;
 import main.TileSet;
 import utils.Direction;
 
+import java.awt.*;
+
 public abstract class Entity implements Drawable {
     /**
      * This variable represents a floating-point value of type {@code double}.
@@ -20,6 +22,8 @@ public abstract class Entity implements Drawable {
      * @since (the version number when this variable was first introduced)
      */
     public double y;
+    public double width;
+    public double height;
 
     /**
      * Represents the speed of an object.
@@ -36,4 +40,6 @@ public abstract class Entity implements Drawable {
      * Represents a direction that can be used to move objects in a game or application.
      */
     public Direction direction;
+    public Rectangle hitbox;
+    public boolean collision = false;
 }

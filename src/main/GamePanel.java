@@ -164,6 +164,7 @@ public class GamePanel extends JPanel implements Runnable {
      */
     public void update(double delta) {
         layerManager.update(delta);
+        Movement.computeMovements(keyHandler, delta);
     }
 
     /**
@@ -193,8 +194,6 @@ public class GamePanel extends JPanel implements Runnable {
         screenWidth = dm.getWidth();
         screenHeight = dm.getHeight();
         setPreferredSize(new Dimension(screenWidth, screenHeight));
-
-        System.out.println(screenWidth + " " + screenHeight);
 
         if (started) {
             return;

@@ -2,13 +2,11 @@ package entity;
 
 import main.GamePanel;
 import main.KeyHandler;
+import main.Main;
 import utils.Utils;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-
-import static java.awt.event.KeyEvent.*;
-import static utils.Direction.*;
 
 /**
  * The Player class represents the player entity in the game. It extends Entity class to get access to its variables and methods. It uses a GamePanel object and a KeyHandler object to initialize its position, direction and speed.
@@ -49,22 +47,8 @@ public class Player extends Entity {
      */
     @Override
     public void update(double delta) {
-        if (keyHandler.isKeyPressed(VK_W)) {
-//            this.y -= this.speed * delta;
-            this.direction = UP;
-        }
-        if (keyHandler.isKeyPressed(VK_A)) {
-//            this.x -= this.speed * delta;
-            this.direction = LEFT;
-        }
-        if (keyHandler.isKeyPressed(VK_S)) {
-//            this.y += this.speed * delta;
-            this.direction = DOWN;
-        }
-        if (keyHandler.isKeyPressed(VK_D)) {
-//            this.x += this.speed * delta;
-            this.direction = RIGHT;
-        }
+        this.hitbox.x = (int) ((int) this.x + (this.width * GamePanel.getInstance().tileScale / 2) - this.hitbox.width / 2);
+        this.hitbox.y = (int) ((int) this.y + (this.width * GamePanel.getInstance().tileScale / 2) - this.hitbox.width / 2);
     }
 
     /**
@@ -88,6 +72,9 @@ public class Player extends Entity {
 
         frame = Utils.images.scale(frame, GamePanel.getInstance().tileScale, GamePanel.getInstance().tileScale);
         g2d.drawImage(frame, (int) this.x, (int) this.y, GamePanel.getInstance());
+        if (Main.mode == Main.Mode.TEST) {
+            g2d.setColor(Color.YELLOW);
+            g2d.fill(this.hitbox);
+        }
     }
-
 }

@@ -1,5 +1,6 @@
 package main;
 
+import LDtk.TileCustomMetadata;
 import LDtk.TilesetDefinition;
 import utils.Utils;
 
@@ -31,7 +32,7 @@ public class TileSet {
      * It holds information on the size of the tiles, as well as how the tiles are arranged within the tileset image.
      * The variable is marked final so that it cannot be reassigned after it is set.
      */
-    private final TilesetDefinition tileSet;
+    public final TilesetDefinition tileSet;
 
     /**
      * This variable represents an image in the BufferedImage format.
@@ -53,6 +54,7 @@ public class TileSet {
     public String identifier;
 
     public long tileSize;
+    public TileCustomMetadata[] metadata;
 
     /**
      * Constructor for creating a TileSet object.
@@ -65,6 +67,7 @@ public class TileSet {
         this.uid = tileSet.getUid();
         this.identifier = tileSet.getIdentifier();
         this.tileSize = tileSet.getTileGridSize();
+        this.metadata = tileSet.getCustomData();
         loadImage('/' + Utils.paths.normalizePath("world/" + tileSet.getRelPath()));
         cut();
     }

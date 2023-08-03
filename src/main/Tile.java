@@ -1,34 +1,61 @@
 package main;
 
+import LDtk.Level;
+import LDtk.TileCustomMetadata;
 import LDtk.TileInstance;
+import LDtk.tile.Converter;
+import LDtk.tile.TileProperties;
 import utils.Utils;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-
-import static java.awt.event.KeyEvent.*;
+import java.io.IOException;
+import java.util.List;
 
 public class Tile implements Drawable {
-    public final double[] screenPosition = new double[2];
     public TileSet tileSet;
     public long[] worldPosition;
     public long[] tileSetPosition;
-    public GamePanel gamePanel;
+    private final double[] screenPosition = new double[2];
+    public GamePanel gamePanel = GamePanel.getInstance();
     public BufferedImage image;
 
-    public Tile(TileInstance tile, TileSet tileSet, GamePanel gamePanel) {
+    public long tileId;
+    public TileProperties data;
+    public Rectangle hitbox;
+
+    public Tile(TileInstance tile, TileSet tileSet, Level level) throws IOException {
         this.tileSet = tileSet;
 
-        this.gamePanel = gamePanel;
-
-        this.worldPosition = tile.getPx();
-        this.screenPosition[0] = worldPosition[0] * gamePanel.tileScale;
-        this.screenPosition[1] = worldPosition[1] * gamePanel.tileScale;
+        this.worldPosition = new long[2];
+        this.worldPosition[0] = tile.getPx()[0] + level.getWorldX();
+        this.worldPosition[1] = tile.getPx()[1] + level.getWorldY();
         this.tileSetPosition = tile.getSrc();
+
+        this.screenPosition[0] = (worldPosition[0] * gamePanel.tileScale) + Camera.xOffset;
+        this.screenPosition[1] = (worldPosition[1] * gamePanel.tileScale) + Camera.yOffset;
+
+        this.hitbox = new Rectangle();
+        this.hitbox.x = (int) screenPosition[0];
+        this.hitbox.y = (int) screenPosition[1];
+        this.hitbox.width = (int) (this.tileSet.tileSize * gamePanel.tileScale);
+        this.hitbox.height = (int) (this.tileSet.tileSize * gamePanel.tileScale);
 
         image = Utils.images.scale(tileSet.getFrame(
                 (int) (tileSetPosition[0] / tileSet.tileSize),
                 (int) (tileSetPosition[1] / tileSet.tileSize)), gamePanel.tileScale, gamePanel.tileScale);
+
+        this.tileId = tile.getT();
+        if (tileSet.metadata == null) {
+            return;
+        }
+        TileCustomMetadata metadata = Utils.objects.findObjectWithFieldValue(List.of(tileSet.metadata),
+                                                                             "tileID",
+                                                                             tileId);
+        if (metadata == null) {
+            return;
+        }
+        data = Converter.fromJsonString(metadata.getData());
     }
 
     @Override
@@ -46,21 +73,21 @@ public class Tile implements Drawable {
                 (int) screenPosition[0],
                 (int) screenPosition[1],
                 gamePanel);
+
+        if (Main.mode == Main.Mode.TEST) {
+            if (data != null && data.getSolid()) {
+                g2d.setColor(Color.RED);
+                g2d.fill(hitbox);
+            }
+        }
     }
 
     @Override
     public void update(double delta) {
-        if (gamePanel.keyHandler.isKeyPressed(VK_W)) {
-            this.screenPosition[1] += gamePanel.player.speed * gamePanel.tileScale * delta;
-        }
-        if (gamePanel.keyHandler.isKeyPressed(VK_A)) {
-            this.screenPosition[0] += gamePanel.player.speed * gamePanel.tileScale * delta;
-        }
-        if (gamePanel.keyHandler.isKeyPressed(VK_S)) {
-            this.screenPosition[1] -= gamePanel.player.speed * gamePanel.tileScale * delta;
-        }
-        if (gamePanel.keyHandler.isKeyPressed(VK_D)) {
-            this.screenPosition[0] -= gamePanel.player.speed * gamePanel.tileScale * delta;
-        }
+        screenPosition[0] = (worldPosition[0] * gamePanel.tileScale) + Camera.xOffset;
+        screenPosition[1] = (worldPosition[1] * gamePanel.tileScale) + Camera.yOffset;
+
+        hitbox.x = (int) screenPosition[0];
+        hitbox.y = (int) screenPosition[1];
     }
 }
