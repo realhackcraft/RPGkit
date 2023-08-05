@@ -25,10 +25,12 @@ public class LDtkLoader {
     }
 
     public void loadPlayer(Player player, LDtk ldtk, EntityInstance entity, LayerInstance layer, Level level) {
-        double[] playerPosition = getEntityPosition(entity, layer, level, ldtk.getWorldLayout());
 
-        player.x = playerPosition[0];
-        player.y = playerPosition[1];
+        player.worldPosition = getEntityPosition(entity, layer, level, ldtk.getWorldLayout());
+//        get the player's screen position from the world position
+        player.screenPosition[0] = player.worldPosition[0] - Camera.xOffset / GamePanel.getInstance().tileScale;
+        player.screenPosition[1] = player.worldPosition[1] - Camera.yOffset / GamePanel.getInstance().tileScale;
+
         player.tileSet = TileSetManager.getTileSet("Player");
         player.width = player.tileSet.tileSize;
         player.height = player.tileSet.tileSize;
@@ -125,10 +127,7 @@ public class LDtkLoader {
     public static void centerPlayer() {
         GamePanel gamePanel = GamePanel.getInstance();
 
-        Camera.xOffset -= (gamePanel.player.x * gamePanel.tileScale) - ((double) gamePanel.screenWidth / 2);
-        Camera.yOffset -= (gamePanel.player.y * gamePanel.tileScale) - ((double) gamePanel.screenHeight / 2);
-
-        gamePanel.player.x = (double) gamePanel.screenWidth / 2;
-        gamePanel.player.y = (double) gamePanel.screenHeight / 2;
+        Camera.xOffset -= (gamePanel.player.worldPosition[0] * gamePanel.tileScale) - ((double) gamePanel.screenWidth / 2);
+        Camera.yOffset -= (gamePanel.player.worldPosition[1] * gamePanel.tileScale) - ((double) gamePanel.screenHeight / 2);
     }
 }

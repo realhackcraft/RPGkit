@@ -1,5 +1,6 @@
 package entity;
 
+import main.Camera;
 import main.GamePanel;
 import main.KeyHandler;
 import main.Main;
@@ -47,8 +48,11 @@ public class Player extends Entity {
      */
     @Override
     public void update(double delta) {
-        this.hitbox.x = (int) ((int) this.x + (this.width * GamePanel.getInstance().tileScale / 2) - this.hitbox.width / 2);
-        this.hitbox.y = (int) ((int) this.y + (this.width * GamePanel.getInstance().tileScale / 2) - this.hitbox.width / 2);
+        this.screenPosition[0] = (worldPosition[0] * GamePanel.getInstance().tileScale) + Camera.xOffset;
+        this.screenPosition[1] = (worldPosition[1] * GamePanel.getInstance().tileScale) + Camera.yOffset;
+
+        this.hitbox.x = (int) ((int) this.screenPosition[0] + (this.width * GamePanel.getInstance().tileScale / 2) - this.hitbox.width / 2);
+        this.hitbox.y = (int) ((int) this.screenPosition[1] + (this.width * GamePanel.getInstance().tileScale / 2) - this.hitbox.width / 2);
     }
 
     /**
@@ -71,7 +75,8 @@ public class Player extends Entity {
         };
 
         frame = Utils.images.scale(frame, GamePanel.getInstance().tileScale, GamePanel.getInstance().tileScale);
-        g2d.drawImage(frame, (int) this.x, (int) this.y, GamePanel.getInstance());
+        g2d.drawImage(frame, (int) this.screenPosition[0], (int) this.screenPosition[1], GamePanel.getInstance());
+
         if (Main.mode == Main.Mode.TEST) {
             g2d.setColor(Color.YELLOW);
             g2d.fill(this.hitbox);

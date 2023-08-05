@@ -7,21 +7,8 @@ import utils.Direction;
 import java.awt.*;
 
 public abstract class Entity implements Drawable {
-    /**
-     * This variable represents a floating-point value of type {@code double}.
-     * It can be used to store and manipulate decimal numbers with a higher precision than the {@code float} data type.
-     */
-    public double x;
-
-    /**
-     * Represents a floating-point number that can be accessed and modified.
-     * The value of y can be any valid double-precision floating-point number.
-     * It is recommended that the variable be named with a descriptive name
-     * to indicate its purpose in the program.
-     *
-     * @since (the version number when this variable was first introduced)
-     */
-    public double y;
+    public double[] screenPosition = new double[2];
+    public double[] worldPosition = new double[2];
     public double width;
     public double height;
 
