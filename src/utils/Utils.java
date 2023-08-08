@@ -10,20 +10,20 @@ public class Utils {
     /**
      * A utility class that provides common image manipulation operations.
      */
-    public static ImageUtils images = new ImageUtils();
+    public static final ImageUtils images = new ImageUtils();
 
     /**
      * A utility class that provides common string manipulation operations.
      */
-    public static StringUtils strings = new StringUtils();
+    public static final StringUtils strings = new StringUtils();
 
     /**
      * A utility class providing convenient access to file paths.
      */
-    public static PathUtils paths = new PathUtils();
+    public static final PathUtils paths = new PathUtils();
 
     /**
      * A utility class for working with Java objects.
      */
-    public static ObjectUtils objects = new ObjectUtils();
+    public static final ObjectUtils objects = new ObjectUtils();
 }

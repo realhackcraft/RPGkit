@@ -18,14 +18,4 @@ public interface Drawable {
      * @param delta The time elapsed in seconds since the last update.
      */
     void update(double delta);
-
-//    default void setScreenPosition(double x, double y) {
-//        screenPosition[0] = x;
-//        screenPosition[1] = y;
-//    }
-//
-//    default double[] getScreenPosition() {
-//        return screenPosition;
-//    }
-
 }

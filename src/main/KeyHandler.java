@@ -19,10 +19,8 @@ public class KeyHandler implements KeyListener {
      * Otherwise, the value is 'false'.
      * <p>
      * The number of elements in this array is 263, allowing for the representation of all ASCII characters.
-     *
-     * @return a boolean array representing the status of each key on the keyboard
      */
-    public boolean[] keys = new boolean[263];
+    public final boolean[] keys = new boolean[263];
 
     /**
      * Invoked when a key is typed.

@@ -1,7 +1,7 @@
 package main;
 
-import LDtk.*;
 import entity.Player;
+import ldtk.*;
 import managers.EntityManger;
 import managers.TileManager;
 import managers.TileSetManager;
@@ -27,7 +27,9 @@ public class LDtkLoader {
 
     public void loadPlayer(Player player, LDtk ldtk, EntityInstance entity, LayerInstance layer, Level level) {
 
-        player.worldPosition = getEntityPosition(entity, layer, level, ldtk.getWorldLayout());
+        double[] playerPosition = getEntityPosition(entity, layer, level, ldtk.getWorldLayout());
+        player.worldPosition[0] = playerPosition[0];
+        player.worldPosition[1] = playerPosition[1];
 //        get the player's screen position from the world position
         player.screenPosition[0] = player.worldPosition[0] - Camera.xOffset / GamePanel.getInstance().tileScale;
         player.screenPosition[1] = player.worldPosition[1] - Camera.yOffset / GamePanel.getInstance().tileScale;
@@ -93,7 +95,7 @@ public class LDtkLoader {
                         entityManger.entities.add(gamePanel.player);
                     }
                 }
-                gamePanel.layerManager.drawables.add(entityManger);
+                gamePanel.manager.managers.add(entityManger);
             } else if (layer.getType().equals("Tiles")) {
                 for (TileSet tileset : TileSetManager.tileSets) {
                     if (tileset.uid == layer.getTilesetDefUid()) {
@@ -105,7 +107,7 @@ public class LDtkLoader {
                                 throw new RuntimeException("Cannot get tile metadata.", e);
                             }
                         }
-                        gamePanel.layerManager.drawables.add(tileManager);
+                        gamePanel.manager.managers.add(tileManager);
                     }
                 }
             }

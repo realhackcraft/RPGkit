@@ -1,10 +1,10 @@
 package main;
 
-import LDtk.Level;
-import LDtk.TileCustomMetadata;
-import LDtk.TileInstance;
-import LDtk.tile.Converter;
-import LDtk.tile.TileProperties;
+import ldtk.Level;
+import ldtk.TileCustomMetadata;
+import ldtk.TileInstance;
+import ldtk.tile.Converter;
+import ldtk.tile.TileProperties;
 import utils.Utils;
 
 import java.awt.*;
@@ -13,16 +13,16 @@ import java.io.IOException;
 import java.util.List;
 
 public class Tile implements Drawable {
-    public TileSet tileSet;
-    public long[] worldPosition;
-    public long[] tileSetPosition;
+    public final TileSet tileSet;
+    public final long[] worldPosition;
+    public final long[] tileSetPosition;
     private final double[] screenPosition = new double[2];
-    public GamePanel gamePanel = GamePanel.getInstance();
-    public BufferedImage image;
+    public final GamePanel gamePanel = GamePanel.getInstance();
+    public final BufferedImage image;
 
-    public long tileId;
+    public final long tileId;
     public TileProperties data;
-    public Rectangle hitbox;
+    public final Rectangle hitbox;
 
     public Tile(TileInstance tile, TileSet tileSet, Level level) throws IOException {
         this.tileSet = tileSet;

@@ -1,7 +1,7 @@
 package main;
 
-import LDtk.TileCustomMetadata;
-import LDtk.TilesetDefinition;
+import ldtk.TileCustomMetadata;
+import ldtk.TilesetDefinition;
 import utils.Utils;
 
 import javax.imageio.ImageIO;
@@ -50,11 +50,11 @@ public class TileSet {
      * This value is used to uniquely identify entities in the system.
      * </p>
      */
-    public long uid;
-    public String identifier;
+    public final long uid;
+    public final String identifier;
 
-    public long tileSize;
-    public TileCustomMetadata[] metadata;
+    public final long tileSize;
+    public final TileCustomMetadata[] metadata;
 
     /**
      * Constructor for creating a TileSet object.

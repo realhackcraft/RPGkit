@@ -13,7 +13,7 @@ public class Movement {
 
         boolean[] collision = {false, false, false, false};
 
-        for (Drawable drawable : gamePanel.layerManager.drawables) {
+        for (Drawable drawable : gamePanel.manager.managers) {
             if (drawable instanceof TileManager tileManager) {
                 for (Tile tile : tileManager.tiles) {
                     if (tile.data != null) {

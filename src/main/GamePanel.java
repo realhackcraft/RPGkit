@@ -1,8 +1,8 @@
 package main;
 
-import LDtk.Converter;
-import LDtk.LDtk;
 import entity.Player;
+import ldtk.Converter;
+import ldtk.LDtk;
 import managers.LayerManager;
 import utils.Utils;
 
@@ -72,7 +72,7 @@ public class GamePanel extends JPanel implements Runnable {
      * methods of the LDtk object.
      */
     public LDtk ldtk;
-    public LayerManager layerManager = new LayerManager();
+    public final LayerManager manager = new LayerManager();
 
     /**
      * The game thread which is responsible for running the game loop and updating the game state.
@@ -86,11 +86,11 @@ public class GamePanel extends JPanel implements Runnable {
      * KeyHandler class is responsible for handling key events.
      * It provides methods to register listeners and notify them when a key event occurs.
      */
-    public KeyHandler keyHandler = new KeyHandler();
+    public final KeyHandler keyHandler = new KeyHandler();
 
     public Player player;
 
-    public static LDtkLoader lDtkLoader = LDtkLoader.get();
+    public static final LDtkLoader lDtkLoader = LDtkLoader.get();
 
     private static GamePanel INSTANCE;
     private boolean started = false;
@@ -163,7 +163,7 @@ public class GamePanel extends JPanel implements Runnable {
      * @param delta time in milliseconds since last update
      */
     public void update(double delta) {
-        layerManager.update(delta);
+        manager.update(delta);
         Movement.computeMovements(keyHandler, delta);
     }
 
@@ -184,7 +184,7 @@ public class GamePanel extends JPanel implements Runnable {
      */
     public void draw(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        layerManager.draw(g2d);
+        manager.draw(g2d);
         g2d.dispose();
     }
 

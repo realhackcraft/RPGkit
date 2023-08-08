@@ -9,8 +9,8 @@ import utils.Direction;
 import java.awt.*;
 
 public abstract class Entity implements Drawable {
-    public double[] screenPosition = new double[2];
-    public double[] worldPosition = new double[2];
+    public final double[] screenPosition = new double[2];
+    public final double[] worldPosition = new double[2];
     public double width;
     public double height;
 

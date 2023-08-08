@@ -27,7 +27,8 @@ public class ObjectUtils {
                     return obj;
                 }
             } catch (NoSuchFieldException | IllegalAccessException e) {
-                e.printStackTrace();
+                System.err.println("Can't access field " + fieldName + " in object " + obj.getClass().getName());
+                System.err.println(e.getMessage());
             }
         }
         return null;
