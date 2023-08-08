@@ -1,6 +1,8 @@
 package entity;
 
+import main.Camera;
 import main.Drawable;
+import main.GamePanel;
 import main.TileSet;
 import utils.Direction;
 
@@ -29,4 +31,13 @@ public abstract class Entity implements Drawable {
     public Direction direction;
     public Rectangle hitbox;
     public boolean collision = false;
+
+    @Override
+    public void update(double delta) {
+        this.screenPosition[0] = (worldPosition[0] * GamePanel.getInstance().tileScale) + Camera.xOffset;
+        this.screenPosition[1] = (worldPosition[1] * GamePanel.getInstance().tileScale) + Camera.yOffset;
+
+        this.hitbox.x = (int) ((int) this.screenPosition[0] + (this.width * GamePanel.getInstance().tileScale / 2) - this.hitbox.width / 2);
+        this.hitbox.y = (int) ((int) this.screenPosition[1] + (this.width * GamePanel.getInstance().tileScale / 2) - this.hitbox.width / 2);
+    }
 }

@@ -1,6 +1,5 @@
 package entity;
 
-import main.Camera;
 import main.GamePanel;
 import main.KeyHandler;
 import main.Main;
@@ -35,24 +34,6 @@ public class Player extends Entity {
      */
     public Player(KeyHandler keyHandler) {
         this.keyHandler = keyHandler;
-    }
-
-    /**
-     * Updates the position, direction, and speed of the game character based on user input received via the key handler.
-     * If the 'W' key is pressed, the character moves upwards and faces upwards.
-     * If the 'A' key is pressed, the character moves to the left and faces to the left.
-     * If the 'S' key is pressed, the character moves downwards and faces downwards.
-     * If the 'D' key is pressed, the character moves to the right and faces to the right.
-     *
-     * @param delta the time elapsed since the last update call
-     */
-    @Override
-    public void update(double delta) {
-        this.screenPosition[0] = (worldPosition[0] * GamePanel.getInstance().tileScale) + Camera.xOffset;
-        this.screenPosition[1] = (worldPosition[1] * GamePanel.getInstance().tileScale) + Camera.yOffset;
-
-        this.hitbox.x = (int) ((int) this.screenPosition[0] + (this.width * GamePanel.getInstance().tileScale / 2) - this.hitbox.width / 2);
-        this.hitbox.y = (int) ((int) this.screenPosition[1] + (this.width * GamePanel.getInstance().tileScale / 2) - this.hitbox.width / 2);
     }
 
     /**

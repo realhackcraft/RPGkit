@@ -2,6 +2,7 @@ package main;
 
 import LDtk.*;
 import entity.Player;
+import managers.EntityManger;
 import managers.TileManager;
 import managers.TileSetManager;
 import utils.Direction;
@@ -85,13 +86,14 @@ public class LDtkLoader {
 
         for (LayerInstance layer : tileLayers) {
             if (layer.getType().equals("Entities")) {
-                if (layer.getEntityInstances().length == 1) {
-                    EntityInstance entity = layer.getEntityInstances()[0];
+                EntityManger entityManger = new EntityManger();
+                for (EntityInstance entity : layer.getEntityInstances()) {
                     if (entity.getIdentifier().equals("PlayerStart")) {
                         loadPlayer(gamePanel.player, ldtk, entity, layer, targetLevel);
-                        gamePanel.layerManager.drawables.add(gamePanel.player);
+                        entityManger.entities.add(gamePanel.player);
                     }
                 }
+                gamePanel.layerManager.drawables.add(entityManger);
             } else if (layer.getType().equals("Tiles")) {
                 for (TileSet tileset : TileSetManager.tileSets) {
                     if (tileset.uid == layer.getTilesetDefUid()) {
