@@ -6,7 +6,7 @@
 //
 // Import this package:
 //
-//     import Ldtk.tile.Converter;
+//     import ldtk.Converter;
 //
 // Then you can deserialize a JSON string with
 //
@@ -15,15 +15,18 @@
 package ldtk.tile;
 
 import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.time.OffsetTime;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
 
 public class Converter {
     // Date-time helpers
@@ -41,10 +44,27 @@ public class Converter {
     public static OffsetDateTime parseDateTimeString(String str) {
         return ZonedDateTime.from(Converter.DATE_TIME_FORMATTER.parse(str)).toOffsetDateTime();
     }
+
+    private static final DateTimeFormatter TIME_FORMATTER = new DateTimeFormatterBuilder()
+            .appendOptional(DateTimeFormatter.ISO_TIME)
+            .appendOptional(DateTimeFormatter.ISO_OFFSET_TIME)
+            .parseDefaulting(ChronoField.YEAR, 2020)
+            .parseDefaulting(ChronoField.MONTH_OF_YEAR, 1)
+            .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
+            .toFormatter()
+            .withZone(ZoneOffset.UTC);
+
+    public static OffsetTime parseTimeString(String str) {
+        return ZonedDateTime.from(Converter.TIME_FORMATTER.parse(str)).toOffsetDateTime().toOffsetTime();
+    }
     // Serialize/deserialize helpers
 
     public static TileProperties fromJsonString(String json) throws IOException {
         return getObjectReader().readValue(json);
+    }
+
+    public static String toJsonString(TileProperties obj) throws JsonProcessingException {
+        return getObjectWriter().writeValueAsString(obj);
     }
 
     private static ObjectReader reader;
@@ -56,7 +76,7 @@ public class Converter {
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
         SimpleModule module = new SimpleModule();
-        module.addDeserializer(OffsetDateTime.class, new JsonDeserializer<>() {
+        module.addDeserializer(OffsetDateTime.class, new JsonDeserializer<OffsetDateTime>() {
             @Override
             public OffsetDateTime deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
                 String value = jsonParser.getText();
