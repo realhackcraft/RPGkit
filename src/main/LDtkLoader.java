@@ -69,13 +69,31 @@ public class LDtkLoader {
         return position;
     }
 
+    /**
+     * Load map for a game.
+     *
+     * @param ldtk the level data
+     *             you can add more parameters here depends on the code you have.
+     */
     public void loadMap(LDtk ldtk) {
         GamePanel gamePanel = GamePanel.getInstance();
         Level targetLevel = findLevel(ldtk, "Level_0");
+
         if (targetLevel == null) {
             return;
         }
 
+        ArrayList<LayerInstance> tileLayers = getLayers(targetLevel);
+        processLayers(tileLayers, gamePanel, ldtk, targetLevel);
+    }
+
+    /**
+     * Get layers from the target level.
+     *
+     * @param targetLevel target level
+     * @return an array list of LayerInstance
+     */
+    public ArrayList<LayerInstance> getLayers(Level targetLevel) {
         ArrayList<LayerInstance> tileLayers = new ArrayList<>();
         for (LayerInstance layer : targetLevel.getLayerInstances()) {
             if (layer.getType().equals("Tiles")) {
@@ -89,59 +107,127 @@ public class LDtkLoader {
             }
         }
 
+        return tileLayers;
+    }
+
+    /**
+     * Process all layers.
+     *
+     * @param tileLayers  layers to process
+     * @param gamePanel   game panel
+     * @param ldtk        the level data
+     * @param targetLevel target level
+     */
+    public void processLayers(ArrayList<LayerInstance> tileLayers,
+                              GamePanel gamePanel,
+                              LDtk ldtk,
+                              Level targetLevel) {
         for (LayerInstance layer : tileLayers) {
             if (layer.getType().equals("Entities")) {
-                EntityManger entityManger = new EntityManger();
-                for (EntityInstance entity : layer.getEntityInstances()) {
-                    if (entity.getIdentifier().equals("PlayerStart")) {
-                        loadPlayer(gamePanel.player, ldtk, entity, layer, targetLevel);
-                        entityManger.entities.add(gamePanel.player);
-                    }
-                }
-                gamePanel.manager.managers.add(entityManger);
+                processEntityLayer(layer, gamePanel, ldtk, targetLevel);
             } else if (layer.getType().equals("Tiles")) {
-                for (TileSet tileset : TileSetManager.tileSets) {
-                    if (tileset.uid == layer.getTilesetDefUid()) {
-                        TileManager tileManager = new TileManager();
-                        for (TileInstance tile : layer.getGridTiles()) {
-                            TileCustomMetadata metadata = Utils.objects.findObjectWithFieldValue(List.of(tileset.metadata),
-                                                                                                 "tileID",
-                                                                                                 tile.getT());
-                            if (metadata != null) {
-                                TileProperties properties;
-                                try {
-                                    properties = Converter.fromJsonString(metadata.getData());
-                                } catch (IOException e) {
-                                    throw new RuntimeException(e);
-                                }
-
-                                if (properties != null && properties.getInteraction() != null) {
-                                    try {
-                                        switch (properties.getInteraction()) {
-                                            case FARM -> tileManager.tiles.add(new Farm(tile, tileset, targetLevel));
-                                        }
-                                    } catch (IOException e) {
-                                        throw new RuntimeException(e);
-                                    }
-                                } else {
-                                    try {
-                                        tileManager.tiles.add(new Tile(tile, tileset, targetLevel));
-                                    } catch (IOException e) {
-                                        throw new RuntimeException(e);
-                                    }
-                                }
-                            } else {
-                                try {
-                                    tileManager.tiles.add(new Tile(tile, tileset, targetLevel));
-                                } catch (IOException e) {
-                                    throw new RuntimeException(e);
-                                }
-                            }
-                        }
-                        gamePanel.manager.managers.add(tileManager);
-                    }
-                }
+                processTileLayer(layer, gamePanel, targetLevel);
             }
+        }
+    }
+
+    /**
+     * Process entity layer.
+     *
+     * @param layer       layer
+     * @param gamePanel   game panel
+     * @param ldtk        the level data
+     * @param targetLevel target level
+     */
+    public void processEntityLayer(LayerInstance layer, GamePanel gamePanel, LDtk ldtk, Level targetLevel) {
+        EntityManger entityManager = new EntityManger();
+        for (EntityInstance entity : layer.getEntityInstances()) {
+            if (entity.getIdentifier().equals("PlayerStart")) {
+                loadPlayer(gamePanel.player, ldtk, entity, layer, targetLevel);
+                entityManager.entities.add(gamePanel.player);
+            }
+        }
+        gamePanel.manager.managers.add(entityManager);
+    }
+
+    /**
+     * Process tile layer.
+     *
+     * @param layer       layer
+     * @param gamePanel   game panel
+     * @param targetLevel target level
+     */
+    public void processTileLayer(LayerInstance layer, GamePanel gamePanel, Level targetLevel) {
+        for (TileSet tileset : TileSetManager.tileSets) {
+            if (tileset.uid == layer.getTilesetDefUid()) {
+                processTileSet(layer, gamePanel, tileset, targetLevel);
+            }
+        }
+    }
+
+    /**
+     * Process tile set.
+     *
+     * @param layer       layer
+     * @param gamePanel   game panel
+     * @param tileset     tile set
+     * @param targetLevel target level
+     */
+    public void processTileSet(LayerInstance layer, GamePanel gamePanel, TileSet tileset, Level targetLevel) {
+        TileManager tileManager = new TileManager();
+        for (TileInstance tile : layer.getGridTiles()) {
+            TileCustomMetadata metadata = Utils.objects.findObjectWithFieldValue(List.of(tileset.metadata),
+                                                                                 "tileID",
+                                                                                 tile.getT());
+
+            TileProperties properties = null;
+            if (metadata != null) {
+                properties = getTileProperties(metadata);
+            }
+
+            addTile(properties, tile, tileset, targetLevel, tileManager);
+        }
+
+        gamePanel.manager.managers.add(tileManager);
+    }
+
+    /**
+     * Get tile properties.
+     *
+     * @param metadata metadata
+     * @return tile properties
+     */
+    public TileProperties getTileProperties(TileCustomMetadata metadata) {
+        TileProperties properties = null;
+        try {
+            properties = Converter.fromJsonString(metadata.getData());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return properties;
+    }
+
+    /**
+     * Add tile.
+     *
+     * @param properties  properties
+     * @param tile        tile
+     * @param tileset     tile set
+     * @param targetLevel target level
+     * @param tileManager tile manager
+     */
+    public void addTile(TileProperties properties, TileInstance tile, TileSet tileset, Level targetLevel, TileManager tileManager) {
+        try {
+            if (properties != null && properties.getInteraction() != null) {
+                switch (properties.getInteraction()) {
+                    case FARM -> tileManager.tiles.add(new Farm(tile, tileset, targetLevel));
+                }
+            } else {
+                tileManager.tiles.add(new Tile(tile, tileset, targetLevel));
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
