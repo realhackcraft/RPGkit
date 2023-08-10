@@ -385,6 +385,7 @@
 				{ "tileId": 158, "data": "{\n  \"solid\": true\n}" },
 				{ "tileId": 159, "data": "{\n  \"solid\": true\n}" },
 				{ "tileId": 171, "data": "{\n  \"solid\": true\n}" },
+				{ "tileId": 173, "data": "{\n  \"interaction\": \"Farm\"\n}" },
 				{ "tileId": 176, "data": "{\n  \"solid\": true\n}" },
 				{ "tileId": 177, "data": "{\n  \"solid\": true\n}" },
 				{ "tileId": 178, "data": "{\n  \"solid\": true\n}" },

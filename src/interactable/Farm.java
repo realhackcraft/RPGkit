@@ -4,9 +4,8 @@ import ldtk.Level;
 import ldtk.TileInstance;
 import main.TileSet;
 
+import java.awt.*;
 import java.io.IOException;
-
-import static java.awt.event.KeyEvent.VK_E;
 
 public class Farm extends Interactable {
 
@@ -16,16 +15,13 @@ public class Farm extends Interactable {
 
     @Override
     public void interact() {
-        System.out.println("Interacted with farm.");
+        if (gamePanel.player.hitbox.intersects(hitbox)) {
+            System.out.println("Interacted with farm.");
+        }
     }
 
     @Override
-    public void update(double delta) {
-        super.update(delta);
-        if (gamePanel.keyHandler.isKeyPressed(VK_E)) {
-            if (gamePanel.player.hitbox.intersects(this.hitbox)) {
-                interact();
-            }
-        }
+    public void draw(Graphics2D g2d) {
+        super.draw(g2d);
     }
 }

@@ -13,4 +13,10 @@ public abstract class Interactable extends Tile {
     }
 
     public abstract void interact();
+
+    @Override
+    public void update(double delta) {
+        super.update(delta);
+        interact();
+    }
 }

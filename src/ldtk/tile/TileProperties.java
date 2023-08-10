@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class TileProperties {
     private Interaction interaction;
-    private boolean solid;
+    private Boolean solid;
 
     @JsonProperty("interaction")
     public Interaction getInteraction() {
@@ -17,12 +17,12 @@ public class TileProperties {
     }
 
     @JsonProperty("solid")
-    public boolean getSolid() {
+    public Boolean getSolid() {
         return solid;
     }
 
     @JsonProperty("solid")
-    public void setSolid(boolean value) {
+    public void setSolid(Boolean value) {
         this.solid = value;
     }
 }

@@ -1,7 +1,10 @@
 package main;
 
 import entity.Player;
+import interactable.Farm;
 import ldtk.*;
+import ldtk.tile.Converter;
+import ldtk.tile.TileProperties;
 import managers.EntityManger;
 import managers.TileManager;
 import managers.TileSetManager;
@@ -101,10 +104,38 @@ public class LDtkLoader {
                     if (tileset.uid == layer.getTilesetDefUid()) {
                         TileManager tileManager = new TileManager();
                         for (TileInstance tile : layer.getGridTiles()) {
-                            try {
-                                tileManager.tiles.add(new Tile(tile, tileset, targetLevel));
-                            } catch (IOException e) {
-                                throw new RuntimeException("Cannot get tile metadata.", e);
+                            TileCustomMetadata metadata = Utils.objects.findObjectWithFieldValue(List.of(tileset.metadata),
+                                                                                                 "tileID",
+                                                                                                 tile.getT());
+                            if (metadata != null) {
+                                TileProperties properties;
+                                try {
+                                    properties = Converter.fromJsonString(metadata.getData());
+                                } catch (IOException e) {
+                                    throw new RuntimeException(e);
+                                }
+
+                                if (properties != null && properties.getInteraction() != null) {
+                                    try {
+                                        switch (properties.getInteraction()) {
+                                            case FARM -> tileManager.tiles.add(new Farm(tile, tileset, targetLevel));
+                                        }
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                } else {
+                                    try {
+                                        tileManager.tiles.add(new Tile(tile, tileset, targetLevel));
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                }
+                            } else {
+                                try {
+                                    tileManager.tiles.add(new Tile(tile, tileset, targetLevel));
+                                } catch (IOException e) {
+                                    throw new RuntimeException(e);
+                                }
                             }
                         }
                         gamePanel.manager.managers.add(tileManager);

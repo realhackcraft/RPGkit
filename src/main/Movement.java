@@ -16,7 +16,7 @@ public class Movement {
         for (Drawable drawable : gamePanel.manager.managers) {
             if (drawable instanceof TileManager tileManager) {
                 for (Tile tile : tileManager.tiles) {
-                    if (tile.data != null) {
+                    if (tile.data != null && tile.data.getSolid() != null) {
                         if (tile.data.getSolid()) {
                             if (keyHandler.isKeyPressed(VK_W)) {
                                 Rectangle player = new Rectangle(gamePanel.player.hitbox);
