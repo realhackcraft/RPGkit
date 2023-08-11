@@ -52,7 +52,11 @@ public class LDtkLoader {
             if (field.getIdentifier().equals("Direction")) {
                 player.direction = Direction.valueOf((String) field.getValue());
             } else if (field.getIdentifier().equals("Speed")) {
-                player.speed = (double) field.getValue();
+                if (field.getValue() instanceof Integer) {
+                    player.speed = ((Integer) field.getValue()).doubleValue();
+                } else if (field.getValue() instanceof Double) {
+                    player.speed = (Double) field.getValue();
+                }
             }
         }
     }
@@ -245,7 +249,7 @@ public class LDtkLoader {
         return loader;
     }
 
-    public static void centerPlayer() {
+    public void centerPlayer() {
         GamePanel gamePanel = GamePanel.getInstance();
 
         Camera.xOffset -= (gamePanel.player.worldPosition[0] * gamePanel.tileScale) - ((double) gamePanel.screenWidth / 2);

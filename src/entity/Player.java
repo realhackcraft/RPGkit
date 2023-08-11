@@ -1,6 +1,5 @@
 package entity;
 
-import main.GamePanel;
 import main.KeyHandler;
 import main.Main;
 import utils.Utils;
@@ -48,19 +47,19 @@ public class Player extends Entity {
      */
     @Override
     public void draw(Graphics2D g2d) {
-        BufferedImage frame = switch (this.direction) {
+        BufferedImage frame = switch (direction) {
             case UP -> tileSet.getFrame(0, 0);
             case LEFT -> tileSet.getFrame(1, 0);
             case DOWN -> tileSet.getFrame(2, 0);
             case RIGHT -> Utils.images.flipHorizontal(tileSet.getFrame(1, 0));
         };
 
-        frame = Utils.images.scale(frame, GamePanel.getInstance().tileScale, GamePanel.getInstance().tileScale);
-        g2d.drawImage(frame, (int) this.screenPosition[0], (int) this.screenPosition[1], GamePanel.getInstance());
+        frame = Utils.images.scale(frame, gamePanel.tileScale, gamePanel.tileScale);
+        g2d.drawImage(frame, (int) screenPosition[0], (int) screenPosition[1], gamePanel);
 
         if (Main.mode == Main.Mode.TEST) {
             g2d.setColor(Color.YELLOW);
-            g2d.fill(this.hitbox);
+            g2d.fill(hitbox);
         }
     }
 }

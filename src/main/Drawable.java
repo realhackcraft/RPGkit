@@ -3,8 +3,6 @@ package main;
 import java.awt.*;
 
 public interface Drawable {
-//    double[] screenPosition = new double[2];
-
     /**
      * Draws the object using the given Graphics2D object.
      *

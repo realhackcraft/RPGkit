@@ -94,6 +94,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     private static GamePanel INSTANCE;
     private boolean started = false;
+    private JFrame frame;
 
     /**
      * Creates a new GamePanel with preferred dimensions based on screenWidth and screenHeight constants.
@@ -122,7 +123,7 @@ public class GamePanel extends JPanel implements Runnable {
         player = new Player(keyHandler);
         lDtkLoader.loadTilesets(ldtk);
         lDtkLoader.loadMap(ldtk);
-        LDtkLoader.centerPlayer();
+        lDtkLoader.centerPlayer();
 
         gameThread.start();
         started = true;
@@ -140,6 +141,7 @@ public class GamePanel extends JPanel implements Runnable {
         double deltaRatio = 0;
         double delta = 0;
         long lastTime = System.nanoTime();
+        long lastFPSTime = System.nanoTime();
         long currentTime;
 
         while (gameThread != null) {
@@ -153,6 +155,11 @@ public class GamePanel extends JPanel implements Runnable {
                 repaint();
                 deltaRatio--;
                 delta = 0;
+            }
+
+            if (System.nanoTime() - lastFPSTime >= 1000000000) {
+                frame.setTitle("Life Simulator [" + FPS + " FPS]");
+                lastFPSTime = System.nanoTime();
             }
         }
     }
@@ -189,6 +196,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void setJFrame(JFrame frame) {
+        this.frame = frame;
         GraphicsDevice gd = frame.getGraphicsConfiguration().getDevice();
         DisplayMode dm = gd.getDisplayMode();
         screenWidth = dm.getWidth();

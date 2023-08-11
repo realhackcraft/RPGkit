@@ -808,7 +808,7 @@
 									"id": "V_String",
 									"params": ["UP"]
 								}] },
-								{ "__identifier": "Speed", "__type": "Float", "__value": 0.1, "__tile": null, "defUid": 6, "realEditorValues": [{ "id": "V_Float", "params": [0.1] }] }
+								{ "__identifier": "Speed", "__type": "Float", "__value": 0.05, "__tile": null, "defUid": 6, "realEditorValues": [null] }
 							]
 						}
 					]

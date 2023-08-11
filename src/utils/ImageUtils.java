@@ -17,7 +17,7 @@ public class ImageUtils {
      */
     public BufferedImage flipHorizontal(BufferedImage image) {
         AffineTransform tx = AffineTransform.getScaleInstance(-1, 1);
-        tx.translate(-image.getWidth(null), 0);
+        tx.translate(-image.getWidth(), 0);
         AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
         return op.filter(image, null);
     }
@@ -30,7 +30,7 @@ public class ImageUtils {
      */
     public BufferedImage flipVertical(BufferedImage image) {
         AffineTransform tx = AffineTransform.getScaleInstance(1, -1);
-        tx.translate(0, -image.getHeight(null));
+        tx.translate(0, -image.getHeight());
         AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
         return op.filter(image, null);
     }
@@ -43,7 +43,7 @@ public class ImageUtils {
      */
     public BufferedImage flipAll(BufferedImage image) {
         AffineTransform tx = AffineTransform.getScaleInstance(-1, -1);
-        tx.translate(-image.getWidth(null), -image.getHeight(null));
+        tx.translate(-image.getWidth(), -image.getHeight());
         AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
         return op.filter(image, null);
     }
