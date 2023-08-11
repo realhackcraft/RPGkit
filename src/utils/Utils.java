@@ -26,4 +26,5 @@ public class Utils {
      * A utility class for working with Java objects.
      */
     public static final ObjectUtils objects = new ObjectUtils();
+    public static final GameUtils game = new GameUtils();
 }

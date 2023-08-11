@@ -11,7 +11,7 @@
 	"iid": "c65f7de0-ed50-11ed-b831-d56759fb2ace",
 	"jsonVersion": "1.3.3",
 	"appBuildId": 467698,
-	"nextUid": 14,
+	"nextUid": 23,
 	"identifierStyle": "Capitalize",
 	"toc": [],
 	"worldLayout": "GridVania",
@@ -206,13 +206,13 @@
 			"maxHeight": null,
 			"keepAspectRatio": false,
 			"tileOpacity": 1,
-			"fillOpacity": 1,
-			"lineOpacity": 1,
+			"fillOpacity": 0.08,
+			"lineOpacity": 0,
 			"hollow": false,
 			"color": "#BE4A2F",
-			"renderMode": "Rectangle",
+			"renderMode": "Tile",
 			"showName": true,
-			"tilesetId": null,
+			"tilesetId": 5,
 			"tileRenderMode": "FitInside",
 			"tileRect": null,
 			"nineSliceBorders": [],
@@ -294,6 +294,39 @@
 					"tilesetUid": null
 				}
 			]
+		},
+		{
+			"identifier": "ObsidianSword",
+			"uid": 22,
+			"tags": [ "Item", "Weapon" ],
+			"exportToToc": false,
+			"doc": null,
+			"width": 16,
+			"height": 16,
+			"resizableX": false,
+			"resizableY": false,
+			"minWidth": null,
+			"maxWidth": null,
+			"minHeight": null,
+			"maxHeight": null,
+			"keepAspectRatio": false,
+			"tileOpacity": 1,
+			"fillOpacity": 0.08,
+			"lineOpacity": 0,
+			"hollow": false,
+			"color": "#D77643",
+			"renderMode": "Tile",
+			"showName": true,
+			"tilesetId": 16,
+			"tileRenderMode": "FitInside",
+			"tileRect": { "tilesetUid": 16, "x": 0, "y": 128, "w": 16, "h": 16 },
+			"nineSliceBorders": [],
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 0.5,
+			"fieldDefs": []
 		}
 	], "tilesets": [
 		{
@@ -314,6 +347,28 @@
 			"customData": [],
 			"savedSelections": [],
 			"cachedPixelData": { "opaqueTiles": "0000", "averageColors": "7223722372237223" }
+		},
+		{
+			"__cWid": 8,
+			"__cHei": 9,
+			"identifier": "Weapons",
+			"uid": 16,
+			"relPath": "../items/weapons.png",
+			"embedAtlas": null,
+			"pxWid": 128,
+			"pxHei": 144,
+			"tileGridSize": 16,
+			"spacing": 0,
+			"padding": 0,
+			"tags": [],
+			"tagsSourceEnumUid": null,
+			"enumTags": [],
+			"customData": [],
+			"savedSelections": [],
+			"cachedPixelData": {
+				"opaqueTiles": "000000000000000000000000000000000000000000000000000000000000000000000000",
+				"averageColors": "388826673777477736666777388846663632363236324632452246324532574459533963364357544743685338534655587a3668466847784779788a387958896333443144334333433262322222465554683357423443464245535723574567464267524642675256525642364258754524551445244424441356354525564546663544465568884666676647777655"
+			}
 		},
 		{
 			"__cWid": 19,
@@ -792,23 +847,34 @@
 					"gridTiles": [],
 					"entityInstances": [
 						{
+							"__identifier": "ObsidianSword",
+							"__grid": [47,36],
+							"__pivot": [0.5,0.5],
+							"__tags": [ "Item", "Weapon" ],
+							"__tile": { "tilesetUid": 16, "x": 0, "y": 128, "w": 16, "h": 16 },
+							"__smartColor": "#D77643",
+							"iid": "4e86f020-1460-11ee-b161-7ddb8dfb302b",
+							"width": 16,
+							"height": 16,
+							"defUid": 22,
+							"px": [760,584],
+							"fieldInstances": []
+						},
+						{
 							"__identifier": "PlayerStart",
-							"__grid": [47,25],
+							"__grid": [47,34],
 							"__pivot": [0.5,0.5],
 							"__tags": [],
-							"__tile": { "tilesetUid": 5, "x": 0, "y": 0, "w": 16, "h": 16 },
+							"__tile": { "tilesetUid": 5, "x": 32, "y": 0, "w": 16, "h": 16 },
 							"__smartColor": "#BE4A2F",
-							"iid": "06546860-1460-11ee-9464-19efe1d5b2e7",
+							"iid": "7f89e000-1460-11ee-b161-af674ff8a334",
 							"width": 16,
 							"height": 16,
 							"defUid": 1,
-							"px": [760,408],
+							"px": [760,552],
 							"fieldInstances": [
-								{ "__identifier": "Direction", "__type": "LocalEnum.Direction", "__value": "UP", "__tile": { "tilesetUid": 5, "x": 0, "y": 0, "w": 16, "h": 16 }, "defUid": 4, "realEditorValues": [{
-									"id": "V_String",
-									"params": ["UP"]
-								}] },
-								{ "__identifier": "Speed", "__type": "Float", "__value": 0.05, "__tile": null, "defUid": 6, "realEditorValues": [null] }
+								{ "__identifier": "Direction", "__type": "LocalEnum.Direction", "__value": "DOWN", "__tile": { "tilesetUid": 5, "x": 32, "y": 0, "w": 16, "h": 16 }, "defUid": 4, "realEditorValues": [] },
+								{ "__identifier": "Speed", "__type": "Float", "__value": 0.05, "__tile": null, "defUid": 6, "realEditorValues": [] }
 							]
 						}
 					]

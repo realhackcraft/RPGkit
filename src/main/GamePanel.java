@@ -120,10 +120,8 @@ public class GamePanel extends JPanel implements Runnable {
             System.err.println("Error loading LDtk file");
         }
 
-        player = new Player(keyHandler);
         lDtkLoader.loadTilesets(ldtk);
         lDtkLoader.loadMap(ldtk);
-        lDtkLoader.centerPlayer();
 
         gameThread.start();
         started = true;

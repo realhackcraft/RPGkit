@@ -1,6 +1,8 @@
 package main;
 
 import entity.Player;
+import entity.item.Item;
+import entity.item.ObsidianSword;
 import interactable.Farm;
 import ldtk.*;
 import ldtk.tile.Converter;
@@ -14,6 +16,7 @@ import utils.Utils;
 import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class LDtkLoader {
@@ -28,7 +31,8 @@ public class LDtkLoader {
         }
     }
 
-    public void loadPlayer(Player player, LDtk ldtk, EntityInstance entity, LayerInstance layer, Level level) {
+    public Player loadPlayer(LDtk ldtk, EntityInstance entity, LayerInstance layer, Level level, EntityManger entityManger) {
+        Player player = new Player(GamePanel.getInstance().keyHandler, entityManger);
 
         double[] playerPosition = getEntityPosition(entity, layer, level, ldtk.getWorldLayout());
         player.worldPosition[0] = playerPosition[0];
@@ -59,6 +63,32 @@ public class LDtkLoader {
                 }
             }
         }
+        return player;
+    }
+
+    public Item loadItem(LDtk ldtk, EntityInstance entity, LayerInstance layer, Level level, EntityManger entityManger) {
+        Item item = null;
+        double[] itemPosition = getEntityPosition(entity, layer, level, ldtk.getWorldLayout());
+
+        List tags = Arrays.asList(entity.getTags());
+        if (tags.contains("Item")) {
+            if (tags.contains("Weapon")) {
+                item = new ObsidianSword(entityManger, TileSetManager.getTileSet("Weapons"), entity.getTile());
+            }
+        }
+        if (item != null) {
+            item.worldPosition[0] = itemPosition[0];
+            item.worldPosition[1] = itemPosition[1];
+
+            item.screenPosition[0] = item.worldPosition[0] - Camera.xOffset / GamePanel.getInstance().tileScale;
+            item.screenPosition[1] = item.worldPosition[1] - Camera.yOffset / GamePanel.getInstance().tileScale;
+
+            item.width = item.tileSet.tileSize;
+            item.height = item.tileSet.tileSize;
+
+            item.collision = false;
+        }
+        return item;
     }
 
     private double[] getEntityPosition(EntityInstance entity, LayerInstance layer, Level level, WorldLayout worldLayout) {
@@ -147,8 +177,15 @@ public class LDtkLoader {
         EntityManger entityManager = new EntityManger();
         for (EntityInstance entity : layer.getEntityInstances()) {
             if (entity.getIdentifier().equals("PlayerStart")) {
-                loadPlayer(gamePanel.player, ldtk, entity, layer, targetLevel);
+                gamePanel.player = loadPlayer(ldtk,
+                                              entity,
+                                              layer,
+                                              targetLevel,
+                                              entityManager);
                 entityManager.entities.add(gamePanel.player);
+                centerPlayer();
+            } else {
+                entityManager.entities.add(loadItem(ldtk, entity, layer, targetLevel, entityManager));
             }
         }
         gamePanel.manager.managers.add(entityManager);

@@ -1,11 +1,14 @@
 package entity;
 
+import entity.item.Item;
 import main.KeyHandler;
 import main.Main;
+import managers.EntityManger;
 import utils.Utils;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 /**
  * The Player class represents the player entity in the game. It extends Entity class to get access to its variables and methods. It uses a GamePanel object and a KeyHandler object to initialize its position, direction and speed.
@@ -25,13 +28,15 @@ public class Player extends Entity {
      * by any other external classes in the application.
      */
     private final KeyHandler keyHandler;
+    public final ArrayList<Item> inventory = new ArrayList<>();
 
     /**
      * Initializes a new instance of the Player class with the specified GamePanel and KeyHandler.
      *
      * @param keyHandler The KeyHandler object that handles the key events.
      */
-    public Player(KeyHandler keyHandler) {
+    public Player(KeyHandler keyHandler, EntityManger entityManger) {
+        super(entityManger);
         this.keyHandler = keyHandler;
     }
 
