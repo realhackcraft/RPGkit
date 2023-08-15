@@ -15,7 +15,7 @@ public class Movement {
         Rectangle player = new Rectangle(gamePanel.player.hitbox);
 
         double distance = gamePanel.player.speed * delta;
-        int worldDistance = (int) (gamePanel.player.speed * gamePanel.tileScale * delta);
+        double worldDistance = gamePanel.player.speed * gamePanel.tileScale * delta;
 
         boolean[] willCollide = {false, false, false, false};
         boolean[] keyStates = {keyHandler.isKeyPressed(VK_W), keyHandler.isKeyPressed(VK_A),
@@ -28,34 +28,41 @@ public class Movement {
                     if (Utils.game.calculateDistance(gamePanel.player.worldPosition,
                                                      new double[]{tile.worldPosition[0], tile.worldPosition[1]}) > gamePanel.tileSize)
                         continue;
-                    checkCollision(player, keyStates, tile, willCollide, gamePanel, worldDistance);
+                    checkCollision(player, keyStates, tile, willCollide, gamePanel, (int) worldDistance);
                 }
             }
         }
 
         move(keyStates, willCollide, distance, worldDistance, gamePanel);
-
     }
 
     private static void move(boolean[] keyStates, boolean[] willCollide, double distance, double worldDistance, GamePanel gamePanel) {
         Player player = gamePanel.player;
         if (keyStates[0] && !willCollide[0]) {
-            Camera.yOffset += worldDistance;
+            if (player.screenPosition[1] < gamePanel.getHeight() / 4.0) {
+                Camera.yOffset += worldDistance;
+            }
             player.worldPosition[1] -= distance;
             player.direction = UP;
         }
         if (keyStates[1] && !willCollide[1]) {
-            Camera.xOffset += worldDistance;
+            if (player.screenPosition[0] < gamePanel.getWidth() / 4.0) {
+                Camera.xOffset += worldDistance;
+            }
             player.worldPosition[0] -= distance;
             player.direction = LEFT;
         }
         if (keyStates[2] && !willCollide[2]) {
-            Camera.yOffset -= worldDistance;
+            if (player.screenPosition[1] > gamePanel.getHeight() * (3.0 / 4.0)) {
+                Camera.yOffset -= worldDistance;
+            }
             player.worldPosition[1] += distance;
             player.direction = DOWN;
         }
         if (keyStates[3] && !willCollide[3]) {
-            Camera.xOffset -= worldDistance;
+            if (player.screenPosition[0] > gamePanel.getWidth() * (3.0 / 4.0)) {
+                Camera.xOffset -= worldDistance;
+            }
             player.worldPosition[0] += distance;
             player.direction = RIGHT;
         }

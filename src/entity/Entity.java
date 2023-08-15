@@ -46,8 +46,8 @@ public abstract class Entity implements Drawable {
 
     @Override
     public void update(double delta) {
-        screenPosition[0] = (worldPosition[0] * gamePanel.tileScale) + Camera.xOffset;
-        screenPosition[1] = (worldPosition[1] * gamePanel.tileScale) + Camera.yOffset;
+        screenPosition[0] = worldPosition[0] * gamePanel.tileScale + Camera.xOffset;
+        screenPosition[1] = worldPosition[1] * gamePanel.tileScale + Camera.yOffset;
 
         if (collision) {
             hitbox.x = (int) ((int) screenPosition[0] + (width * gamePanel.tileScale / 2) - hitbox.width / 2);

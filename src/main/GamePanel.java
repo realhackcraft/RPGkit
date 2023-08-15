@@ -130,6 +130,8 @@ public class GamePanel extends JPanel implements Runnable {
         Sound.loadSounds(List.of("/sounds/pickupCoin.wav", "/sounds/powerUp.wav"));
         warmup();
 
+        ui.setGamePanel(this);
+
         gameThread.start();
         started = true;
     }
@@ -142,29 +144,40 @@ public class GamePanel extends JPanel implements Runnable {
      */
     @Override
     public void run() {
-        double drawInterval = 1000000000.0 / FPS;
-        double deltaRatio = 0;
-        double delta = 0;
-        long lastTime = System.nanoTime();
         long lastFPSTime = System.nanoTime();
-        long currentTime;
+
+        long optimalTime = 1000000000 / FPS;
+        long previous = System.nanoTime();
+        long lag = 0;
 
         while (gameThread != null) {
-            currentTime = System.nanoTime();
-            deltaRatio += (currentTime - lastTime) / drawInterval;
-            delta += (currentTime - lastTime) / 1000000.0;
-            lastTime = currentTime;
+            long current = System.nanoTime();
+            long elapsed = current - previous;
+            previous = current;
+            lag += elapsed;
 
-            if (deltaRatio >= 1) {
-                update(delta);
-                repaint();
-                deltaRatio--;
-                delta = 0;
+            // update
+            while (lag >= optimalTime) {
+                update(elapsed / 1000000.0);
+                lag -= optimalTime;
             }
+
+            // render
+            repaint();
 
             if (System.nanoTime() - lastFPSTime >= 1000000000) {
                 frame.setTitle("Life Simulator [" + FPS + " FPS]");
                 lastFPSTime = System.nanoTime();
+            }
+
+            // Sleep until the next frame
+            try {
+                long sleepTime = (previous - System.nanoTime() + optimalTime) / 1000000;
+                if (sleepTime > 0) {
+                    Thread.sleep(sleepTime);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -220,9 +233,9 @@ public class GamePanel extends JPanel implements Runnable {
         BufferedImage tempImg = new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
         Graphics2D g2d = tempImg.createGraphics();
 
-        g2d.setFont(new Font("Arial", Font.PLAIN, 20));
-        g2d.setColor(Color.WHITE);
-        g2d.drawString("Warmup", 0, 0);
+        setFont(new Font("Arial", Font.PLAIN, 20));
+        g2d.setFont(getFont());
+        g2d.drawString("", 0, 0);
         g2d.dispose();
     }
 

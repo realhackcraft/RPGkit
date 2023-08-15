@@ -52,7 +52,6 @@ public class Player extends Entity {
     public void update(double delta) {
         super.update(delta);
         this.delta = delta;
-//        Movement.computeMovements(this.keyHandler, delta);
     }
 
     /**
@@ -75,7 +74,7 @@ public class Player extends Entity {
         };
 
         g2d.drawImage(frame, (int) screenPosition[0], (int) screenPosition[1], gamePanel);
-        
+
         if (Main.mode == Main.Mode.TEST) {
             g2d.setColor(Color.YELLOW);
             g2d.fill(hitbox);

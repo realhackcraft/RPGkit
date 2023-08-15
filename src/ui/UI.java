@@ -9,9 +9,9 @@ import java.awt.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class UI implements Drawable {
-    public Font font = new Font("Arial", Font.PLAIN, 20);
     public long[] nextScreenPosition = {0, 0};
     public CopyOnWriteArrayList<Item> inventory = new CopyOnWriteArrayList<>();
+    private GamePanel gamePanel;
 
     public long[] nextScreenPosition() {
         GamePanel gamePanel = GamePanel.getInstance();
@@ -22,10 +22,10 @@ public class UI implements Drawable {
 
     @Override
     public void draw(Graphics2D g2d) {
-        for (ui.item.Item item : inventory) {
+        for (Item item : inventory) {
             item.draw(g2d);
-            g2d.setFont(font);
             if (item.count > 1) {
+                g2d.setFont(gamePanel.getFont());
                 g2d.setColor(Color.WHITE);
                 g2d.drawString(String.valueOf(item.count),
                                (int) item.screenPosition[0] + GamePanel.getInstance().scaledTileSize,
@@ -33,6 +33,10 @@ public class UI implements Drawable {
             }
 
         }
+    }
+
+    public void setGamePanel(GamePanel gamePanel) {
+        this.gamePanel = gamePanel;
     }
 
     @Override
