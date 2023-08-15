@@ -2,6 +2,7 @@ package interactable;
 
 import ldtk.Level;
 import ldtk.TileInstance;
+import ldtk.tile.TileProperties;
 import main.TileSet;
 
 import java.awt.*;
@@ -9,8 +10,8 @@ import java.io.IOException;
 
 public class Farm extends Interactable {
 
-    public Farm(TileInstance tile, TileSet tileSet, Level level) throws IOException {
-        super(tile, tileSet, level);
+    public Farm(TileInstance tile, TileSet tileSet, Level level, TileProperties properties) throws IOException {
+        super(tile, tileSet, level, properties);
     }
 
     @Override

@@ -1,16 +1,13 @@
 package main;
 
 import ldtk.Level;
-import ldtk.TileCustomMetadata;
 import ldtk.TileInstance;
-import ldtk.tile.Converter;
 import ldtk.tile.TileProperties;
 import utils.Utils;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.List;
 
 public class Tile implements Drawable {
     public final TileSet tileSet;
@@ -24,7 +21,7 @@ public class Tile implements Drawable {
     public TileProperties data;
     public final Rectangle hitbox;
 
-    public Tile(TileInstance tile, TileSet tileSet, Level level) throws IOException {
+    public Tile(TileInstance tile, TileSet tileSet, Level level, TileProperties properties) throws IOException {
         BufferedImage tempImage;
         this.tileSet = tileSet;
 
@@ -58,13 +55,8 @@ public class Tile implements Drawable {
         if (tileSet.metadata == null) {
             return;
         }
-        TileCustomMetadata metadata = Utils.objects.findObjectWithFieldValue(List.of(tileSet.metadata),
-                                                                             "tileID",
-                                                                             tileId);
-        if (metadata == null) {
-            return;
-        }
-        data = Converter.fromJsonString(metadata.getData());
+
+        data = properties;
     }
 
     @Override

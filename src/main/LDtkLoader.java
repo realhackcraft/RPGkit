@@ -11,7 +11,6 @@ import managers.EntityManger;
 import managers.TileManager;
 import managers.TileSetManager;
 import utils.Direction;
-import utils.Utils;
 
 import java.awt.*;
 import java.io.IOException;
@@ -217,9 +216,14 @@ public class LDtkLoader {
     public void processTileSet(LayerInstance layer, GamePanel gamePanel, TileSet tileset, Level targetLevel) {
         TileManager tileManager = new TileManager();
         for (TileInstance tile : layer.getGridTiles()) {
-            TileCustomMetadata metadata = Utils.objects.findObjectWithFieldValue(List.of(tileset.metadata),
-                                                                                 "tileID",
-                                                                                 tile.getT());
+            TileCustomMetadata metadata = null;
+
+            for (TileCustomMetadata metadata1 : tileset.tileSet.getCustomData()) {
+                if (metadata1.getTileID() == tile.getT()) {
+                    metadata = metadata1;
+                    break;
+                }
+            }
 
             TileProperties properties = null;
             if (metadata != null) {
@@ -262,10 +266,10 @@ public class LDtkLoader {
         try {
             if (properties != null && properties.getInteraction() != null) {
                 switch (properties.getInteraction()) {
-                    case FARM -> tileManager.tiles.add(new Farm(tile, tileset, targetLevel));
+                    case FARM -> tileManager.tiles.add(new Farm(tile, tileset, targetLevel, properties));
                 }
             } else {
-                tileManager.tiles.add(new Tile(tile, tileset, targetLevel));
+                tileManager.tiles.add(new Tile(tile, tileset, targetLevel, properties));
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -275,8 +279,12 @@ public class LDtkLoader {
     private Level findLevel(LDtk ldtk, String identifier) {
         Level[] levels = ldtk.getLevels();
 
-        return Utils.objects.findObjectWithFieldValue(
-                List.of(levels), "identifier", identifier);
+        for (Level level : levels) {
+            if (level.getIdentifier().equals(identifier)) {
+                return level;
+            }
+        }
+        return null;
     }
 
     public static LDtkLoader get() {
