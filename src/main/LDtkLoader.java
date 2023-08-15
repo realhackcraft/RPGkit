@@ -26,7 +26,6 @@ public class LDtkLoader {
         TilesetDefinition[] tilesetDefinitions = ldtk.getDefs().getTilesets();
         for (TilesetDefinition tilesetDefinition : tilesetDefinitions) {
             TileSet tileSet = new TileSet(tilesetDefinition);
-            tileSet.loadImage('/' + Utils.paths.normalizePath("world/" + tilesetDefinition.getRelPath()));
             TileSetManager.tileSets.add(tileSet);
         }
     }

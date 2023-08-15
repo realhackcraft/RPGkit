@@ -114,7 +114,7 @@ public class GamePanel extends JPanel implements Runnable {
         gameThread = new Thread(this);
 
         try {
-            String json = Utils.strings.loadFileAsString("/world/Test.ldtk", StandardCharsets.US_ASCII);
+            String json = Utils.strings.loadFileAsString("/maps/Test.ldtk", StandardCharsets.US_ASCII);
             ldtk = Converter.fromJsonString(json);
         } catch (IOException e) {
             System.err.println("Error loading LDtk file");

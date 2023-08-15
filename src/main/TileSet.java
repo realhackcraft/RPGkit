@@ -68,7 +68,7 @@ public class TileSet {
         this.identifier = tileSet.getIdentifier();
         this.tileSize = tileSet.getTileGridSize();
         this.metadata = tileSet.getCustomData();
-        loadImage('/' + Utils.paths.normalizePath("world/" + tileSet.getRelPath()));
+        loadImage('/' + Utils.paths.normalizePath("maps/" + tileSet.getRelPath()));
         cut();
     }
 
