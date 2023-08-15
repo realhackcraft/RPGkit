@@ -10,16 +10,16 @@ public class GameUtils {
             throw new IllegalArgumentException("Both points must have two coordinates");
         }
 
-        double a = Math.abs(point1[0] - point2[0]);
-        double b = Math.abs(point1[1] - point2[1]);
+        double a = point1[0] - point2[0];
+        double b = point1[1] - point2[1];
 
-        return Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+        return Math.sqrt(a * a + b * b);
     }
 
     public boolean isOffScreen(double[] screenPosition) {
-        return screenPosition[0] + gamePanel.scaledTileSize < 0 &&
-                screenPosition[0] > gamePanel.getWidth() &&
-                screenPosition[1] + gamePanel.scaledTileSize < 0 &&
-                screenPosition[1] > gamePanel.getHeight();
+        return screenPosition[0] + gamePanel.scaledTileSize < 0 ||  // completely on the left of the game panel
+                screenPosition[0] > gamePanel.getWidth() ||           // completely on the right of the game panel
+                screenPosition[1] + gamePanel.scaledTileSize < 0 ||  // completely above the game panel
+                screenPosition[1] > gamePanel.getHeight();           // completely beneath the game panel
     }
 }
