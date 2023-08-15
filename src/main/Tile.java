@@ -70,21 +70,17 @@ public class Tile implements Drawable {
     @Override
     public void draw(Graphics2D g2d) {
 //        If the tile isn't non the screen, don't draw it.
-        if (screenPosition[0] + gamePanel.scaledTileSize < 0 ||
-                screenPosition[0] > gamePanel.getWidth() ||
-                screenPosition[1] + gamePanel.scaledTileSize < 0 ||
-                screenPosition[1] > gamePanel.getHeight()) {
+        if (Utils.game.isOffScreen(screenPosition)) {
             return;
         }
 //        Draw the tile on the screen based on its screenPosition.
-        g2d.drawImage(
-                image,
-                (int) screenPosition[0],
-                (int) screenPosition[1],
-                gamePanel);
+        g2d.drawImage(image,
+                      (int) screenPosition[0],
+                      (int) screenPosition[1],
+                      gamePanel);
 
         if (Main.mode == Main.Mode.TEST) {
-            if (data != null && data.getSolid()) {
+            if (data != null && data.getSolid() != null && data.getSolid()) {
                 g2d.setColor(Color.RED);
                 g2d.fill(hitbox);
             }

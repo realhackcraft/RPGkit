@@ -4,12 +4,15 @@ import entity.Player;
 import ldtk.Converter;
 import ldtk.LDtk;
 import managers.LayerManager;
+import ui.UI;
 import utils.Utils;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 /**
  * This class represents a JPanel used as the main game panel to display the game.
@@ -95,6 +98,9 @@ public class GamePanel extends JPanel implements Runnable {
     private static GamePanel INSTANCE;
     private boolean started = false;
     private JFrame frame;
+    public Sound sound = new Sound();
+    public Sound effect = new Sound();
+    public UI ui = new UI();
 
     /**
      * Creates a new GamePanel with preferred dimensions based on screenWidth and screenHeight constants.
@@ -102,7 +108,7 @@ public class GamePanel extends JPanel implements Runnable {
      * It is focusable and listens to key events using keyHandler.
      */
     private GamePanel() {
-        setBackground(Color.WHITE);
+        setBackground(new Color(0x51A7E8));
         setFocusable(true);
         addKeyListener(keyHandler);
     }
@@ -120,8 +126,9 @@ public class GamePanel extends JPanel implements Runnable {
             System.err.println("Error loading LDtk file");
         }
 
-        lDtkLoader.loadTilesets(ldtk);
-        lDtkLoader.loadMap(ldtk);
+        lDtkLoader.loadGame(ldtk);
+        Sound.loadSounds(List.of("/sounds/pickupCoin.wav", "/sounds/powerUp.wav"));
+        warmup();
 
         gameThread.start();
         started = true;
@@ -169,6 +176,7 @@ public class GamePanel extends JPanel implements Runnable {
      */
     public void update(double delta) {
         manager.update(delta);
+        ui.update(delta);
         Movement.computeMovements(keyHandler, delta);
     }
 
@@ -190,6 +198,7 @@ public class GamePanel extends JPanel implements Runnable {
     public void draw(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         manager.draw(g2d);
+        ui.draw(g2d);
         g2d.dispose();
     }
 
@@ -206,6 +215,17 @@ public class GamePanel extends JPanel implements Runnable {
         }
         FPS = dm.getRefreshRate();
     }
+
+    private void warmup() {
+        BufferedImage tempImg = new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
+        Graphics2D g2d = tempImg.createGraphics();
+
+        g2d.setFont(new Font("Arial", Font.PLAIN, 20));
+        g2d.setColor(Color.WHITE);
+        g2d.drawString("Warmup", 0, 0);
+        g2d.dispose();
+    }
+
 
     public static GamePanel getInstance() {
         if (INSTANCE == null) {

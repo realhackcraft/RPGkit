@@ -1,6 +1,5 @@
 package entity;
 
-import entity.item.Item;
 import main.KeyHandler;
 import main.Main;
 import managers.EntityManger;
@@ -8,7 +7,6 @@ import utils.Utils;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 
 /**
  * The Player class represents the player entity in the game. It extends Entity class to get access to its variables and methods. It uses a GamePanel object and a KeyHandler object to initialize its position, direction and speed.
@@ -27,8 +25,9 @@ public class Player extends Entity {
      * This ensures that the key handling logic is encapsulated within a single class and is not exposed or modified
      * by any other external classes in the application.
      */
+    public BufferedImage[] images = new BufferedImage[4];
     private final KeyHandler keyHandler;
-    public final ArrayList<Item> inventory = new ArrayList<>();
+    private double delta;
 
     /**
      * Initializes a new instance of the Player class with the specified GamePanel and KeyHandler.
@@ -38,6 +37,22 @@ public class Player extends Entity {
     public Player(KeyHandler keyHandler, EntityManger entityManger) {
         super(entityManger);
         this.keyHandler = keyHandler;
+    }
+
+    public void loadImage() {
+        images[0] = Utils.images.scale(tileSet.getFrame(0, 0), gamePanel.tileScale, gamePanel.tileScale);
+        images[1] = Utils.images.scale(tileSet.getFrame(1, 0), gamePanel.tileScale, gamePanel.tileScale);
+        images[2] = Utils.images.scale(tileSet.getFrame(2, 0), gamePanel.tileScale, gamePanel.tileScale);
+        images[3] = Utils.images.scale(Utils.images.flipHorizontal(tileSet.getFrame(1, 0)),
+                                       gamePanel.tileScale,
+                                       gamePanel.tileScale);
+    }
+
+    @Override
+    public void update(double delta) {
+        super.update(delta);
+        this.delta = delta;
+//        Movement.computeMovements(this.keyHandler, delta);
     }
 
     /**
@@ -53,15 +68,14 @@ public class Player extends Entity {
     @Override
     public void draw(Graphics2D g2d) {
         BufferedImage frame = switch (direction) {
-            case UP -> tileSet.getFrame(0, 0);
-            case LEFT -> tileSet.getFrame(1, 0);
-            case DOWN -> tileSet.getFrame(2, 0);
-            case RIGHT -> Utils.images.flipHorizontal(tileSet.getFrame(1, 0));
+            case UP -> images[0];
+            case LEFT -> images[1];
+            case DOWN -> images[2];
+            case RIGHT -> images[3];
         };
 
-        frame = Utils.images.scale(frame, gamePanel.tileScale, gamePanel.tileScale);
         g2d.drawImage(frame, (int) screenPosition[0], (int) screenPosition[1], gamePanel);
-
+        
         if (Main.mode == Main.Mode.TEST) {
             g2d.setColor(Color.YELLOW);
             g2d.fill(hitbox);

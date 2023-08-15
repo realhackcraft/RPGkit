@@ -41,6 +41,7 @@ public class LDtkLoader {
         player.screenPosition[1] = player.worldPosition[1] - Camera.yOffset / GamePanel.getInstance().tileScale;
 
         player.tileSet = TileSetManager.getTileSet("Player");
+        player.loadImage();
         player.width = player.tileSet.tileSize;
         player.height = player.tileSet.tileSize;
 //        TODO: reference the player's image to only add collision to feet.
@@ -69,7 +70,7 @@ public class LDtkLoader {
         Item item = null;
         double[] itemPosition = getEntityPosition(entity, layer, level, ldtk.getWorldLayout());
 
-        List tags = Arrays.asList(entity.getTags());
+        List<String> tags = Arrays.asList(entity.getTags());
         if (tags.contains("Item")) {
             if (tags.contains("Weapon")) {
                 item = new ObsidianSword(entityManger, TileSetManager.getTileSet("Weapons"), entity.getTile());
@@ -238,7 +239,7 @@ public class LDtkLoader {
      * @return tile properties
      */
     public TileProperties getTileProperties(TileCustomMetadata metadata) {
-        TileProperties properties = null;
+        TileProperties properties;
         try {
             properties = Converter.fromJsonString(metadata.getData());
         } catch (IOException e) {
@@ -290,5 +291,10 @@ public class LDtkLoader {
 
         Camera.xOffset -= (gamePanel.player.worldPosition[0] * gamePanel.tileScale) - ((double) gamePanel.screenWidth / 2);
         Camera.yOffset -= (gamePanel.player.worldPosition[1] * gamePanel.tileScale) - ((double) gamePanel.screenHeight / 2);
+    }
+
+    public void loadGame(LDtk ldtk) {
+        loadTilesets(ldtk);
+        loadMap(ldtk);
     }
 }

@@ -3,10 +3,10 @@ package managers;
 import entity.Entity;
 
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class EntityManger extends Manager {
-    public final ArrayList<Entity> entities = new ArrayList<>();
+    public final CopyOnWriteArrayList<Entity> entities = new CopyOnWriteArrayList<>();
 
     @Override
     public void draw(Graphics2D g2d) {
