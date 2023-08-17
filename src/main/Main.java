@@ -1,11 +1,18 @@
 package main;
 
+import main.entity.item.ObsidianSword;
+import main.interactable.Farm;
+import rpgkit.RPGKit;
+import rpgkit.Sound;
+import rpgkit.managers.TileSetManager;
+
 import javax.swing.*;
+import java.util.List;
 
 /**
  * The Main class is responsible for starting the game by creating a new JFrame
- * with the title and adding a GamePanel to it. The game loop in
- * GamePanel is started, and the frame is displayed.
+ * with the title and adding a RPGKit to it. The game loop in
+ * RPGKit is started, and the frame is displayed.
  */
 
 public class Main {
@@ -27,10 +34,33 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
 
-        GamePanel gamePanel = GamePanel.getInstance();
-        gamePanel.setJFrame(frame);
-        gamePanel.start();
-        frame.add(gamePanel);
+        RPGKit rpgKit = rpgkit.RPGKit.getInstance();
+        rpgKit.setJFrame(frame);
+
+        rpgKit.setGameName("Life Simulator");
+        rpgKit.loadMap("/maps/Test.ldtk");
+
+        rpgKit.setItemLoader((tags, entity, entityManger) -> {
+            if (tags.contains("Weapon")) {
+                return new ObsidianSword(entityManger, TileSetManager.getTileSet("Weapons"), entity.getTile());
+            }
+            return null;
+        });
+
+        rpgKit.setInteractableLoader((interaction, tile, tileset, targetLevel, properties) -> {
+            switch (interaction) {
+                case "farm" -> {
+                    return new Farm(tile, tileset, targetLevel, properties);
+                }
+            }
+            return null;
+        });
+
+        Sound.loadSounds(List.of("/sounds/pickupCoin.wav", "/sounds/powerUp.wav"));
+
+        rpgKit.start("Level_0");
+
+        frame.add(rpgKit);
         frame.pack();
 
 
