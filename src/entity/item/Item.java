@@ -26,9 +26,9 @@ public abstract class Item extends Entity {
 
     public void interact() {
         entityManger.entities.remove(this);
-        Sound sound = gamePanel.sound;
-        sound.setSoundFile("/sounds/powerUp.wav");
-        sound.play();
+        Sound effect = gamePanel.effect;
+        effect.setSoundFile("/sounds/powerUp.wav");
+        effect.play();
     }
 
     public void testForInteraction() {

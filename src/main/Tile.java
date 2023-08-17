@@ -84,7 +84,9 @@ public class Tile implements Drawable {
         screenPosition[0] = (worldPosition[0] * gamePanel.tileScale) + Camera.xOffset;
         screenPosition[1] = (worldPosition[1] * gamePanel.tileScale) + Camera.yOffset;
 
-        hitbox.x = (int) screenPosition[0];
-        hitbox.y = (int) screenPosition[1];
+        if (!Utils.game.isOffScreen(screenPosition)) {
+            hitbox.x = (int) screenPosition[0];
+            hitbox.y = (int) screenPosition[1];
+        }
     }
 }

@@ -98,7 +98,7 @@ public class GamePanel extends JPanel implements Runnable {
     private static GamePanel INSTANCE;
     private boolean started = false;
     private JFrame frame;
-    public Sound sound = new Sound();
+    public Sound music = new Sound();
     public Sound effect = new Sound();
     public UI ui = new UI();
 
@@ -108,7 +108,6 @@ public class GamePanel extends JPanel implements Runnable {
      * It is focusable and listens to key events using keyHandler.
      */
     private GamePanel() {
-        setBackground(new Color(0x51A7E8));
         setFocusable(true);
         addKeyListener(keyHandler);
     }
@@ -177,7 +176,7 @@ public class GamePanel extends JPanel implements Runnable {
                     Thread.sleep(sleepTime);
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                System.err.println("Error sleeping");
             }
         }
     }
