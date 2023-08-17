@@ -21,6 +21,8 @@ public class Main {
             mode = Mode.valueOf(args[0].toUpperCase());
         }
 
+        System.setProperty("sun.java2d.opengl", "True");
+
         JFrame frame = new JFrame("Life Simulator 9000");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
