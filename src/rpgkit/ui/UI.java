@@ -1,0 +1,69 @@
+package rpgkit.ui;
+
+import main.ui.item.ObsidianSword;
+import rpgkit.Drawable;
+import rpgkit.RPGKit;
+import rpgkit.ui.item.Item;
+
+import java.awt.*;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+public class UI implements Drawable {
+    public long[] nextScreenPosition = {0, 0};
+    public CopyOnWriteArrayList<Item> inventory = new CopyOnWriteArrayList<>();
+    private RPGKit RPGKit;
+
+    public long[] nextScreenPosition() {
+        RPGKit RPGKit = rpgkit.RPGKit.getInstance();
+        long[] screenPosition = rpgkit.RPGKit.getInstance().ui.nextScreenPosition;
+        nextScreenPosition[0] += (long) (RPGKit.scaledTileSize * 1.2);
+        return screenPosition;
+    }
+
+    @Override
+    public void draw(Graphics2D g2d) {
+        for (Item item : inventory) {
+            item.draw(g2d);
+            if (item.count > 1) {
+                g2d.setFont(RPGKit.getFont());
+                g2d.setColor(Color.WHITE);
+                g2d.drawString(String.valueOf(item.count),
+                               (int) item.screenPosition[0] + rpgkit.RPGKit.getInstance().scaledTileSize,
+                               (int) item.screenPosition[1] + rpgkit.RPGKit.getInstance().scaledTileSize);
+            }
+
+        }
+    }
+
+    public void setRPGKit(RPGKit RPGKit) {
+        this.RPGKit = RPGKit;
+    }
+
+    @Override
+    public void update(double delta) {
+
+    }
+
+    public void addItem(main.entity.item.Item itemEntity) {
+        Item item = null;
+        if (itemEntity instanceof main.entity.item.ObsidianSword) {
+            item = new ObsidianSword(itemEntity, 1);
+        }
+
+        if (item == null) return;
+
+        boolean found = false;
+        for (Item inventoryItem : inventory) {
+            if (inventoryItem.getClass() == item.getClass()) {
+                inventoryItem.add(1);
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            item.setScreenPosition(nextScreenPosition());
+            inventory.add(item);
+        }
+    }
+}
