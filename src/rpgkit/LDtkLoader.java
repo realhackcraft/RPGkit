@@ -166,7 +166,7 @@ public class LDtkLoader {
             List<String> tags = Arrays.asList(entity.getTags());
             if (tags.contains("Item")) {
                 entityManager.entities.add(loadItem(ldtk, entity, layer, targetLevel, entityManager));
-            } else {
+            } else if (tags.contains("Player")) {
                 rpgKit.player = loadPlayer(ldtk,
                                            entity,
                                            layer,
