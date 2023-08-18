@@ -37,9 +37,17 @@ jobs:
         with:
           arguments: build
 
+      - name: Changelog
+        uses: Bullrich/generate-release-changelog@master
+        id: changelog
+        env:
+          REPO: ${{ github.repository }}
+
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ github.event.inputs.version }}
           draft: true
           files: build/libs/*.jar
+          body: |
+            ${{ steps.changelog.outputs.changelog }}
