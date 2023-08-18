@@ -45,15 +45,11 @@ jobs:
         run: cp build/libs/*.jar $GITHUB_WORKSPACE/RPGkit.jar
 
       - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
+        uses: elgohr/Github-Release-Action@v4
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+          GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
-          tag_name: v1.0.0
-          release_name: Release v1.0.0
-          draft: true
-          prerelease: false
+          title: MyReleaseMessage
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
