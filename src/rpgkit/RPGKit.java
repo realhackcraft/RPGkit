@@ -1,6 +1,6 @@
 package rpgkit;
 
-import rpgkit.entity.Player;
+import main.entity.Player;
 import rpgkit.ldtk.Converter;
 import rpgkit.ldtk.LDtk;
 import rpgkit.managers.LayerManager;
@@ -30,12 +30,6 @@ public class RPGKit extends JPanel implements Runnable {
     private static RPGKit INSTANCE;
     public InteractableLoader interactableLoader;
     public ItemLoader itemLoader;
-
-    public void setItemToUIConverter(ItemToUIConverter itemToUIConverter) {
-        this.itemToUIConverter = itemToUIConverter;
-    }
-
-    public ItemToUIConverter itemToUIConverter;
     private int FPS;
     private String gameName = "RPGKit";
 
@@ -112,7 +106,7 @@ public class RPGKit extends JPanel implements Runnable {
         lDtkLoader.centerEntity(player);
         warmup();
 
-        ui.setRpgKit(this);
+        ui.setRPGKit(this);
 
         gameThread.start();
         started = true;
