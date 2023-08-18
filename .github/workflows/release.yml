@@ -50,4 +50,5 @@ jobs:
           draft: true
           files: build/libs/*.jar
           body: |
+            Changes:
             ${{ steps.changelog.outputs.changelog }}
