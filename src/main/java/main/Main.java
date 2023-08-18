@@ -15,21 +15,15 @@ import java.util.List;
  */
 
 public class Main {
-    public static Mode mode = Mode.PRODUCTION;
-
     /**
      * Sets up and runs the Life Simulator 9000 game JFrame.
      *
      * @param args command line arguments, not used
      */
     public static void main(String[] args) {
-        if (args.length == 1) {
-            mode = Mode.valueOf(args[0].toUpperCase());
-        }
-
         System.setProperty("sun.java2d.opengl", "True");
 
-        JFrame frame = new JFrame("Life Simulator 9000");
+        JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
 
@@ -75,10 +69,5 @@ public class Main {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-    }
-
-    public enum Mode {
-        PRODUCTION,
-        TEST
     }
 }
