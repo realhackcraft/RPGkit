@@ -39,15 +39,16 @@ jobs:
 
       - name: Copy JAR to Artifact
         run: cp build/libs/*.jar $GITHUB_WORKSPACE/RPGkit.jar
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: v1.0.0
-          release_name: Release v1.0.0
-          draft: true
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          true: false
           prerelease: false
 
       - name: Upload Artifact
