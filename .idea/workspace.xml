@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc795b5b-e930-4f77-9bc7-26e42eec353d" name=" Update github actions" comment="Fixed workflow">
+    <list default="true" id="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" name="Changes" comment="Fix workflow">
       <change beforePath="$PROJECT_DIR$/.github/workflows/gradle.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/gradle.yml" afterDir="false" />
     </list>
-    <list id="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" name="Changes" comment="Refactored project so that Gradle only builds the RPGkit files instead of everything including the test and its assets." />
+    <list id="dc795b5b-e930-4f77-9bc7-26e42eec353d" name=" Update github actions" comment="Fixed workflow" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +41,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Update-github" />
+        <entry key="$PROJECT_DIR$" value="production" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -195,15 +195,16 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task id="Default" summary="Default task">
+    <task active="true" id="Default" summary="Default task">
       <branch name="production" repository="$PROJECT_DIR$" />
       <changelist id="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" name="Changes" comment="" />
       <created>1692316479748</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1692323601886</updated>
+      <updated>1692326141121</updated>
       <workItem from="1692316479965" duration="809000" />
       <workItem from="1692320004359" duration="3587000" />
+      <workItem from="1692326141357" duration="237000" />
     </task>
     <task id="LOCAL-00001" summary="Changed Project name to RPGkit">
       <option name="closed" value="true" />
@@ -248,7 +249,23 @@
       <option name="project" value="LOCAL" />
       <updated>1692325705470</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fix workflow">
+      <option name="closed" value="true" />
+      <created>1692326166438</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1692326166439</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fix workflow">
+      <option name="closed" value="true" />
+      <created>1692326266806</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1692326266807</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,6 +287,7 @@
     <MESSAGE value=" Update github actions" />
     <MESSAGE value="Refactored project so that Gradle only builds the RPGkit files instead of everything including the test and its assets." />
     <MESSAGE value="Fixed workflow" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed workflow" />
+    <MESSAGE value="Fix workflow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix workflow" />
   </component>
 </project>

@@ -9,9 +9,8 @@ name: Build and Upload Gradle
 
 on:
   push:
-    branches: [ "production" ]
-  pull_request:
-    branches: [ "production" ]
+    tags:
+      - 'v*'
 
 permissions:
   contents: read
