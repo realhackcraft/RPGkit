@@ -4,20 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" name="Changes" comment="Changed Project name to RPGkit">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/maps/Test.ldtk" afterDir="false" />
+    <list default="true" id="dc795b5b-e930-4f77-9bc7-26e42eec353d" name=" Update github actions" comment="">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/gradle.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/gradle.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/entity/item/ObsidianSword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/main/entity/item/ObsidianSword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/interactable/Farm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/main/interactable/Farm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/ui/item/ObsidianSword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/main/ui/item/ObsidianSword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/items/weapons.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/images/items/weapons.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/player/player.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/images/player/player.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/world/village.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/images/world/village.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/maps/Test.ldtk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sounds/pickupCoin.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/sounds/pickupCoin.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sounds/powerUp.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/sounds/powerUp.wav" afterDir="false" />
+    </list>
+    <list id="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" name="Changes" comment="Refactored project so that Gradle only builds the RPGkit files instead of everything including the test and its assets.">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/gradle.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/gradle.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +21,16 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -40,7 +43,19 @@
     <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="production" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="production" />
+      </list>
+    </option>
   </component>
   <component name="IRenRenameHistory">
     <option name="rememberedNames">
@@ -48,6 +63,35 @@
         <option value="$PROJECT_DIR$/src/main/java/rpgkit/ui/UI.java-UI-RPGKit" />
       </collection>
     </option>
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/.github/workflows/gradle.yml">
+      <ranges>
+        <range start1="7" end1="8" start2="7" end2="8" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
+        <range start1="10" end1="14" start2="10" end2="13" changelist="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" />
+        <range start1="24" end1="30" start2="23" end2="29" changelist="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" />
+        <range start1="31" end1="38" start2="30" end2="34" changelist="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" />
+        <range start1="39" end1="39" start2="35" end2="63" changelist="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/.idea/workspace.xml">
+      <ranges>
+        <range start1="6" end1="8" start2="6" end2="12" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
+        <range start1="9" end1="20" start2="13" end2="13" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
+        <range start1="30" end1="30" start2="23" end2="33" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
+        <range start1="42" end1="42" start2="45" end2="50" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
+        <range start1="44" end1="44" start2="52" end2="59" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
+        <range start1="50" end1="50" start2="65" end2="94" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
+        <range start1="80" end1="81" start2="124" end2="125" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
+        <range start1="89" end1="90" start2="133" end2="134" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
+        <range start1="184" end1="185" start2="228" end2="230" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
+        <range start1="189" end1="190" start2="234" end2="235" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
+        <range start1="191" end1="192" start2="236" end2="237" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
+        <range start1="201" end1="202" start2="246" end2="266" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
+        <range start1="212" end1="213" start2="276" end2="289" changelist="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" />
+        <range start1="220" end1="221" start2="296" end2="298" changelist="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" />
+      </ranges>
+    </file>
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="2tvn7nzm" />
@@ -78,7 +122,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "code.cleanup.on.save": "true",
-    "git-widget-placeholder": "production",
+    "git-widget-placeholder": "Update-github",
     "last_opened_file_path": "/Volumes/Big Drive/Programming Projects/IdeaProjects/RPGkit/src/test/resources/maps",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -87,7 +131,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "actions.on.save",
+    "settings.editor.selected.configurable": "tasks.timeTracking",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -182,14 +226,15 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
+    <task id="Default" summary="Default task">
+      <branch name="production" repository="$PROJECT_DIR$" />
       <changelist id="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" name="Changes" comment="" />
       <created>1692316479748</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1692316479748</updated>
+      <updated>1692323601886</updated>
       <workItem from="1692316479965" duration="809000" />
-      <workItem from="1692320004359" duration="1847000" />
+      <workItem from="1692320004359" duration="3587000" />
     </task>
     <task id="LOCAL-00001" summary="Changed Project name to RPGkit">
       <option name="closed" value="true" />
@@ -199,7 +244,26 @@
       <option name="project" value="LOCAL" />
       <updated>1692320458892</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Refactored project so that Gradle only builds the RPGkit files instead of everything including the test and its assets.">
+      <option name="closed" value="true" />
+      <created>1692322026462</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1692322026462</updated>
+    </task>
+    <task active="true" id="LOCAL-00003" summary="Update github actions">
+      <branch name="production" repository="$PROJECT_DIR$" original="true" />
+      <branch name="Update-github" repository="$PROJECT_DIR$" />
+      <changelist id="dc795b5b-e930-4f77-9bc7-26e42eec353d" name=" Update github actions" comment="" />
+      <created>1692323585812</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1692323601886</updated>
+      <workItem from="1692323602318" duration="920000" />
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
