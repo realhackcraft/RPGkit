@@ -43,21 +43,3 @@ jobs:
           tag_name: ${{ github.event.inputs.version }}
           draft: true
           files: build/libs/*.jar
-
-      - name: Generate Release Notes
-        id: notes
-        uses: RedCrafter07/release-notes-action@v1.0.0
-        with:
-          tag-name: ${{ github.event.inputs.version }}
-          branch: 'production'
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Echo Release Notes
-        run: echo ${{ steps.notes.outputs.notes }}
-
-      - name: Update Release
-        uses: softprops/action-gh-release@v1
-        with:
-          body: ${{ steps.notes.outputs.notes }}
-          draft: false
-          tag_name: ${{ github.event.inputs.version }}
