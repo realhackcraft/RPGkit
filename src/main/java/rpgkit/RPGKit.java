@@ -37,7 +37,7 @@ public class RPGKit extends JPanel implements Runnable {
 
     public ItemToUIConverter itemToUIConverter;
     private int FPS;
-    private String gameName = "RPGKit";
+    private String gameName = "RPGkit";
 
     public final int scaledTileSize = tileSize * tileScale;
 

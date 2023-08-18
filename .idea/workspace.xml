@@ -4,7 +4,94 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" name="Changes" comment="" />
+    <list default="true" id="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/entity/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/entity/item/Item.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/entity/item/ObsidianSword.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/interactable/Farm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/RPGKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/RPGKit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/item/ObsidianSword.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/Camera.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/Drawable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/InteractableLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ItemLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/KeyHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/LDtkLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/Movement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/RPGKit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/Sound.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/Tile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/TileSet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/entity/Entity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/interactable/Interactable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/AllowedRefs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/AutoLayerRuleDefinition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/AutoLayerRuleGroup.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/BgPos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/Checker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/Converter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/Definitions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/EditorDisplayMode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/EditorDisplayPos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/EditorLinkStyle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/EmbedAtlas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/EntityDefinition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/EntityInstance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/EnumDefinition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/EnumTagValue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/EnumValueDefinition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/FieldDefinition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/FieldInstance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/Flag.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/ForcedRefs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/GridPoint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/IdentifierStyle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/ImageExportMode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/IntGridValueDefinition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/IntGridValueInstance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/LDtk.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/LayerDefinition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/LayerInstance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/LdtkCustomCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/LdtkTableOfContentEntry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/Level.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/LevelBackgroundPosition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/LimitBehavior.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/LimitScope.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/NeighbourLevel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/ReferenceToAnEntityInstance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/RenderMode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/TextLanguageMode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/TileCustomMetadata.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/TileInstance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/TileMode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/TileRenderMode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/TilesetDefinition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/TilesetRectangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/Type.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/When.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/World.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/WorldLayout.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/tile/Converter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ldtk/tile/TileProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/managers/EntityManger.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/managers/LayerManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/managers/Manager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/managers/TileManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/managers/TileSetManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ui/UI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/ui/item/Item.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/utils/Direction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/utils/GameUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/utils/ImageUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/utils/PathUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/utils/StringUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpgkit/utils/Utils.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +102,18 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -24,6 +123,41 @@
   </component>
   <component name="FormatOnSaveOptions">
     <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="production" />
+              </list>
+            </value>
+          </entry>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/production" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="production" />
+      </list>
+    </option>
   </component>
   <component name="IRenRenameHistory">
     <option name="rememberedNames">
@@ -41,10 +175,11 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2U8Ltqi0UvnfPxsPOnODkOBkcQ2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -57,10 +192,14 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "code.cleanup.on.save": "true",
+    "git-widget-placeholder": "production",
     "last_opened_file_path": "/Volumes/Big Drive/Programming Projects/IdeaProjects/Life-Simulator/src/test/java",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "actions.on.save",
     "vue.rearranger.settings.migration": "true"
   }
@@ -109,5 +248,32 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="production" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="a" />
+    <option name="LAST_COMMIT_MESSAGE" value="a" />
   </component>
 </project>
