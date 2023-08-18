@@ -8,10 +8,14 @@
 name: Create new Release
 
 on:
-  push:
-    branches: [ production ]
   pull_request:
     branches: [ production ]
+  workflow_dispatch:
+    inputs:
+      change_type:
+        description: 'The type of change'     
+        required: true
+        default: 'bug'
 
 permissions:
   contents: write
@@ -42,6 +46,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fallback: v1.0.0
           prefix: v
+          default-fragment: ${{ github.event.inputs.change_type }}
         
       - name: Generate Changelog
         uses: Bullrich/generate-release-changelog@master
