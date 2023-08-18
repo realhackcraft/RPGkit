@@ -11,6 +11,11 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch: # Add manual trigger
+    inputs:
+      build-manual:
+        description: 'Trigger the workflow manually'
+        default: 'true'
 
 permissions:
   contents: read
