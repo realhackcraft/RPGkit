@@ -52,6 +52,9 @@ jobs:
           branch: 'production'
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Echo Release Notes
+        run: echo ${{ steps.notes.outputs.notes }}
+
       - name: Update Release
         uses: softprops/action-gh-release@v1
         with:
