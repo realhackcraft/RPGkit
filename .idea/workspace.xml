@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc795b5b-e930-4f77-9bc7-26e42eec353d" name=" Update github actions" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/gradle.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/gradle.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="dc795b5b-e930-4f77-9bc7-26e42eec353d" name=" Update github actions" comment=" Update github actions" />
     <list id="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" name="Changes" comment="Refactored project so that Gradle only builds the RPGkit files instead of everything including the test and its assets.">
       <change beforePath="$PROJECT_DIR$/.github/workflows/gradle.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/gradle.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -63,35 +60,6 @@
         <option value="$PROJECT_DIR$/src/main/java/rpgkit/ui/UI.java-UI-RPGKit" />
       </collection>
     </option>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/.github/workflows/gradle.yml">
-      <ranges>
-        <range start1="7" end1="8" start2="7" end2="8" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
-        <range start1="10" end1="14" start2="10" end2="13" changelist="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" />
-        <range start1="24" end1="30" start2="23" end2="29" changelist="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" />
-        <range start1="31" end1="38" start2="30" end2="34" changelist="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" />
-        <range start1="39" end1="39" start2="35" end2="63" changelist="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/.idea/workspace.xml">
-      <ranges>
-        <range start1="6" end1="8" start2="6" end2="12" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
-        <range start1="9" end1="20" start2="13" end2="13" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
-        <range start1="30" end1="30" start2="23" end2="33" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
-        <range start1="42" end1="42" start2="45" end2="50" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
-        <range start1="44" end1="44" start2="52" end2="59" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
-        <range start1="50" end1="50" start2="65" end2="94" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
-        <range start1="80" end1="81" start2="124" end2="125" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
-        <range start1="89" end1="90" start2="133" end2="134" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
-        <range start1="184" end1="185" start2="228" end2="230" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
-        <range start1="189" end1="190" start2="234" end2="235" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
-        <range start1="191" end1="192" start2="236" end2="237" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
-        <range start1="201" end1="202" start2="246" end2="266" changelist="dc795b5b-e930-4f77-9bc7-26e42eec353d" />
-        <range start1="212" end1="213" start2="276" end2="289" changelist="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" />
-        <range start1="220" end1="221" start2="296" end2="298" changelist="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" />
-      </ranges>
-    </file>
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="2tvn7nzm" />
@@ -261,9 +229,17 @@
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
       <updated>1692323601886</updated>
-      <workItem from="1692323602318" duration="920000" />
+      <workItem from="1692323602318" duration="1225000" />
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary=" Update github actions">
+      <option name="closed" value="true" />
+      <created>1692324724244</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1692324724245</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,6 +258,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changed Project name to RPGkit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed Project name to RPGkit" />
+    <MESSAGE value=" Update github actions" />
+    <MESSAGE value="Refactored project so that Gradle only builds the RPGkit files instead of everything including the test and its assets." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored project so that Gradle only builds the RPGkit files instead of everything including the test and its assets." />
   </component>
 </project>
