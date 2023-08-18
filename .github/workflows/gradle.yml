@@ -37,8 +37,17 @@ jobs:
         with:
           arguments: build
 
+      - name: Generate Release Notes
+        id: notes
+        uses: RedCrafter07/release-notes-action@v1
+        with:
+          tag-name: ${{ github.event.inputs.version }}
+          branch: 'production'
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
+          body: ${{ steps.notes.outputs.notes }}
           tag_name: ${{ github.event.inputs.version }}
           files: build/libs/*.jar

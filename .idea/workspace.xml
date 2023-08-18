@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.github/workflows/gradle.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/gradle.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
-    <list id="dc795b5b-e930-4f77-9bc7-26e42eec353d" name=" Update github actions" comment="Fixed workflow" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -205,7 +204,7 @@
       <updated>1692326141121</updated>
       <workItem from="1692316479965" duration="809000" />
       <workItem from="1692320004359" duration="3587000" />
-      <workItem from="1692326141357" duration="2460000" />
+      <workItem from="1692326141357" duration="3186000" />
     </task>
     <task id="LOCAL-00001" summary="Changed Project name to RPGkit">
       <option name="closed" value="true" />
@@ -222,17 +221,6 @@
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
       <updated>1692322026462</updated>
-    </task>
-    <task active="true" id="LOCAL-00003" summary="Update github actions">
-      <branch name="production" repository="$PROJECT_DIR$" original="true" />
-      <branch name="Update-github" repository="$PROJECT_DIR$" />
-      <changelist id="dc795b5b-e930-4f77-9bc7-26e42eec353d" name=" Update github actions" comment="" />
-      <created>1692323585812</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1692323601886</updated>
-      <workItem from="1692323602318" duration="1225000" />
     </task>
     <task id="LOCAL-00004" summary=" Update github actions">
       <option name="closed" value="true" />
@@ -314,7 +302,23 @@
       <option name="project" value="LOCAL" />
       <updated>1692367532155</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fix workflow">
+      <option name="closed" value="true" />
+      <created>1692368088935</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1692368088936</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Fix workflow">
+      <option name="closed" value="true" />
+      <created>1692368251232</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1692368251232</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
