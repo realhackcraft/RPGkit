@@ -205,7 +205,7 @@
       <updated>1692326141121</updated>
       <workItem from="1692316479965" duration="809000" />
       <workItem from="1692320004359" duration="3587000" />
-      <workItem from="1692326141357" duration="1797000" />
+      <workItem from="1692326141357" duration="2460000" />
     </task>
     <task id="LOCAL-00001" summary="Changed Project name to RPGkit">
       <option name="closed" value="true" />
@@ -298,7 +298,23 @@
       <option name="project" value="LOCAL" />
       <updated>1692327232663</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Fix workflow">
+      <option name="closed" value="true" />
+      <created>1692367514267</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1692367514268</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Fix workflow">
+      <option name="closed" value="true" />
+      <created>1692367532155</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1692367532155</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
