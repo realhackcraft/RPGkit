@@ -1,4 +1,4 @@
-package rpgkit.utils;
+package rpgkit.util;
 
 import rpgkit.RPGKit;
 

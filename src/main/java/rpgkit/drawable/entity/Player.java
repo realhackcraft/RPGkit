@@ -1,8 +1,8 @@
-package rpgkit.entity;
+package rpgkit.drawable.entity;
 
-import rpgkit.KeyHandler;
-import rpgkit.managers.EntityManger;
-import rpgkit.utils.Utils;
+import rpgkit.input.KeyHandler;
+import rpgkit.manager.EntityManger;
+import rpgkit.util.Utils;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

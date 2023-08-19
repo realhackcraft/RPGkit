@@ -1,6 +1,6 @@
-package rpgkit.managers;
+package rpgkit.manager;
 
-import rpgkit.Drawable;
+import rpgkit.drawable.Drawable;
 
 import java.awt.*;
 import java.util.ArrayList;

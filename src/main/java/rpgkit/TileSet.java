@@ -2,7 +2,7 @@ package rpgkit;
 
 import rpgkit.ldtk.TileCustomMetadata;
 import rpgkit.ldtk.TilesetDefinition;
-import rpgkit.utils.Utils;
+import rpgkit.util.Utils;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

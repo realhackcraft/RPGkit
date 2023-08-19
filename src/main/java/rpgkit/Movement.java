@@ -1,13 +1,15 @@
 package rpgkit;
 
-import rpgkit.entity.Player;
-import rpgkit.managers.TileManager;
-import rpgkit.utils.Utils;
+import rpgkit.drawable.Drawable;
+import rpgkit.drawable.entity.Player;
+import rpgkit.input.KeyHandler;
+import rpgkit.manager.TileManager;
+import rpgkit.util.Utils;
 
 import java.awt.*;
 
 import static java.awt.event.KeyEvent.*;
-import static rpgkit.utils.Direction.*;
+import static rpgkit.util.Direction.*;
 
 public class Movement {
     public static void computeMovements(KeyHandler keyHandler, double delta) {

@@ -1,4 +1,4 @@
-package rpgkit.utils;
+package rpgkit.util;
 
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;

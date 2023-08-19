@@ -1,9 +1,10 @@
 package rpgkit;
 
+import rpgkit.drawable.Drawable;
 import rpgkit.ldtk.Level;
 import rpgkit.ldtk.TileInstance;
 import rpgkit.ldtk.tile.TileProperties;
-import rpgkit.utils.Utils;
+import rpgkit.util.Utils;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

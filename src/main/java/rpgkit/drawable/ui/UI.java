@@ -1,8 +1,8 @@
-package rpgkit.ui;
+package rpgkit.drawable.ui;
 
-import rpgkit.Drawable;
 import rpgkit.RPGKit;
-import rpgkit.ui.item.Item;
+import rpgkit.drawable.Drawable;
+import rpgkit.drawable.ui.item.Item;
 
 import java.awt.*;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -43,7 +43,7 @@ public class UI implements Drawable {
 
     }
 
-    public void addItem(rpgkit.entity.item.Item itemEntity) {
+    public void addItem(rpgkit.drawable.entity.item.Item itemEntity) {
         Item item = null;
         item = rpgKit.itemToUIConverter.convertToUIItem(itemEntity, 1);
 

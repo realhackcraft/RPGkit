@@ -1,4 +1,4 @@
-package rpgkit;
+package rpgkit.drawable;
 
 import java.awt.*;
 

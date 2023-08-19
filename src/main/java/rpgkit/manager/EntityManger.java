@@ -1,6 +1,6 @@
-package rpgkit.managers;
+package rpgkit.manager;
 
-import rpgkit.entity.Entity;
+import rpgkit.drawable.entity.Entity;
 
 import java.awt.*;
 import java.util.concurrent.CopyOnWriteArrayList;
