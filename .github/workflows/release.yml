@@ -38,17 +38,17 @@ jobs:
         id: default-fragment
         run: |
           if [[ "${{ github.event.pull_request.labels }}" == *"enhancement"* ]]; then
-            echo "feature"
+            echo "release_type=feature" >> $GITHUB_OUTPUT
           elif [[ "${{ github.event.pull_request.labels }}" == *"major"* ]]; then
-            echo "major"
+            echo "release_type=major" >> $GITHUB_OUTPUT
           else
-            echo "bug"
+            echo "release_type=bug" >> $GITHUB_OUTPUT
           fi
         shell: bash
 
       - name: test
         run: |
-          echo ${{join(steps.run_tests.outputs.*, '\n')}}
+          echo ${{ steps.default-fragment.outputs.release_type }}
 
       - name: Get Latest Release
         uses: PssbleTrngle/VersionManagment@v2
@@ -57,7 +57,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fallback: v1.0.0
           prefix: v
-          default-fragment: ${{join(steps.run_tests.outputs.*, '\n')}}
+          default-fragment: ${{ steps.default-fragment.outputs.release_type }}
 
       - name: Generate Changelog
         uses: Bullrich/generate-release-changelog@master
