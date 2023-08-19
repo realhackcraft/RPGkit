@@ -5,38 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" name="Changes" comment="Refactored code">
-      <change afterPath="$PROJECT_DIR$/src/main/java/rpgkit/loader/ItemToUIConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rpgkit/manager/Manager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/Animatable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/tile/Animation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/Drawable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/Drawable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/InteractableLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/loader/InteractableLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ItemLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/loader/ItemLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ItemToUIConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/input/KeyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/LDtkLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/LDtkLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/Movement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/Movement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/RPGKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/RPGKit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/Tile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/TileSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/TileSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/entity/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/entity/item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/entity/item/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/managers/EntityManger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/manager/EntityManger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/managers/LayerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/manager/LayerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/managers/Manager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/managers/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/manager/TileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/managers/TileSetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/manager/TileSetManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ui/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/ui/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ui/item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/ui/item/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/utils/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/util/Direction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/utils/GameUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/util/GameUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/utils/ImageUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/util/ImageUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/utils/PathUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/util/PathUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/utils/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/util/StringUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/util/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/main/entity/item/ObsidianSword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/main/entity/item/ObsidianSword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/main/ui/item/ObsidianSword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/main/ui/item/ObsidianSword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/tile/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/tile/Converter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/tile/TileProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/tile/TileProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/maps/Test.ldtk" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/maps/Test.ldtk" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +38,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -71,21 +48,22 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="development" />
+        <entry key="$PROJECT_DIR$" value="production" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "realhackcraft"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;realhackcraft&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubProjectSettings">
     <option name="branchProtectionPatterns">
       <list>
         <option value="production" />
+        <option value="development" />
       </list>
     </option>
   </component>
@@ -107,11 +85,15 @@
     <option name="rememberedNames">
       <collection>
         <option value="$PROJECT_DIR$/src/main/java/rpgkit/ui/UI.java-UI-RPGKit" />
+        <option value="$PROJECT_DIR$/src/main/java/rpgkit/Tile.java-Tile-getNextTileProperties-metadata" />
       </collection>
     </option>
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="2tvn7nzm" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
@@ -141,8 +123,8 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "code.cleanup.on.save": "true",
-    "git-widget-placeholder": "production",
-    "last_opened_file_path": "/Volumes/Big Drive/Programming Projects/IdeaProjects/RPGkit/src/test/resources/maps",
+    "git-widget-placeholder": "development",
+    "last_opened_file_path": "/Volumes/Big Drive/Programming Projects/IdeaProjects/RPGkit/src/main/java/rpgkit/ldtk/tile",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -152,10 +134,16 @@
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "tasks.timeTracking",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JAVA"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/tile" />
       <recent name="$PROJECT_DIR$/src/test/resources/maps" />
       <recent name="$PROJECT_DIR$/src/test/java" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
@@ -229,18 +217,26 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="Scratch" type="Java Scratch" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Scratch" />
+      <option name="SCRATCH_FILE_URL" value="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_1.java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Gradle.RPGkit [build]" />
       <item itemvalue="Gradle.RPGkit [dependencies]" />
+      <item itemvalue="Java Scratch.Scratch" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Java Scratch.Scratch" />
         <item itemvalue="Gradle.RPGkit [dependencies]" />
         <item itemvalue="Gradle.RPGkit [build]" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.RPGkit [dependencies]" />
-        <item itemvalue="Gradle.RPGkit [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -420,7 +416,15 @@
       <updated>1692410010973</updated>
       <workItem from="1692410011720" duration="3563000" />
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Update release.yml">
+      <option name="closed" value="true" />
+      <created>1692457025167</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1692457025168</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -457,5 +461,17 @@
     <MESSAGE value="Fixed workflow" />
     <MESSAGE value="Fix workflow" />
     <option name="LAST_COMMIT_MESSAGE" value="Fix workflow" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <condition expression="col == 2" language="JAVA" />
+          <url>file://$PROJECT_DIR$/src/main/java/rpgkit/TileSet.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

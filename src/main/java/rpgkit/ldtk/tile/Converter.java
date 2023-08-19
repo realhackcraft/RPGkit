@@ -6,7 +6,7 @@
 //
 // Import this package:
 //
-//     import ldtk.Converter;
+//     import ldtk.tile.Converter;
 //
 // Then you can deserialize a JSON string with
 //

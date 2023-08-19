@@ -79,8 +79,20 @@ public class TileSet {
      * @param col the integer value representing the column index of the requested frame
      * @return the BufferedImage of the requested frame referenced by row and column indices
      */
-    public BufferedImage getFrame(int col, int row) {
+    public BufferedImage getFrame(int row, int col) {
+        return frames[row][col];
+    }
+
+    public BufferedImage getFrame(int id) {
+//        for (int a = 1; a < 200; a++) {
+        int cols = (int) (image.getWidth() / (this.tileSet.getTileGridSize() + this.tileSet.getSpacing()));
+
+        int row = ((id - 1) / cols);
+        int col = (id) % cols;
+//            System.out.println(col + " " + row);
         return frames[col][row];
+//        }
+//        return null;
     }
 
     /**
