@@ -37,10 +37,11 @@ jobs:
       - name: Determine Default Fragment
         id: default-fragment
         run: |
-          if [[ "${{ github.event.pull_request.labels }}" == *"enhancement"* ]]; then
-            echo "feature"
-          elif [[ "${{ github.event.pull_request.labels }}" == *"major"* ]]; then
+          labels=("${{ github.event.pull_request.labels }}")
+          if [[ " ${labels[*]} " == *"major"* ]]; then
             echo "major"
+          elif [[ " ${labels[*]} " == *"enhancement"* ]]; then
+            echo "feature"
           else
             echo "bug"
           fi
