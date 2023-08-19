@@ -48,7 +48,7 @@ jobs:
 
       - name: test
         run: |
-          echo ${{ steps.default-fragment.outputs[0] }}
+          echo ${{join(steps.run_tests.outputs.*, '\n')}}
 
       - name: Get Latest Release
         uses: PssbleTrngle/VersionManagment@v2
@@ -57,7 +57,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fallback: v1.0.0
           prefix: v
-          default-fragment: ${{ steps.default-fragment.outputs.stdout }}
+          default-fragment: ${{join(steps.run_tests.outputs.*, '\n')}}
 
       - name: Generate Changelog
         uses: Bullrich/generate-release-changelog@master
