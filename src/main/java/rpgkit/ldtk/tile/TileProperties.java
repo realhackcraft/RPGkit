@@ -3,8 +3,19 @@ package rpgkit.ldtk.tile;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class TileProperties {
+    private Animation animation;
     private String interaction;
     private Boolean solid;
+
+    @JsonProperty("animation")
+    public Animation getAnimation() {
+        return animation;
+    }
+
+    @JsonProperty("animation")
+    public void setAnimation(Animation value) {
+        this.animation = value;
+    }
 
     @JsonProperty("interaction")
     public String getInteraction() {
