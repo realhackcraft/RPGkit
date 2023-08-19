@@ -146,7 +146,7 @@ public class LDtkLoader {
         for (LayerInstance layer : tileLayers) {
             if (layer.getType().equals("Entities")) {
                 processEntityLayer(layer, rpgKit, ldtk, targetLevel);
-            } else if (layer.getType().equals("Tiles")) {
+            } else {
                 processTileLayer(layer, rpgKit, targetLevel);
             }
         }
@@ -203,25 +203,60 @@ public class LDtkLoader {
      */
     public void processTileSet(LayerInstance layer, RPGKit rpgKit, TileSet tileset, Level targetLevel) {
         TileManager tileManager = new TileManager();
-        for (TileInstance tile : layer.getGridTiles()) {
-            TileCustomMetadata metadata = null;
+        if (layer.getType().equals("Tiles")) {
+            for (TileInstance tile : layer.getGridTiles()) {
+                TileCustomMetadata metadata = null;
 
-            for (TileCustomMetadata metadata1 : tileset.tileSet.getCustomData()) {
-                if (metadata1.getTileID() == tile.getT()) {
-                    metadata = metadata1;
-                    break;
+                for (TileCustomMetadata metadata1 : tileset.tileSet.getCustomData()) {
+                    if (metadata1.getTileID() == tile.getT()) {
+                        metadata = metadata1;
+                        break;
+                    }
                 }
-            }
 
-            TileProperties properties = null;
-            if (metadata != null) {
-                properties = getTileProperties(metadata);
-            }
+                TileProperties properties = null;
+                if (metadata != null) {
+                    properties = getTileProperties(metadata);
+                }
 
-            addTile(properties, tile, tileset, targetLevel, tileManager);
+                addTile(properties, tile, tileset, targetLevel, tileManager);
+            }
+        } else {
+            for (TileInstance tile : layer.getAutoLayerTiles()) {
+                TileCustomMetadata metadata = null;
+
+                for (TileCustomMetadata metadata1 : tileset.tileSet.getCustomData()) {
+                    if (metadata1.getTileID() == tile.getT()) {
+                        metadata = metadata1;
+                        break;
+                    }
+                }
+
+                TileProperties properties = null;
+                if (metadata != null) {
+                    properties = getTileProperties(metadata);
+                }
+                addAutoTile(properties, tile, tileset, targetLevel, tileManager);
+            }
         }
 
         rpgKit.manager.managers.add(tileManager);
+    }
+
+    private void addAutoTile(TileProperties properties, TileInstance tile, TileSet tileset, Level targetLevel, TileManager tileManager) {
+        try {
+            if (properties != null && properties.getInteraction() != null) {
+                tileManager.tiles.add(RPGKit.getInstance().interactableLoader.loadInteractable(properties.getInteraction().toLowerCase(),
+                                                                                               tile,
+                                                                                               tileset,
+                                                                                               targetLevel,
+                                                                                               properties));
+            } else {
+                tileManager.tiles.add(new Tile(tile, tileset, targetLevel, properties));
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
