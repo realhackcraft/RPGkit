@@ -48,7 +48,7 @@ jobs:
 
       - name: test
         run: |
-          echo ${{ steps.default-fragment.outputs.release_type }}
+          echo ${{ github.event.pull_request.labels }}
 
       - name: Get Latest Release
         uses: PssbleTrngle/VersionManagment@v2
