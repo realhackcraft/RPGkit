@@ -46,6 +46,10 @@ jobs:
           fi
         shell: bash
 
+      - name: test
+        run: |
+          echo ${{ steps.default-fragment.outputs.stdout }}
+
       - name: Get Latest Release
         uses: PssbleTrngle/VersionManagment@v2
         id: release
