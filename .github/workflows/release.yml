@@ -47,10 +47,6 @@ jobs:
           fi
         shell: bash
 
-      - name: test
-        run: |
-          echo ${{ github.event.pull_request.labels }}
-
       - name: Get Latest Release
         uses: PssbleTrngle/VersionManagment@v2
         id: release
