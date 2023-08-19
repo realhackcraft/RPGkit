@@ -1,4 +1,4 @@
-package rpgkit.utils;
+package rpgkit.util;
 
 /**
  * Static utility objects for common problems.

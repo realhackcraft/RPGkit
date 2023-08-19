@@ -3,7 +3,7 @@ package main;
 import main.interactable.Farm;
 import rpgkit.RPGKit;
 import rpgkit.Sound;
-import rpgkit.managers.TileSetManager;
+import rpgkit.manager.TileSetManager;
 
 import javax.swing.*;
 import java.util.List;

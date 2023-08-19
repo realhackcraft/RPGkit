@@ -1,11 +1,15 @@
 package rpgkit;
 
-import rpgkit.entity.Player;
+import rpgkit.drawable.entity.Player;
+import rpgkit.drawable.ui.UI;
+import rpgkit.input.KeyHandler;
 import rpgkit.ldtk.Converter;
 import rpgkit.ldtk.LDtk;
-import rpgkit.managers.LayerManager;
-import rpgkit.ui.UI;
-import rpgkit.utils.Utils;
+import rpgkit.loader.InteractableLoader;
+import rpgkit.loader.ItemLoader;
+import rpgkit.loader.ItemToUIConverter;
+import rpgkit.manager.LayerManager;
+import rpgkit.util.Utils;
 
 import javax.swing.*;
 import java.awt.*;

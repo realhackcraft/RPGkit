@@ -1,11 +1,11 @@
-package rpgkit.entity;
+package rpgkit.drawable.entity;
 
 import rpgkit.Camera;
-import rpgkit.Drawable;
 import rpgkit.RPGKit;
 import rpgkit.TileSet;
-import rpgkit.managers.EntityManger;
-import rpgkit.utils.Direction;
+import rpgkit.drawable.Drawable;
+import rpgkit.manager.EntityManger;
+import rpgkit.util.Direction;
 
 import java.awt.*;
 

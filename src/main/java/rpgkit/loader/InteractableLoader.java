@@ -1,5 +1,6 @@
-package rpgkit;
+package rpgkit.loader;
 
+import rpgkit.TileSet;
 import rpgkit.interactable.Interactable;
 import rpgkit.ldtk.Level;
 import rpgkit.ldtk.TileInstance;

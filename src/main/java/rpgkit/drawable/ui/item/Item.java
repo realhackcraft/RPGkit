@@ -1,8 +1,8 @@
-package rpgkit.ui.item;
+package rpgkit.drawable.ui.item;
 
-import rpgkit.Drawable;
 import rpgkit.RPGKit;
-import rpgkit.utils.Utils;
+import rpgkit.drawable.Drawable;
+import rpgkit.util.Utils;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -13,7 +13,7 @@ public abstract class Item implements Drawable {
     private BufferedImage image;
     public int count;
 
-    public Item(rpgkit.entity.item.Item item, int count) {
+    public Item(rpgkit.drawable.entity.item.Item item, int count) {
         this.RPGKit = rpgkit.RPGKit.getInstance();
         this.image = item.tileSet.getFrame((int) (item.rectangle.getX() / item.tileSet.tileSize),
                                            (int) (item.rectangle.getY() / item.tileSet.tileSize));

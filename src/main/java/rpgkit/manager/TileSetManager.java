@@ -1,4 +1,4 @@
-package rpgkit.managers;
+package rpgkit.manager;
 
 import rpgkit.TileSet;
 

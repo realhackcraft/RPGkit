@@ -1,15 +1,15 @@
 package rpgkit;
 
-import rpgkit.entity.Entity;
-import rpgkit.entity.Player;
-import rpgkit.entity.item.Item;
+import rpgkit.drawable.entity.Entity;
+import rpgkit.drawable.entity.Player;
+import rpgkit.drawable.entity.item.Item;
 import rpgkit.ldtk.*;
 import rpgkit.ldtk.tile.Converter;
 import rpgkit.ldtk.tile.TileProperties;
-import rpgkit.managers.EntityManger;
-import rpgkit.managers.TileManager;
-import rpgkit.managers.TileSetManager;
-import rpgkit.utils.Direction;
+import rpgkit.manager.EntityManger;
+import rpgkit.manager.TileManager;
+import rpgkit.manager.TileSetManager;
+import rpgkit.util.Direction;
 
 import java.awt.*;
 import java.io.IOException;

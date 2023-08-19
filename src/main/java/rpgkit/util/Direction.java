@@ -1,4 +1,4 @@
-package rpgkit.utils;
+package rpgkit.util;
 
 /**
  * An enumeration of four cardinal directions: UP, DOWN, LEFT, and RIGHT.
