@@ -1,4 +1,4 @@
-package rpgkit.utils;
+package rpgkit.util;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;

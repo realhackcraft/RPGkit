@@ -1,11 +1,11 @@
-package rpgkit.entity.item;
+package rpgkit.drawable.entity.item;
 
 import rpgkit.Sound;
 import rpgkit.TileSet;
-import rpgkit.entity.Entity;
+import rpgkit.drawable.entity.Entity;
 import rpgkit.ldtk.TilesetRectangle;
-import rpgkit.managers.EntityManger;
-import rpgkit.utils.Utils;
+import rpgkit.manager.EntityManger;
+import rpgkit.util.Utils;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

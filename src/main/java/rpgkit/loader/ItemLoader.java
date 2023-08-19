@@ -1,8 +1,8 @@
-package rpgkit;
+package rpgkit.loader;
 
-import rpgkit.entity.item.Item;
+import rpgkit.drawable.entity.item.Item;
 import rpgkit.ldtk.EntityInstance;
-import rpgkit.managers.EntityManger;
+import rpgkit.manager.EntityManger;
 
 import java.util.List;
 

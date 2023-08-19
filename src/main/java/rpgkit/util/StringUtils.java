@@ -1,4 +1,4 @@
-package rpgkit.utils;
+package rpgkit.util;
 
 import java.io.IOException;
 import java.io.InputStream;

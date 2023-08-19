@@ -1,9 +1,9 @@
 package main.entity.item;
 
 import rpgkit.TileSet;
-import rpgkit.entity.item.Item;
+import rpgkit.drawable.entity.item.Item;
 import rpgkit.ldtk.TilesetRectangle;
-import rpgkit.managers.EntityManger;
+import rpgkit.manager.EntityManger;
 
 public class ObsidianSword extends Item {
     public ObsidianSword(EntityManger entityManger, TileSet tileSet, TilesetRectangle rectangle) {
