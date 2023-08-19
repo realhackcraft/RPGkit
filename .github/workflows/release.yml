@@ -10,6 +10,7 @@ name: Create new Release
 on:
   pull_request:
     branches: [ production ]
+    types: [ labeled ]
   workflow_dispatch:
 
 permissions:
@@ -37,9 +38,9 @@ jobs:
       - name: Determine Default Fragment
         id: default-fragment
         run: |
-          if [[ "${{ github.event.pull_request.labels }}" == *"enhancement"* ]]; then
+          if [[ "${{ ${{ github.event.label.name }} }}" == "enhancement" ]]; then
             echo "release_type=feature" >> $GITHUB_OUTPUT
-          elif [[ "${{ github.event.pull_request.labels }}" == *"major"* ]]; then
+          elif [[ "${{ ${{ github.event.label.name }} }}" == "major" ]]; then
             echo "release_type=major" >> $GITHUB_OUTPUT
           else
             echo "release_type=bug" >> $GITHUB_OUTPUT
