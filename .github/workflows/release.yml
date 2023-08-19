@@ -34,6 +34,18 @@ jobs:
         with:
           arguments: build
 
+      - name: Determine Default Fragment
+        id: default-fragment
+        run: |
+          if [[ "${{ github.event.pull_request.labels }}" == *"enhancement"* ]]; then
+            echo "feature"
+          elif [[ "${{ github.event.pull_request.labels }}" == *"major"* ]]; then
+            echo "major"
+          else
+            echo "bug"
+          fi
+        shell: bash
+
       - name: Get Latest Release
         uses: PssbleTrngle/VersionManagment@v2
         id: release
@@ -41,7 +53,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fallback: v1.0.0
           prefix: v
-        
+          default-fragment: ${{ steps.default-fragment.outputs.stdout }}
+
       - name: Generate Changelog
         uses: Bullrich/generate-release-changelog@master
         id: changelog
