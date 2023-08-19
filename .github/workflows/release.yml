@@ -48,7 +48,7 @@ jobs:
 
       - name: test
         run: |
-          echo ${{ steps.default-fragment.outputs.stdout }}
+          echo ${{ steps.default-fragment.outputs[0] }}
 
       - name: Get Latest Release
         uses: PssbleTrngle/VersionManagment@v2
