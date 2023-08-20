@@ -56,11 +56,14 @@ jobs:
           prefix: v
           default-fragment: ${{ steps.default-fragment.outputs.release_type }}
 
-      - name: Generate Changelog
-        uses: Bullrich/generate-release-changelog@master
-        id: changelog
+      - name: Generate Release Notes
+        uses: johnyherangi/create-release-notes@main
+        id: release-notes
         env:
-          REPO: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          format: |
+            - {{subject}} by **@{{author|committer}}**
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
@@ -68,5 +71,9 @@ jobs:
           tag_name: ${{ steps.release.outputs.next }}
           files: build/libs/*.jar
           body: |
-            Changes:
-            ${{ steps.changelog.outputs.changelog }}
+            # ${{ steps.release-notes.outputs.release-name }} (${{ steps.release.outputs.next }})
+            
+            ## Changes:
+            ${{ steps.release-notes.outputs.release-notes }}
+
+            
