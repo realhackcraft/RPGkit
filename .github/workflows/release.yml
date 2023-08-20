@@ -63,8 +63,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           format: |
-            - {{subject}} by @{{author|committer}}:
-              {{message}}
+            - {{subject}} by **@{{author|committer}}**
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
