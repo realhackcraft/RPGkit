@@ -39,12 +39,10 @@ public class Player extends Entity {
     }
 
     public void loadImage() {
-        images[0] = Utils.images.scale(tileSet.getFrame(0, 0), RPGKit.tileScale, RPGKit.tileScale);
-        images[1] = Utils.images.scale(tileSet.getFrame(1, 0), RPGKit.tileScale, RPGKit.tileScale);
-        images[2] = Utils.images.scale(tileSet.getFrame(2, 0), RPGKit.tileScale, RPGKit.tileScale);
-        images[3] = Utils.images.scale(Utils.images.flipHorizontal(tileSet.getFrame(1, 0)),
-                                       RPGKit.tileScale,
-                                       RPGKit.tileScale);
+        images[0] = tileSet.getFrame(0, 0);
+        images[1] = tileSet.getFrame(1, 0);
+        images[2] = tileSet.getFrame(2, 0);
+        images[3] = Utils.images.flipHorizontal(tileSet.getFrame(1, 0));
     }
 
     @Override
