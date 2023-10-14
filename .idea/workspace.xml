@@ -5,39 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" name="Changes" comment="Add back the test and updated LDtk schema version from 1.3 to 1.4">
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/LDtkLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/LDtkLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/Movement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/Movement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/RPGKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/RPGKit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/entity/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/entity/item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/entity/item/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/ui/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/ui/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/Checker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/Checker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/Converter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/Definitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/Definitions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EditorDisplayMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EditorDisplayMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EditorDisplayPos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EditorDisplayPos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EditorLinkStyle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EditorLinkStyle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EmbedAtlas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EmbedAtlas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EntityDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EntityDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/Flag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/Flag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/IdentifierStyle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/IdentifierStyle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/ImageExportMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/ImageExportMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/LDtk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/LDtk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/LimitBehavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/LimitBehavior.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/LimitScope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/LimitScope.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/RenderMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/RenderMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/TextLanguageMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/TextLanguageMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/TileMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/TileMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/TileRenderMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/TileRenderMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/Type.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/When.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/When.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/WorldLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/WorldLayout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/tile/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/tile/Converter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/util/GameUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/util/GameUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/rpgkit/RPGKitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rpgkit/RPGKitTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/maps/Test/backups/c65f7de0-ed50-11ed-b831-d56759fb2ace_2023-08-18_22-03-35_crash/Test.ldtk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,36 +112,36 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Gradle.Build RPGkit.executor": "Run",
-    "Gradle.RPGkit [:Main.main()].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "code.cleanup.on.save": "true",
-    "git-widget-placeholder": "development",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Volumes/Big Drive/Programming Projects/IdeaProjects/RPGkit/src/main/java/rpgkit/ldtk",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "tasks.timeTracking",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Gradle.Build RPGkit.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RPGkit [:Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;development&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Volumes/Big Drive/Programming Projects/IdeaProjects/RPGkit/src/main/java/rpgkit/ldtk&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;tasks.timeTracking&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "JAVA"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;JAVA&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/rpgkit/ldtk" />
@@ -515,7 +483,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="development" />
+                        <option value="production" />
                       </list>
                     </value>
                   </entry>
@@ -547,7 +515,7 @@
         <line-breakpoint enabled="true" type="java-line">
           <condition expression="col == 2" language="JAVA" />
           <url>file://$PROJECT_DIR$/src/main/java/rpgkit/TileSet.java</url>
-          <line>91</line>
+          <line>93</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
