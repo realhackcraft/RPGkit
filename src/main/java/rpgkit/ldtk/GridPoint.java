@@ -1,6 +1,6 @@
 package rpgkit.ldtk;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 /**
  * This object is just a grid-based coordinate used in Field values.
@@ -13,25 +13,15 @@ public class GridPoint {
      * X grid-based coordinate
      */
     @JsonProperty("cx")
-    public long getCx() {
-        return cx;
-    }
-
+    public long getCx() { return cx; }
     @JsonProperty("cx")
-    public void setCx(long value) {
-        this.cx = value;
-    }
+    public void setCx(long value) { this.cx = value; }
 
     /**
      * Y grid-based coordinate
      */
     @JsonProperty("cy")
-    public long getCy() {
-        return cy;
-    }
-
+    public long getCy() { return cy; }
     @JsonProperty("cy")
-    public void setCy(long value) {
-        this.cy = value;
-    }
+    public void setCy(long value) { this.cy = value; }
 }

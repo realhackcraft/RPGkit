@@ -1,6 +1,6 @@
 package rpgkit.ldtk;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 /**
  * In a tileset definition, user defined meta-data of a tile.
@@ -10,22 +10,12 @@ public class TileCustomMetadata {
     private long tileID;
 
     @JsonProperty("data")
-    public String getData() {
-        return data;
-    }
-
+    public String getData() { return data; }
     @JsonProperty("data")
-    public void setData(String value) {
-        this.data = value;
-    }
+    public void setData(String value) { this.data = value; }
 
     @JsonProperty("tileId")
-    public long getTileID() {
-        return tileID;
-    }
-
+    public long getTileID() { return tileID; }
     @JsonProperty("tileId")
-    public void setTileID(long value) {
-        this.tileID = value;
-    }
+    public void setTileID(long value) { this.tileID = value; }
 }

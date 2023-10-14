@@ -10,7 +10,7 @@
 //
 // Then you can deserialize a JSON string with
 //
-//     TileProperties data = Converter.fromJsonString(jsonString);
+//     LDtk data = Converter.fromJsonString(jsonString);
 
 package rpgkit.ldtk.tile;
 
@@ -76,7 +76,7 @@ public class Converter {
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
         SimpleModule module = new SimpleModule();
-        module.addDeserializer(OffsetDateTime.class, new JsonDeserializer<OffsetDateTime>() {
+        module.addDeserializer(OffsetDateTime.class, new JsonDeserializer<>() {
             @Override
             public OffsetDateTime deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
                 String value = jsonParser.getText();

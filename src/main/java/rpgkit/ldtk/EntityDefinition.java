@@ -34,6 +34,7 @@ public class EntityDefinition {
     private TileRenderMode tileRenderMode;
     private Long tilesetID;
     private long uid;
+    private TilesetRectangle uiTileRect;
     private long width;
 
     /**
@@ -254,7 +255,7 @@ public class EntityDefinition {
     /**
      * An array of 4 dimensions for the up/right/down/left borders (in this order) when using
      * 9-slice mode for `tileRenderMode`.<br/>  If the tileRenderMode is not NineSlice, then
-     * this array is empty.<br/>  See: <a href="https://en.wikipedia.org/wiki/9-slice_scaling">9-slice scaling</a>
+     * this array is empty.<br/>  See: <a href="https://en.wikipedia.org/wiki/9-slice_scaling">...</a>
      */
     @JsonProperty("nineSliceBorders")
     public long[] getNineSliceBorders() {
@@ -433,6 +434,19 @@ public class EntityDefinition {
     @JsonProperty("uid")
     public void setUid(long value) {
         this.uid = value;
+    }
+
+    /**
+     * This tile overrides the one defined in `tileRect` in the UI
+     */
+    @JsonProperty("uiTileRect")
+    public TilesetRectangle getUITileRect() {
+        return uiTileRect;
+    }
+
+    @JsonProperty("uiTileRect")
+    public void setUITileRect(TilesetRectangle value) {
+        this.uiTileRect = value;
     }
 
     /**

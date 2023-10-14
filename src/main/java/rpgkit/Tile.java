@@ -27,7 +27,7 @@ public class Tile implements Animatable {
     public boolean hasAnimation;
     public int currentFrame = 0;
 
-    public Tile(TileInstance tile, TileSet tileSet, Level level, TileProperties properties) throws IOException {
+    public Tile(TileInstance tile, TileSet tileSet, Level level, TileProperties properties) {
         BufferedImage tempImage;
         this.tileSet = tileSet;
 
@@ -73,6 +73,7 @@ public class Tile implements Animatable {
         if (Utils.game.isOffScreen(screenPosition)) {
             return;
         }
+
 //        Draw the tile on the screen based on its screenPosition.
         g2d.drawImage(image,
                       (int) screenPosition[0],
@@ -85,10 +86,8 @@ public class Tile implements Animatable {
         screenPosition[0] = (worldPosition[0] * RPGKit.tileScale) + Camera.xOffset;
         screenPosition[1] = (worldPosition[1] * RPGKit.tileScale) + Camera.yOffset;
 
-        if (!Utils.game.isOffScreen(screenPosition)) {
-            hitbox.x = (int) screenPosition[0];
-            hitbox.y = (int) screenPosition[1];
-        }
+        hitbox.x = (int) screenPosition[0];
+        hitbox.y = (int) screenPosition[1];
 
         if (hasAnimation) {
             currentFrame++;

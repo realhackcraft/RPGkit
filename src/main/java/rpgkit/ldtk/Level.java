@@ -1,6 +1,6 @@
 package rpgkit.ldtk;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 /**
  * This section contains all the level data. It can be found in 2 distinct forms, depending
@@ -40,96 +40,62 @@ public class Level {
      * automatically used here if its value is `null`)
      */
     @JsonProperty("__bgColor")
-    public String getBgColor() {
-        return bgColor;
-    }
-
+    public String getBgColor() { return bgColor; }
     @JsonProperty("__bgColor")
-    public void setBgColor(String value) {
-        this.bgColor = value;
-    }
+    public void setBgColor(String value) { this.bgColor = value; }
 
     /**
      * Position informations of the background image, if there is one.
      */
     @JsonProperty("__bgPos")
-    public LevelBackgroundPosition getBgPos() {
-        return bgPos;
-    }
-
+    public LevelBackgroundPosition getBgPos() { return bgPos; }
     @JsonProperty("__bgPos")
-    public void setBgPos(LevelBackgroundPosition value) {
-        this.bgPos = value;
-    }
+    public void setBgPos(LevelBackgroundPosition value) { this.bgPos = value; }
 
     /**
-     * An array listing all other levels touching this one on the world map.<br/>  Only relevant
-     * for world layouts where level spatial positioning is manual (ie. GridVania, Free). For
-     * Horizontal and Vertical layouts, this array is always empty.
+     * An array listing all other levels touching this one on the world map. Since 1.4.0, this
+     * includes levels that overlap in the same world layer, or in nearby world layers.<br/>
+     * Only relevant for world layouts where level spatial positioning is manual (ie. GridVania,
+     * Free). For Horizontal and Vertical layouts, this array is always empty.
      */
     @JsonProperty("__neighbours")
-    public NeighbourLevel[] getNeighbours() {
-        return neighbours;
-    }
-
+    public NeighbourLevel[] getNeighbours() { return neighbours; }
     @JsonProperty("__neighbours")
-    public void setNeighbours(NeighbourLevel[] value) {
-        this.neighbours = value;
-    }
+    public void setNeighbours(NeighbourLevel[] value) { this.neighbours = value; }
 
     /**
      * The "guessed" color for this level in the editor, decided using either the background
      * color or an existing custom field.
      */
     @JsonProperty("__smartColor")
-    public String getSmartColor() {
-        return smartColor;
-    }
-
+    public String getSmartColor() { return smartColor; }
     @JsonProperty("__smartColor")
-    public void setSmartColor(String value) {
-        this.smartColor = value;
-    }
+    public void setSmartColor(String value) { this.smartColor = value; }
 
     /**
      * Background color of the level. If `null`, the project `defaultLevelBgColor` should be
      * used.
      */
     @JsonProperty("bgColor")
-    public String getLevelBgColor() {
-        return levelBgColor;
-    }
-
+    public String getLevelBgColor() { return levelBgColor; }
     @JsonProperty("bgColor")
-    public void setLevelBgColor(String value) {
-        this.levelBgColor = value;
-    }
+    public void setLevelBgColor(String value) { this.levelBgColor = value; }
 
     /**
      * Background image X pivot (0-1)
      */
     @JsonProperty("bgPivotX")
-    public double getBgPivotX() {
-        return bgPivotX;
-    }
-
+    public double getBgPivotX() { return bgPivotX; }
     @JsonProperty("bgPivotX")
-    public void setBgPivotX(double value) {
-        this.bgPivotX = value;
-    }
+    public void setBgPivotX(double value) { this.bgPivotX = value; }
 
     /**
      * Background image Y pivot (0-1)
      */
     @JsonProperty("bgPivotY")
-    public double getBgPivotY() {
-        return bgPivotY;
-    }
-
+    public double getBgPivotY() { return bgPivotY; }
     @JsonProperty("bgPivotY")
-    public void setBgPivotY(double value) {
-        this.bgPivotY = value;
-    }
+    public void setBgPivotY(double value) { this.bgPivotY = value; }
 
     /**
      * An enum defining the way the background image (if any) is positioned on the level. See
@@ -137,80 +103,50 @@ public class Level {
      * `Contain`, `Cover`, `CoverDirty`, `Repeat`
      */
     @JsonProperty("bgPos")
-    public BgPos getLevelBgPos() {
-        return levelBgPos;
-    }
-
+    public BgPos getLevelBgPos() { return levelBgPos; }
     @JsonProperty("bgPos")
-    public void setLevelBgPos(BgPos value) {
-        this.levelBgPos = value;
-    }
+    public void setLevelBgPos(BgPos value) { this.levelBgPos = value; }
 
     /**
      * The *optional* relative path to the level background image.
      */
     @JsonProperty("bgRelPath")
-    public String getBgRelPath() {
-        return bgRelPath;
-    }
-
+    public String getBgRelPath() { return bgRelPath; }
     @JsonProperty("bgRelPath")
-    public void setBgRelPath(String value) {
-        this.bgRelPath = value;
-    }
+    public void setBgRelPath(String value) { this.bgRelPath = value; }
 
     /**
      * This value is not null if the project option "*Save levels separately*" is enabled. In
      * this case, this **relative** path points to the level Json file.
      */
     @JsonProperty("externalRelPath")
-    public String getExternalRelPath() {
-        return externalRelPath;
-    }
-
+    public String getExternalRelPath() { return externalRelPath; }
     @JsonProperty("externalRelPath")
-    public void setExternalRelPath(String value) {
-        this.externalRelPath = value;
-    }
+    public void setExternalRelPath(String value) { this.externalRelPath = value; }
 
     /**
      * An array containing this level custom field values.
      */
     @JsonProperty("fieldInstances")
-    public FieldInstance[] getFieldInstances() {
-        return fieldInstances;
-    }
-
+    public FieldInstance[] getFieldInstances() { return fieldInstances; }
     @JsonProperty("fieldInstances")
-    public void setFieldInstances(FieldInstance[] value) {
-        this.fieldInstances = value;
-    }
+    public void setFieldInstances(FieldInstance[] value) { this.fieldInstances = value; }
 
     /**
      * User defined unique identifier
      */
     @JsonProperty("identifier")
-    public String getIdentifier() {
-        return identifier;
-    }
-
+    public String getIdentifier() { return identifier; }
     @JsonProperty("identifier")
-    public void setIdentifier(String value) {
-        this.identifier = value;
-    }
+    public void setIdentifier(String value) { this.identifier = value; }
 
     /**
      * Unique instance identifier
      */
     @JsonProperty("iid")
-    public String getIid() {
-        return iid;
-    }
-
+    public String getIid() { return iid; }
     @JsonProperty("iid")
-    public void setIid(String value) {
-        this.iid = value;
-    }
+    public void setIid(String value) { this.iid = value; }
 
     /**
      * An array containing all Layer instances. **IMPORTANT**: if the project option "*Save
@@ -218,53 +154,33 @@ public class Level {
      * in display order**: the 1st layer is the top-most and the last is behind.
      */
     @JsonProperty("layerInstances")
-    public LayerInstance[] getLayerInstances() {
-        return layerInstances;
-    }
-
+    public LayerInstance[] getLayerInstances() { return layerInstances; }
     @JsonProperty("layerInstances")
-    public void setLayerInstances(LayerInstance[] value) {
-        this.layerInstances = value;
-    }
+    public void setLayerInstances(LayerInstance[] value) { this.layerInstances = value; }
 
     /**
      * Height of the level in pixels
      */
     @JsonProperty("pxHei")
-    public long getPxHei() {
-        return pxHei;
-    }
-
+    public long getPxHei() { return pxHei; }
     @JsonProperty("pxHei")
-    public void setPxHei(long value) {
-        this.pxHei = value;
-    }
+    public void setPxHei(long value) { this.pxHei = value; }
 
     /**
      * Width of the level in pixels
      */
     @JsonProperty("pxWid")
-    public long getPxWid() {
-        return pxWid;
-    }
-
+    public long getPxWid() { return pxWid; }
     @JsonProperty("pxWid")
-    public void setPxWid(long value) {
-        this.pxWid = value;
-    }
+    public void setPxWid(long value) { this.pxWid = value; }
 
     /**
      * Unique Int identifier
      */
     @JsonProperty("uid")
-    public long getUid() {
-        return uid;
-    }
-
+    public long getUid() { return uid; }
     @JsonProperty("uid")
-    public void setUid(long value) {
-        this.uid = value;
-    }
+    public void setUid(long value) { this.uid = value; }
 
     /**
      * If TRUE, the level identifier will always automatically use the naming pattern as defined
@@ -272,14 +188,9 @@ public class Level {
      * user.
      */
     @JsonProperty("useAutoIdentifier")
-    public boolean getUseAutoIdentifier() {
-        return useAutoIdentifier;
-    }
-
+    public boolean getUseAutoIdentifier() { return useAutoIdentifier; }
     @JsonProperty("useAutoIdentifier")
-    public void setUseAutoIdentifier(boolean value) {
-        this.useAutoIdentifier = value;
-    }
+    public void setUseAutoIdentifier(boolean value) { this.useAutoIdentifier = value; }
 
     /**
      * Index that represents the "depth" of the level in the world. Default is 0, greater means
@@ -287,14 +198,9 @@ public class Level {
      * intended to make stacking of levels easier to manage.
      */
     @JsonProperty("worldDepth")
-    public long getWorldDepth() {
-        return worldDepth;
-    }
-
+    public long getWorldDepth() { return worldDepth; }
     @JsonProperty("worldDepth")
-    public void setWorldDepth(long value) {
-        this.worldDepth = value;
-    }
+    public void setWorldDepth(long value) { this.worldDepth = value; }
 
     /**
      * World X coordinate in pixels.<br/>  Only relevant for world layouts where level spatial
@@ -302,14 +208,9 @@ public class Level {
      * value is always -1 here.
      */
     @JsonProperty("worldX")
-    public long getWorldX() {
-        return worldX;
-    }
-
+    public long getWorldX() { return worldX; }
     @JsonProperty("worldX")
-    public void setWorldX(long value) {
-        this.worldX = value;
-    }
+    public void setWorldX(long value) { this.worldX = value; }
 
     /**
      * World Y coordinate in pixels.<br/>  Only relevant for world layouts where level spatial
@@ -317,12 +218,7 @@ public class Level {
      * value is always -1 here.
      */
     @JsonProperty("worldY")
-    public long getWorldY() {
-        return worldY;
-    }
-
+    public long getWorldY() { return worldY; }
     @JsonProperty("worldY")
-    public void setWorldY(long value) {
-        this.worldY = value;
-    }
+    public void setWorldY(long value) { this.worldY = value; }
 }

@@ -6,7 +6,7 @@
 //
 // Import this package:
 //
-//     import LDtk.Converter;
+//     import rpgkit.ldtk.Converter;
 //
 // Then you can deserialize a JSON string with
 //

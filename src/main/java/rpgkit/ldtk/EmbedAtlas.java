@@ -10,9 +10,10 @@ public enum EmbedAtlas {
 
     @JsonValue
     public String toValue() {
-        return switch (this) {
-            case LDTK_ICONS -> "LdtkIcons";
-        };
+        if (this == EmbedAtlas.LDTK_ICONS) {
+            return "LdtkIcons";
+        }
+        return null;
     }
 
     @JsonCreator

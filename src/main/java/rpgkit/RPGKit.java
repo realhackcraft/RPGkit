@@ -59,7 +59,7 @@ public class RPGKit extends JPanel implements Runnable {
 
     public Player player;
 
-    public static final LDtkLoader lDtkLoader = LDtkLoader.get();
+    public static final LDtkLoader lDtkLoader = LDtkLoader.getInstance();
 
     /**
      * Creates a new RPGKit with preferred dimensions based on screenWidth and screenHeight constants.
@@ -74,8 +74,8 @@ public class RPGKit extends JPanel implements Runnable {
     private boolean started = false;
     private JFrame frame;
     public Sound music = new Sound();
-    public Sound effect = new Sound();
-    public UI ui = new UI();
+    public final Sound effect = new Sound();
+    public final UI ui = new UI();
 
     public static RPGKit getInstance() {
         if (INSTANCE == null) {
