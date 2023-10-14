@@ -1,6 +1,6 @@
 package rpgkit.ldtk;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 /**
  * In a tileset definition, enum based tag infos
@@ -10,22 +10,12 @@ public class EnumTagValue {
     private long[] tileIDS;
 
     @JsonProperty("enumValueId")
-    public String getEnumValueID() {
-        return enumValueID;
-    }
-
+    public String getEnumValueID() { return enumValueID; }
     @JsonProperty("enumValueId")
-    public void setEnumValueID(String value) {
-        this.enumValueID = value;
-    }
+    public void setEnumValueID(String value) { this.enumValueID = value; }
 
     @JsonProperty("tileIds")
-    public long[] getTileIDS() {
-        return tileIDS;
-    }
-
+    public long[] getTileIDS() { return tileIDS; }
     @JsonProperty("tileIds")
-    public void setTileIDS(long[] value) {
-        this.tileIDS = value;
-    }
+    public void setTileIDS(long[] value) { this.tileIDS = value; }
 }

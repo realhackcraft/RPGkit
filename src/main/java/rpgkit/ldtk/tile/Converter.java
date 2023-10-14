@@ -10,7 +10,7 @@
 //
 // Then you can deserialize a JSON string with
 //
-//     TileProperties data = Converter.fromJsonString(jsonString);
+//     LDtk data = Converter.fromJsonString(jsonString);
 
 package rpgkit.ldtk.tile;
 

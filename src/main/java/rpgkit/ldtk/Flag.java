@@ -1,23 +1,22 @@
 package rpgkit.ldtk;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-
 import java.io.IOException;
+import com.fasterxml.jackson.annotation.*;
 
 public enum Flag {
     DISCARD_PRE_CSV_INT_GRID, EXPORT_PRE_CSV_INT_GRID_FORMAT, IGNORE_BACKUP_SUGGEST, MULTI_WORLDS, PREPEND_INDEX_TO_LEVEL_FILE_NAMES, USE_MULTILINES_TYPE;
 
     @JsonValue
     public String toValue() {
-        return switch (this) {
-            case DISCARD_PRE_CSV_INT_GRID -> "DiscardPreCsvIntGrid";
-            case EXPORT_PRE_CSV_INT_GRID_FORMAT -> "ExportPreCsvIntGridFormat";
-            case IGNORE_BACKUP_SUGGEST -> "IgnoreBackupSuggest";
-            case MULTI_WORLDS -> "MultiWorlds";
-            case PREPEND_INDEX_TO_LEVEL_FILE_NAMES -> "PrependIndexToLevelFileNames";
-            case USE_MULTILINES_TYPE -> "UseMultilinesType";
-        };
+        switch (this) {
+            case DISCARD_PRE_CSV_INT_GRID: return "DiscardPreCsvIntGrid";
+            case EXPORT_PRE_CSV_INT_GRID_FORMAT: return "ExportPreCsvIntGridFormat";
+            case IGNORE_BACKUP_SUGGEST: return "IgnoreBackupSuggest";
+            case MULTI_WORLDS: return "MultiWorlds";
+            case PREPEND_INDEX_TO_LEVEL_FILE_NAMES: return "PrependIndexToLevelFileNames";
+            case USE_MULTILINES_TYPE: return "UseMultilinesType";
+        }
+        return null;
     }
 
     @JsonCreator

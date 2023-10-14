@@ -1,6 +1,6 @@
 package rpgkit.ldtk;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 public class FieldInstance {
     private String identifier;
@@ -14,28 +14,18 @@ public class FieldInstance {
      * Field definition identifier
      */
     @JsonProperty("__identifier")
-    public String getIdentifier() {
-        return identifier;
-    }
-
+    public String getIdentifier() { return identifier; }
     @JsonProperty("__identifier")
-    public void setIdentifier(String value) {
-        this.identifier = value;
-    }
+    public void setIdentifier(String value) { this.identifier = value; }
 
     /**
      * Optional TilesetRect used to display this field (this can be the field own Tile, or some
      * other Tile guessed from the value, like an Enum).
      */
     @JsonProperty("__tile")
-    public TilesetRectangle getTile() {
-        return tile;
-    }
-
+    public TilesetRectangle getTile() { return tile; }
     @JsonProperty("__tile")
-    public void setTile(TilesetRectangle value) {
-        this.tile = value;
-    }
+    public void setTile(TilesetRectangle value) { this.tile = value; }
 
     /**
      * Type of the field, such as `Int`, `Float`, `String`, `Enum(my_enum_name)`, `Bool`,
@@ -43,14 +33,9 @@ public class FieldInstance {
      * "*Multilines*" instead of "*String*" when relevant.
      */
     @JsonProperty("__type")
-    public String getType() {
-        return type;
-    }
-
+    public String getType() { return type; }
     @JsonProperty("__type")
-    public void setType(String value) {
-        this.type = value;
-    }
+    public void setType(String value) { this.type = value; }
 
     /**
      * Actual value of the field instance. The value type varies, depending on `__type`:<br/>
@@ -64,38 +49,23 @@ public class FieldInstance {
      * array, then this `__value` will also be a JSON array.
      */
     @JsonProperty("__value")
-    public Object getValue() {
-        return value;
-    }
-
+    public Object getValue() { return value; }
     @JsonProperty("__value")
-    public void setValue(Object value) {
-        this.value = value;
-    }
+    public void setValue(Object value) { this.value = value; }
 
     /**
      * Reference of the **Field definition** UID
      */
     @JsonProperty("defUid")
-    public long getDefUid() {
-        return defUid;
-    }
-
+    public long getDefUid() { return defUid; }
     @JsonProperty("defUid")
-    public void setDefUid(long value) {
-        this.defUid = value;
-    }
+    public void setDefUid(long value) { this.defUid = value; }
 
     /**
      * Editor internal raw values
      */
     @JsonProperty("realEditorValues")
-    public Object[] getRealEditorValues() {
-        return realEditorValues;
-    }
-
+    public Object[] getRealEditorValues() { return realEditorValues; }
     @JsonProperty("realEditorValues")
-    public void setRealEditorValues(Object[] value) {
-        this.realEditorValues = value;
-    }
+    public void setRealEditorValues(Object[] value) { this.realEditorValues = value; }
 }

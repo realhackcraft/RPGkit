@@ -17,6 +17,8 @@ public class LDtk {
     private String backupRelPath;
     private String bgColor;
     private LdtkCustomCommand[] customCommands;
+    private long defaultEntityHeight;
+    private long defaultEntityWidth;
     private long defaultGridSize;
     private String defaultLevelBgColor;
     private Long defaultLevelHeight;
@@ -142,6 +144,32 @@ public class LDtk {
     @JsonProperty("customCommands")
     public void setCustomCommands(LdtkCustomCommand[] value) {
         this.customCommands = value;
+    }
+
+    /**
+     * Default height for new entities
+     */
+    @JsonProperty("defaultEntityHeight")
+    public long getDefaultEntityHeight() {
+        return defaultEntityHeight;
+    }
+
+    @JsonProperty("defaultEntityHeight")
+    public void setDefaultEntityHeight(long value) {
+        this.defaultEntityHeight = value;
+    }
+
+    /**
+     * Default width for new entities
+     */
+    @JsonProperty("defaultEntityWidth")
+    public long getDefaultEntityWidth() {
+        return defaultEntityWidth;
+    }
+
+    @JsonProperty("defaultEntityWidth")
+    public void setDefaultEntityWidth(long value) {
+        this.defaultEntityWidth = value;
     }
 
     /**
@@ -542,7 +570,7 @@ public class LDtk {
      * pretty much only about moving the `levels` array to the `worlds` array, along with world
      * layout related values (eg. `worldGridWidth` etc).<br/><br/>If you want to start
      * supporting this future update easily, please refer to this documentation:
-     * <a href="https://github.com/deepnight/ldtk/issues/231">issue 231</a>.
+     * https://github.com/deepnight/ldtk/issues/231
      */
     @JsonProperty("worlds")
     public World[] getWorlds() {

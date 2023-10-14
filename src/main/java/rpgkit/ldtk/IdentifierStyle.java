@@ -1,9 +1,7 @@
 package rpgkit.ldtk;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-
 import java.io.IOException;
+import com.fasterxml.jackson.annotation.*;
 
 /**
  * Naming convention for Identifiers (first-letter uppercase, full uppercase etc.) Possible
@@ -14,12 +12,13 @@ public enum IdentifierStyle {
 
     @JsonValue
     public String toValue() {
-        return switch (this) {
-            case CAPITALIZE -> "Capitalize";
-            case FREE -> "Free";
-            case LOWERCASE -> "Lowercase";
-            case UPPERCASE -> "Uppercase";
-        };
+        switch (this) {
+            case CAPITALIZE: return "Capitalize";
+            case FREE: return "Free";
+            case LOWERCASE: return "Lowercase";
+            case UPPERCASE: return "Uppercase";
+        }
+        return null;
     }
 
     @JsonCreator

@@ -1,31 +1,21 @@
 package rpgkit.ldtk;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 public class LdtkCustomCommand {
     private String command;
     private When when;
 
     @JsonProperty("command")
-    public String getCommand() {
-        return command;
-    }
-
+    public String getCommand() { return command; }
     @JsonProperty("command")
-    public void setCommand(String value) {
-        this.command = value;
-    }
+    public void setCommand(String value) { this.command = value; }
 
     /**
      * Possible values: `Manual`, `AfterLoad`, `BeforeSave`, `AfterSave`
      */
     @JsonProperty("when")
-    public When getWhen() {
-        return when;
-    }
-
+    public When getWhen() { return when; }
     @JsonProperty("when")
-    public void setWhen(When value) {
-        this.when = value;
-    }
+    public void setWhen(When value) { this.when = value; }
 }

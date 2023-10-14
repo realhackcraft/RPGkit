@@ -1,6 +1,6 @@
 package rpgkit.ldtk;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 /**
  * **IMPORTANT**: this type is available as a preview. You can rely on it to update your
@@ -21,53 +21,33 @@ public class World {
      * Default new level height
      */
     @JsonProperty("defaultLevelHeight")
-    public long getDefaultLevelHeight() {
-        return defaultLevelHeight;
-    }
-
+    public long getDefaultLevelHeight() { return defaultLevelHeight; }
     @JsonProperty("defaultLevelHeight")
-    public void setDefaultLevelHeight(long value) {
-        this.defaultLevelHeight = value;
-    }
+    public void setDefaultLevelHeight(long value) { this.defaultLevelHeight = value; }
 
     /**
      * Default new level width
      */
     @JsonProperty("defaultLevelWidth")
-    public long getDefaultLevelWidth() {
-        return defaultLevelWidth;
-    }
-
+    public long getDefaultLevelWidth() { return defaultLevelWidth; }
     @JsonProperty("defaultLevelWidth")
-    public void setDefaultLevelWidth(long value) {
-        this.defaultLevelWidth = value;
-    }
+    public void setDefaultLevelWidth(long value) { this.defaultLevelWidth = value; }
 
     /**
      * User defined unique identifier
      */
     @JsonProperty("identifier")
-    public String getIdentifier() {
-        return identifier;
-    }
-
+    public String getIdentifier() { return identifier; }
     @JsonProperty("identifier")
-    public void setIdentifier(String value) {
-        this.identifier = value;
-    }
+    public void setIdentifier(String value) { this.identifier = value; }
 
     /**
      * Unique instance identifer
      */
     @JsonProperty("iid")
-    public String getIid() {
-        return iid;
-    }
-
+    public String getIid() { return iid; }
     @JsonProperty("iid")
-    public void setIid(String value) {
-        this.iid = value;
-    }
+    public void setIid(String value) { this.iid = value; }
 
     /**
      * All levels from this world. The order of this array is only relevant in
@@ -75,52 +55,32 @@ public class World {
      * Otherwise, you should refer to the `worldX`,`worldY` coordinates of each Level.
      */
     @JsonProperty("levels")
-    public Level[] getLevels() {
-        return levels;
-    }
-
+    public Level[] getLevels() { return levels; }
     @JsonProperty("levels")
-    public void setLevels(Level[] value) {
-        this.levels = value;
-    }
+    public void setLevels(Level[] value) { this.levels = value; }
 
     /**
      * Height of the world grid in pixels.
      */
     @JsonProperty("worldGridHeight")
-    public long getWorldGridHeight() {
-        return worldGridHeight;
-    }
-
+    public long getWorldGridHeight() { return worldGridHeight; }
     @JsonProperty("worldGridHeight")
-    public void setWorldGridHeight(long value) {
-        this.worldGridHeight = value;
-    }
+    public void setWorldGridHeight(long value) { this.worldGridHeight = value; }
 
     /**
      * Width of the world grid in pixels.
      */
     @JsonProperty("worldGridWidth")
-    public long getWorldGridWidth() {
-        return worldGridWidth;
-    }
-
+    public long getWorldGridWidth() { return worldGridWidth; }
     @JsonProperty("worldGridWidth")
-    public void setWorldGridWidth(long value) {
-        this.worldGridWidth = value;
-    }
+    public void setWorldGridWidth(long value) { this.worldGridWidth = value; }
 
     /**
      * An enum that describes how levels are organized in this project (ie. linearly or in a 2D
      * space). Possible values: `Free`, `GridVania`, `LinearHorizontal`, `LinearVertical`, `null`
      */
     @JsonProperty("worldLayout")
-    public WorldLayout getWorldLayout() {
-        return worldLayout;
-    }
-
+    public WorldLayout getWorldLayout() { return worldLayout; }
     @JsonProperty("worldLayout")
-    public void setWorldLayout(WorldLayout value) {
-        this.worldLayout = value;
-    }
+    public void setWorldLayout(WorldLayout value) { this.worldLayout = value; }
 }

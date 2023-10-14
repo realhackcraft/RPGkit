@@ -1,9 +1,7 @@
 package rpgkit.ldtk;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-
 import java.io.IOException;
+import com.fasterxml.jackson.annotation.*;
 
 /**
  * Possible values: `Manual`, `AfterLoad`, `BeforeSave`, `AfterSave`
@@ -13,12 +11,13 @@ public enum When {
 
     @JsonValue
     public String toValue() {
-        return switch (this) {
-            case AFTER_LOAD -> "AfterLoad";
-            case AFTER_SAVE -> "AfterSave";
-            case BEFORE_SAVE -> "BeforeSave";
-            case MANUAL -> "Manual";
-        };
+        switch (this) {
+            case AFTER_LOAD: return "AfterLoad";
+            case AFTER_SAVE: return "AfterSave";
+            case BEFORE_SAVE: return "BeforeSave";
+            case MANUAL: return "Manual";
+        }
+        return null;
     }
 
     @JsonCreator

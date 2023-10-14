@@ -1,9 +1,7 @@
 package rpgkit.ldtk;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-
 import java.io.IOException;
+import com.fasterxml.jackson.annotation.*;
 
 /**
  * Checker mode Possible values: `None`, `Horizontal`, `Vertical`
@@ -13,11 +11,12 @@ public enum Checker {
 
     @JsonValue
     public String toValue() {
-        return switch (this) {
-            case HORIZONTAL -> "Horizontal";
-            case NONE -> "None";
-            case VERTICAL -> "Vertical";
-        };
+        switch (this) {
+            case HORIZONTAL: return "Horizontal";
+            case NONE: return "None";
+            case VERTICAL: return "Vertical";
+        }
+        return null;
     }
 
     @JsonCreator

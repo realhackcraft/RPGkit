@@ -6,7 +6,7 @@
 //
 // Import this package:
 //
-//     import LDtk.Converter;
+//     import rpgkit.ldtk.Converter;
 //
 // Then you can deserialize a JSON string with
 //
@@ -76,7 +76,7 @@ public class Converter {
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
         SimpleModule module = new SimpleModule();
-        module.addDeserializer(OffsetDateTime.class, new JsonDeserializer<>() {
+        module.addDeserializer(OffsetDateTime.class, new JsonDeserializer<OffsetDateTime>() {
             @Override
             public OffsetDateTime deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
                 String value = jsonParser.getText();

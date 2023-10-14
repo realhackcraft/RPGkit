@@ -1,6 +1,6 @@
 package rpgkit.ldtk;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 /**
  * IntGrid value instance
@@ -13,25 +13,15 @@ public class IntGridValueInstance {
      * Coordinate ID in the layer grid
      */
     @JsonProperty("coordId")
-    public long getCoordID() {
-        return coordID;
-    }
-
+    public long getCoordID() { return coordID; }
     @JsonProperty("coordId")
-    public void setCoordID(long value) {
-        this.coordID = value;
-    }
+    public void setCoordID(long value) { this.coordID = value; }
 
     /**
      * IntGrid value
      */
     @JsonProperty("v")
-    public long getV() {
-        return v;
-    }
-
+    public long getV() { return v; }
     @JsonProperty("v")
-    public void setV(long value) {
-        this.v = value;
-    }
+    public void setV(long value) { this.v = value; }
 }

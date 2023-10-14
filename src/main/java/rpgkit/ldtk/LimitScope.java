@@ -1,9 +1,7 @@
 package rpgkit.ldtk;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-
 import java.io.IOException;
+import com.fasterxml.jackson.annotation.*;
 
 /**
  * If TRUE, the maxCount is a "per world" limit, if FALSE, it's a "per level". Possible
@@ -14,11 +12,12 @@ public enum LimitScope {
 
     @JsonValue
     public String toValue() {
-        return switch (this) {
-            case PER_LAYER -> "PerLayer";
-            case PER_LEVEL -> "PerLevel";
-            case PER_WORLD -> "PerWorld";
-        };
+        switch (this) {
+            case PER_LAYER: return "PerLayer";
+            case PER_LEVEL: return "PerLevel";
+            case PER_WORLD: return "PerWorld";
+        }
+        return null;
     }
 
     @JsonCreator

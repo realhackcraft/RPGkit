@@ -1,9 +1,7 @@
 package rpgkit.ldtk;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-
 import java.io.IOException;
+import com.fasterxml.jackson.annotation.*;
 
 /**
  * Possible values: `DiscardOldOnes`, `PreventAdding`, `MoveLastOne`
@@ -13,11 +11,12 @@ public enum LimitBehavior {
 
     @JsonValue
     public String toValue() {
-        return switch (this) {
-            case DISCARD_OLD_ONES -> "DiscardOldOnes";
-            case MOVE_LAST_ONE -> "MoveLastOne";
-            case PREVENT_ADDING -> "PreventAdding";
-        };
+        switch (this) {
+            case DISCARD_OLD_ONES: return "DiscardOldOnes";
+            case MOVE_LAST_ONE: return "MoveLastOne";
+            case PREVENT_ADDING: return "PreventAdding";
+        }
+        return null;
     }
 
     @JsonCreator

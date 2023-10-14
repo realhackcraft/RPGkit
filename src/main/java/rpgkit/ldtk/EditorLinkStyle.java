@@ -1,9 +1,7 @@
 package rpgkit.ldtk;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-
 import java.io.IOException;
+import com.fasterxml.jackson.annotation.*;
 
 /**
  * Possible values: `ZigZag`, `StraightArrow`, `CurvedArrow`, `ArrowsLine`, `DashedLine`
@@ -13,13 +11,14 @@ public enum EditorLinkStyle {
 
     @JsonValue
     public String toValue() {
-        return switch (this) {
-            case ARROWS_LINE -> "ArrowsLine";
-            case CURVED_ARROW -> "CurvedArrow";
-            case DASHED_LINE -> "DashedLine";
-            case STRAIGHT_ARROW -> "StraightArrow";
-            case ZIG_ZAG -> "ZigZag";
-        };
+        switch (this) {
+            case ARROWS_LINE: return "ArrowsLine";
+            case CURVED_ARROW: return "CurvedArrow";
+            case DASHED_LINE: return "DashedLine";
+            case STRAIGHT_ARROW: return "StraightArrow";
+            case ZIG_ZAG: return "ZigZag";
+        }
+        return null;
     }
 
     @JsonCreator
