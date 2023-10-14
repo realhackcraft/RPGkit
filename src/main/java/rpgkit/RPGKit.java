@@ -59,7 +59,7 @@ public class RPGKit extends JPanel implements Runnable {
 
     public Player player;
 
-    public static final LDtkLoader lDtkLoader = LDtkLoader.get();
+    public static final LDtkLoader lDtkLoader = LDtkLoader.getInstance();
 
     /**
      * Creates a new RPGKit with preferred dimensions based on screenWidth and screenHeight constants.

@@ -30,7 +30,7 @@ public class LDtkLoader {
     }
 
     public Player loadPlayer(LDtk ldtk, EntityInstance entity, LayerInstance layer, Level level, EntityManger entityManger) {
-        Player player = new Player(RPGKit.getInstance().keyHandler, entityManger);
+        Player player = new Player(entityManger);
 
         double[] playerPosition = getEntityPosition(entity, layer, level, ldtk.getWorldLayout());
         player.worldPosition[0] = playerPosition[0];
@@ -246,13 +246,23 @@ public class LDtkLoader {
     private void addAutoTile(TileProperties properties, TileInstance tile, TileSet tileset, Level targetLevel, TileManager tileManager) {
         try {
             if (properties != null && properties.getInteraction() != null) {
-                tileManager.tiles.add(RPGKit.getInstance().interactableLoader.loadInteractable(properties.getInteraction().toLowerCase(),
-                                                                                               tile,
-                                                                                               tileset,
-                                                                                               targetLevel,
-                                                                                               properties));
+                Tile tile1 = RPGKit.getInstance().interactableLoader.loadInteractable(properties.getInteraction().toLowerCase(),
+                                                                                      tile,
+                                                                                      tileset,
+                                                                                      targetLevel,
+                                                                                      properties);
+                tileManager.tiles.add(tile1);
+
+                if (properties.getSolid() != null && properties.getSolid()) {
+                    Movement.solidTiles.add(tile1);
+                }
             } else {
-                tileManager.tiles.add(new Tile(tile, tileset, targetLevel, properties));
+                Tile tile1 = new Tile(tile, tileset, targetLevel, properties);
+                tileManager.tiles.add(tile1);
+
+                if (properties != null && properties.getSolid()) {
+                    Movement.solidTiles.add(tile1);
+                }
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -288,13 +298,25 @@ public class LDtkLoader {
     public void addTile(TileProperties properties, TileInstance tile, TileSet tileset, Level targetLevel, TileManager tileManager) {
         try {
             if (properties != null && properties.getInteraction() != null) {
-                tileManager.tiles.add(RPGKit.getInstance().interactableLoader.loadInteractable(properties.getInteraction().toLowerCase(),
-                                                                                               tile,
-                                                                                               tileset,
-                                                                                               targetLevel,
-                                                                                               properties));
+                Tile tile1 = RPGKit.getInstance().interactableLoader.loadInteractable(properties.getInteraction().toLowerCase(),
+                                                                                      tile,
+                                                                                      tileset,
+                                                                                      targetLevel,
+                                                                                      properties);
+                tileManager.tiles.add(tile1);
+
+                if (tile1.data.getSolid()) {
+                    Movement.solidTiles.add(tile1);
+                }
             } else {
-                tileManager.tiles.add(new Tile(tile, tileset, targetLevel, properties));
+                Tile tile1 = new Tile(tile, tileset, targetLevel, properties);
+                tileManager.tiles.add(tile1);
+
+                if (tile1.data != null && tile1.data.getSolid() != null) {
+                    if (tile1.data.getSolid()) {
+                        Movement.solidTiles.add(tile1);
+                    }
+                }
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -312,7 +334,7 @@ public class LDtkLoader {
         return null;
     }
 
-    public static LDtkLoader get() {
+    public static LDtkLoader getInstance() {
         if (loader == null) {
             loader = new LDtkLoader();
         }

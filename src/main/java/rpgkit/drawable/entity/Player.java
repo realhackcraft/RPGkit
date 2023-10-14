@@ -1,6 +1,5 @@
 package rpgkit.drawable.entity;
 
-import rpgkit.input.KeyHandler;
 import rpgkit.manager.EntityManger;
 import rpgkit.util.Utils;
 
@@ -25,17 +24,14 @@ public class Player extends Entity {
      * by any other external classes in the application.
      */
     public BufferedImage[] images = new BufferedImage[4];
-    private final KeyHandler keyHandler;
-    private double delta;
 
     /**
      * Initializes a new instance of the Player class with the specified RPGKit and KeyHandler.
      *
      * @param keyHandler The KeyHandler object that handles the key events.
      */
-    public Player(KeyHandler keyHandler, EntityManger entityManger) {
+    public Player(EntityManger entityManger) {
         super(entityManger);
-        this.keyHandler = keyHandler;
     }
 
     public void loadImage() {
@@ -50,7 +46,6 @@ public class Player extends Entity {
     @Override
     public void update(double delta) {
         super.update(delta);
-        this.delta = delta;
     }
 
     /**

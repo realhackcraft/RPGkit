@@ -4,8 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" name="Changes" comment="Add animations">
+    <list default="true" id="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" name="Changes" comment="Remove testing and assets from release">
+      <change afterPath="$PROJECT_DIR$/src/test/java/rpgkit/LDtkLoaderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/rpgkit/RPGKitTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/maps/test.ldtk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/LDtkLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/LDtkLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/Movement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/Movement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/RPGKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/RPGKit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/maps/Test.ldtk" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +39,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -79,6 +88,9 @@
       <collection>
         <option value="$PROJECT_DIR$/src/main/java/rpgkit/ui/UI.java-UI-RPGKit" />
         <option value="$PROJECT_DIR$/src/main/java/rpgkit/Tile.java-Tile-getNextTileProperties-metadata" />
+        <option value="$PROJECT_DIR$/src/test/java/rpgkit/RPGKit.java-RPGKit" />
+        <option value="$PROJECT_DIR$/src/main/java/rpgkit/LDtkLoader.java-LDtkLoader-get" />
+        <option value="$PROJECT_DIR$/src/main/java/rpgkit/Movement.java-Movement-collisionTiles" />
       </collection>
     </option>
   </component>
@@ -111,13 +123,15 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Gradle.RPGkit [:Main.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "code.cleanup.on.save": "true",
-    "git-widget-placeholder": "production",
-    "last_opened_file_path": "/Volumes/Big Drive/Programming Projects/IdeaProjects/RPGkit/src/main/java/rpgkit/ldtk/tile",
+    "git-widget-placeholder": "development",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Volumes/Big Drive/Programming Projects/IdeaProjects/RPGkit/src/test/java",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -136,13 +150,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/java" />
+      <recent name="$PROJECT_DIR$/src/test/resources" />
       <recent name="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/tile" />
       <recent name="$PROJECT_DIR$/src/test/resources/maps" />
-      <recent name="$PROJECT_DIR$/src/test/java" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
-      <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/java" />
       <recent name="$PROJECT_DIR$/src/test/resources" />
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
@@ -153,6 +168,13 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="RPGkit.test" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="RPGkit.test" />
@@ -218,6 +240,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Main (1)" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Gradle.RPGkit [build]" />
       <item itemvalue="Gradle.RPGkit [dependencies]" />
@@ -229,13 +252,20 @@
         <item itemvalue="Gradle.RPGkit [dependencies]" />
         <item itemvalue="Gradle.RPGkit [build]" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Gradle.RPGkit [dependencies]" />
+        <item itemvalue="Application.Main (1)" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-19.0.2-corretto-19.0.2-94882acfe85c-5c8b637c" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
+    <task id="Default" summary="Default task">
       <branch name="production" repository="$PROJECT_DIR$" />
       <changelist id="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" name="Changes" comment="" />
       <created>1692316479748</created>
@@ -401,13 +431,14 @@
     <task active="true" id="LOCAL-00021" summary="auto layer parsing">
       <branch name="development" repository="$PROJECT_DIR$" original="true" />
       <branch name="auto-layer-parsing" repository="$PROJECT_DIR$" />
-      <changelist id="67188643-eb50-46a7-85ae-6b3dc91e6364" name=" auto layer parsing" comment="" />
       <created>1692409992677</created>
       <option name="number" value="00021" />
       <option name="presentableId" value="LOCAL-00021" />
       <option name="project" value="LOCAL" />
       <updated>1692410010973</updated>
       <workItem from="1692410011720" duration="3563000" />
+      <workItem from="1694380659891" duration="1028000" />
+      <workItem from="1697241897055" duration="5618000" />
     </task>
     <task id="LOCAL-00022" summary="Update release.yml">
       <option name="closed" value="true" />
@@ -442,7 +473,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="refactor" />
+                        <option value="development" />
                       </list>
                     </value>
                   </entry>
