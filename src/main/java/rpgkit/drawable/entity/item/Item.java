@@ -21,7 +21,6 @@ public abstract class Item extends Entity {
 
         image = tileSet.getFrame((int) (rectangle.getX() / tileSet.tileSize),
                                  (int) (rectangle.getY() / tileSet.tileSize));
-        image = Utils.images.scale(image, RPGKit.tileScale, RPGKit.tileScale);
     }
 
     public void interact() {

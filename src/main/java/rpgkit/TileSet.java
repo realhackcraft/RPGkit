@@ -55,6 +55,7 @@ public class TileSet {
 
     public final long tileSize;
     public final TileCustomMetadata[] metadata;
+    private final RPGKit rpgKit;
 
     /**
      * Constructor for creating a TileSet object.
@@ -63,6 +64,8 @@ public class TileSet {
      * @throws IllegalArgumentException when tileset path not found or invalid
      */
     public TileSet(TilesetDefinition tileSet) {
+        rpgKit = RPGKit.getInstance();
+        
         this.tileSet = tileSet;
         this.uid = tileSet.getUid();
         this.identifier = tileSet.getIdentifier();
@@ -84,15 +87,11 @@ public class TileSet {
     }
 
     public BufferedImage getFrame(int id) {
-//        for (int a = 1; a < 200; a++) {
         int cols = (int) (image.getWidth() / (this.tileSet.getTileGridSize() + this.tileSet.getSpacing()));
 
         int row = ((id - 1) / cols);
         int col = (id) % cols;
-//            System.out.println(col + " " + row);
         return frames[col][row];
-//        }
-//        return null;
     }
 
     /**
@@ -119,16 +118,20 @@ public class TileSet {
     private void cut() {
         long tileCol = image.getWidth() / (this.tileSet.getTileGridSize() + this.tileSet.getSpacing());
         long tileRow = image.getHeight() / (this.tileSet.getTileGridSize() + this.tileSet.getSpacing());
+
         frames = new BufferedImage[(int) tileCol][(int) tileRow];
+
         for (long y = this.tileSet.getPadding(); y < image.getHeight(); y += this.tileSet.getTileGridSize() + this.tileSet.getSpacing()) {
             long framesY = y / (this.tileSet.getTileGridSize() + this.tileSet.getSpacing());
+
             for (long x = this.tileSet.getPadding(); x < image.getWidth(); x += this.tileSet.getTileGridSize() + this.tileSet.getSpacing()) {
                 long framesX = x / (this.tileSet.getTileGridSize() + this.tileSet.getSpacing());
+
                 BufferedImage sprite = image.getSubimage((int) x,
                                                          (int) y,
                                                          (int) this.tileSet.getTileGridSize(),
                                                          (int) this.tileSet.getTileGridSize());
-                frames[(int) framesX][(int) framesY] = sprite;
+                frames[(int) framesX][(int) framesY] = Utils.images.scale(sprite, rpgKit.tileScale, rpgKit.tileScale);
             }
         }
     }

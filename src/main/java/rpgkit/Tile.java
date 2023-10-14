@@ -44,9 +44,9 @@ public class Tile implements Animatable {
         this.hitbox.width = (int) (this.tileSet.tileSize * RPGKit.tileScale);
         this.hitbox.height = (int) (this.tileSet.tileSize * RPGKit.tileScale);
 
-        tempImage = Utils.images.scale(tileSet.getFrame(
+        tempImage = tileSet.getFrame(
                 (int) (tileSetPosition[0] / tileSet.tileSize),
-                (int) (tileSetPosition[1] / tileSet.tileSize)), RPGKit.tileScale, RPGKit.tileScale);
+                (int) (tileSetPosition[1] / tileSet.tileSize));
 
         if (tile.getF() == 1) {
             tempImage = Utils.images.flipHorizontal(tempImage);
@@ -120,9 +120,7 @@ public class Tile implements Animatable {
     @Override
     public BufferedImage getNextFrame() {
         long nextFrame = data.getAnimation().getNext();
-        BufferedImage tempImage = Utils.images.scale(tileSet.getFrame((int) nextFrame),
-                                                     RPGKit.tileScale,
-                                                     RPGKit.tileScale);
+        BufferedImage tempImage = tileSet.getFrame((int) nextFrame);
 
         if (tile.getF() == 1) {
             tempImage = Utils.images.flipHorizontal(tempImage);
