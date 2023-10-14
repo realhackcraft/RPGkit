@@ -27,7 +27,7 @@ public class Tile implements Animatable {
     public boolean hasAnimation;
     public int currentFrame = 0;
 
-    public Tile(TileInstance tile, TileSet tileSet, Level level, TileProperties properties) throws IOException {
+    public Tile(TileInstance tile, TileSet tileSet, Level level, TileProperties properties) {
         BufferedImage tempImage;
         this.tileSet = tileSet;
 

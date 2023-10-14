@@ -12,7 +12,6 @@ import rpgkit.loader.ItemLoader;
 import rpgkit.loader.ItemToUIConverter;
 import rpgkit.manager.EntityManger;
 
-import java.io.IOException;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -32,7 +31,7 @@ public class RPGKitTest {
 
         class TestInteractable implements InteractableLoader {
             @Override
-            public Interactable loadInteractable(String interaction, TileInstance tile, TileSet tileset, Level targetLevel, TileProperties properties) throws IOException {
+            public Interactable loadInteractable(String interaction, TileInstance tile, TileSet tileset, Level targetLevel, TileProperties properties) {
                 return null;
             }
         }

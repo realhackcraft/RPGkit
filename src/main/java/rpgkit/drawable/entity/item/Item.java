@@ -11,7 +11,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public abstract class Item extends Entity {
-    public TilesetRectangle rectangle;
+    public final TilesetRectangle rectangle;
     public BufferedImage image;
 
     public Item(EntityManger entityManger, TileSet tileSet, TilesetRectangle rectangle) {

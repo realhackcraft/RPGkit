@@ -3,7 +3,7 @@ package rpgkit.util;
 import rpgkit.RPGKit;
 
 public class GameUtils {
-    RPGKit RPGKit = rpgkit.RPGKit.getInstance();
+    final RPGKit RPGKit = rpgkit.RPGKit.getInstance();
 
     public double calculateDistance(double[] point1, double[] point2) {
         if (point1.length != 2 || point2.length != 2) {

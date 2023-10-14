@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" name="Changes" comment="Refactor entity movement and collision handling&#10;&#10;Player movement and collision handling logic have been refactored. Previously, movement and collision checking logic were intertwined and complex. The updated version divides these concerns by first simulating player movement, then checking for collisions, and finally applying the movement if no collision is detected. Some unnecessary code snippets and unused imports were also removed. This improves code readability and maintainability. LDtkLoader.get() method was also renamed to LDtkLoader.getInstance() for consistency with other singleton classes.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/IntGridValueGroupDefinition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/rpgkit/LDtkLoaderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/rpgkit/RPGKitTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/AutoLayerRuleDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/AutoLayerRuleDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/AutoLayerRuleGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/AutoLayerRuleGroup.java" afterDir="false" />
+    <list default="true" id="96e8e18d-d5b4-497a-9dfc-d2bdff51b7c3" name="Changes" comment="Add back the test and updated LDtk schema version from 1.3 to 1.4">
+      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/LDtkLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/LDtkLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/Movement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/Movement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/RPGKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/RPGKit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/entity/item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/entity/item/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/ui/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/drawable/ui/UI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/Checker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/Checker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/Converter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/Definitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/Definitions.java" afterDir="false" />
@@ -19,44 +21,23 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EditorLinkStyle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EditorLinkStyle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EmbedAtlas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EmbedAtlas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EntityDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EntityDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EntityInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EntityInstance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EnumDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EnumDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EnumTagValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EnumTagValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EnumValueDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/EnumValueDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/FieldDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/FieldDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/FieldInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/FieldInstance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/Flag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/Flag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/ForcedRefs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/ForcedRefs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/GridPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/GridPoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/IdentifierStyle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/IdentifierStyle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/ImageExportMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/ImageExportMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/IntGridValueDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/IntGridValueDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/IntGridValueInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/IntGridValueInstance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/LDtk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/LDtk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/LayerDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/LayerDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/LayerInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/LayerInstance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/LdtkCustomCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/LdtkCustomCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/LdtkTableOfContentEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/LdtkTableOfContentEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/LevelBackgroundPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/LevelBackgroundPosition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/LimitBehavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/LimitBehavior.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/LimitScope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/LimitScope.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/NeighbourLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/NeighbourLevel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/ReferenceToAnEntityInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/ReferenceToAnEntityInstance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/RenderMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/RenderMode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/TextLanguageMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/TextLanguageMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/TileCustomMetadata.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/TileCustomMetadata.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/TileInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/TileInstance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/TileMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/TileMode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/TileRenderMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/TileRenderMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/TilesetDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/TilesetDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/TilesetRectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/TilesetRectangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/Type.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/When.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/When.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/World.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/WorldLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/WorldLayout.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/tile/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/ldtk/tile/Converter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/maps/Test.ldtk" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/maps/Test.ldtk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rpgkit/util/GameUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rpgkit/util/GameUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/rpgkit/RPGKitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rpgkit/RPGKitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/maps/Test/backups/c65f7de0-ed50-11ed-b831-d56759fb2ace_2023-08-18_22-03-35_crash/Test.ldtk" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,6 +164,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "tasks.timeTracking",
     "vue.rearranger.settings.migration": "true"
   },
@@ -482,7 +464,7 @@
       <updated>1692410010973</updated>
       <workItem from="1692410011720" duration="3563000" />
       <workItem from="1694380659891" duration="1028000" />
-      <workItem from="1697241897055" duration="6303000" />
+      <workItem from="1697241897055" duration="6961000" />
     </task>
     <task id="LOCAL-00022" summary="Update release.yml">
       <option name="closed" value="true" />
@@ -508,7 +490,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697248026227</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Add back the test and updated LDtk schema version from 1.3 to 1.4">
+      <option name="closed" value="true" />
+      <created>1697248753474</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1697248753474</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -548,7 +538,8 @@
     <MESSAGE value=" add animation" />
     <MESSAGE value="Add animations" />
     <MESSAGE value="Refactor entity movement and collision handling&#10;&#10;Player movement and collision handling logic have been refactored. Previously, movement and collision checking logic were intertwined and complex. The updated version divides these concerns by first simulating player movement, then checking for collisions, and finally applying the movement if no collision is detected. Some unnecessary code snippets and unused imports were also removed. This improves code readability and maintainability. LDtkLoader.get() method was also renamed to LDtkLoader.getInstance() for consistency with other singleton classes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor entity movement and collision handling&#10;&#10;Player movement and collision handling logic have been refactored. Previously, movement and collision checking logic were intertwined and complex. The updated version divides these concerns by first simulating player movement, then checking for collisions, and finally applying the movement if no collision is detected. Some unnecessary code snippets and unused imports were also removed. This improves code readability and maintainability. LDtkLoader.get() method was also renamed to LDtkLoader.getInstance() for consistency with other singleton classes." />
+    <MESSAGE value="Add back the test and updated LDtk schema version from 1.3 to 1.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

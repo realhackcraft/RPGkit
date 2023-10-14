@@ -23,12 +23,12 @@ public class Player extends Entity {
      * This ensures that the key handling logic is encapsulated within a single class and is not exposed or modified
      * by any other external classes in the application.
      */
-    public BufferedImage[] images = new BufferedImage[4];
+    public final BufferedImage[] images = new BufferedImage[4];
 
     /**
      * Initializes a new instance of the Player class with the specified RPGKit and KeyHandler.
      *
-     * @param keyHandler The KeyHandler object that handles the key events.
+     * @param entityManger The entityManager that contains this object. It is used so that we can remove it from the manager when needed.
      */
     public Player(EntityManger entityManger) {
         super(entityManger);

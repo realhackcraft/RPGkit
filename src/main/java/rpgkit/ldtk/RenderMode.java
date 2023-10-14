@@ -1,7 +1,9 @@
 package rpgkit.ldtk;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import java.io.IOException;
-import com.fasterxml.jackson.annotation.*;
 
 /**
  * Possible values: `Rectangle`, `Ellipse`, `Tile`, `Cross`
@@ -11,13 +13,12 @@ public enum RenderMode {
 
     @JsonValue
     public String toValue() {
-        switch (this) {
-            case CROSS: return "Cross";
-            case ELLIPSE: return "Ellipse";
-            case RECTANGLE: return "Rectangle";
-            case TILE: return "Tile";
-        }
-        return null;
+        return switch (this) {
+            case CROSS -> "Cross";
+            case ELLIPSE -> "Ellipse";
+            case RECTANGLE -> "Rectangle";
+            case TILE -> "Tile";
+        };
     }
 
     @JsonCreator

@@ -3,7 +3,7 @@ package rpgkit.ldtk;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * This file is a JSON schema of files created by LDtk level editor (https://ldtk.io).
+ * This file is a JSON schema of files created by LDtk level editor (<a href="https://ldtk.io">...</a>).
  * <p>
  * This is the root of any Project JSON file. It contains:  - the project settings, - an
  * array of levels, - a group of definitions (that can probably be safely ignored for most

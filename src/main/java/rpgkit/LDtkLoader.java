@@ -73,7 +73,7 @@ public class LDtkLoader {
         item = RPGKit.getInstance().itemLoader.loadItem(tags, entity, entityManger);
 
         if (item == null) {
-            return item;
+            return null;
         }
 
         item.worldPosition[0] = itemPosition[0];

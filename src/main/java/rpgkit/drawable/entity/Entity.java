@@ -15,7 +15,7 @@ public abstract class Entity implements Drawable {
     public EntityManger entityManger;
     public double width;
     public double height;
-    public RPGKit RPGKit;
+    public final RPGKit RPGKit;
 
     /**
      * Represents the speed of an object.

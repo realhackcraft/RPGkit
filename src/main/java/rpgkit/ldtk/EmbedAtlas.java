@@ -1,15 +1,17 @@
 package rpgkit.ldtk;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import java.io.IOException;
-import com.fasterxml.jackson.annotation.*;
 
 public enum EmbedAtlas {
     LDTK_ICONS;
 
     @JsonValue
     public String toValue() {
-        switch (this) {
-            case LDTK_ICONS: return "LdtkIcons";
+        if (this == EmbedAtlas.LDTK_ICONS) {
+            return "LdtkIcons";
         }
         return null;
     }

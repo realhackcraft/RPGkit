@@ -74,8 +74,8 @@ public class RPGKit extends JPanel implements Runnable {
     private boolean started = false;
     private JFrame frame;
     public Sound music = new Sound();
-    public Sound effect = new Sound();
-    public UI ui = new UI();
+    public final Sound effect = new Sound();
+    public final UI ui = new UI();
 
     public static RPGKit getInstance() {
         if (INSTANCE == null) {

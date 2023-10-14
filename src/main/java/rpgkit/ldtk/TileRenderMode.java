@@ -1,7 +1,9 @@
 package rpgkit.ldtk;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import java.io.IOException;
-import com.fasterxml.jackson.annotation.*;
 
 /**
  * An enum describing how the the Entity tile is rendered inside the Entity bounds. Possible
@@ -13,16 +15,15 @@ public enum TileRenderMode {
 
     @JsonValue
     public String toValue() {
-        switch (this) {
-            case COVER: return "Cover";
-            case FIT_INSIDE: return "FitInside";
-            case FULL_SIZE_CROPPED: return "FullSizeCropped";
-            case FULL_SIZE_UNCROPPED: return "FullSizeUncropped";
-            case NINE_SLICE: return "NineSlice";
-            case REPEAT: return "Repeat";
-            case STRETCH: return "Stretch";
-        }
-        return null;
+        return switch (this) {
+            case COVER -> "Cover";
+            case FIT_INSIDE -> "FitInside";
+            case FULL_SIZE_CROPPED -> "FullSizeCropped";
+            case FULL_SIZE_UNCROPPED -> "FullSizeUncropped";
+            case NINE_SLICE -> "NineSlice";
+            case REPEAT -> "Repeat";
+            case STRETCH -> "Stretch";
+        };
     }
 
     @JsonCreator

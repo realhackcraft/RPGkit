@@ -1,7 +1,9 @@
 package rpgkit.ldtk;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import java.io.IOException;
-import com.fasterxml.jackson.annotation.*;
 
 /**
  * Type of the layer as Haxe Enum Possible values: `IntGrid`, `Entities`, `Tiles`,
@@ -12,13 +14,12 @@ public enum Type {
 
     @JsonValue
     public String toValue() {
-        switch (this) {
-            case AUTO_LAYER: return "AutoLayer";
-            case ENTITIES: return "Entities";
-            case INT_GRID: return "IntGrid";
-            case TILES: return "Tiles";
-        }
-        return null;
+        return switch (this) {
+            case AUTO_LAYER -> "AutoLayer";
+            case ENTITIES -> "Entities";
+            case INT_GRID -> "IntGrid";
+            case TILES -> "Tiles";
+        };
     }
 
     @JsonCreator

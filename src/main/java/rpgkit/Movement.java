@@ -11,7 +11,7 @@ import static java.awt.event.KeyEvent.*;
 import static rpgkit.util.Direction.LEFT;
 
 public class Movement {
-    public static ArrayList<Tile> solidTiles = new ArrayList<>();
+    public static final ArrayList<Tile> solidTiles = new ArrayList<>();
 
     public static void computeMovements(KeyHandler keyHandler, double delta) {
         RPGKit rpgKit = RPGKit.getInstance();

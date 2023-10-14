@@ -1,7 +1,9 @@
 package rpgkit.ldtk;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import java.io.IOException;
-import com.fasterxml.jackson.annotation.*;
 
 /**
  * Possible values: `Above`, `Center`, `Beneath`
@@ -11,12 +13,11 @@ public enum EditorDisplayPos {
 
     @JsonValue
     public String toValue() {
-        switch (this) {
-            case ABOVE: return "Above";
-            case BENEATH: return "Beneath";
-            case CENTER: return "Center";
-        }
-        return null;
+        return switch (this) {
+            case ABOVE -> "Above";
+            case BENEATH -> "Beneath";
+            case CENTER -> "Center";
+        };
     }
 
     @JsonCreator

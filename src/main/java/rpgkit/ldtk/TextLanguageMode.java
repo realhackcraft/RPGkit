@@ -1,26 +1,27 @@
 package rpgkit.ldtk;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import java.io.IOException;
-import com.fasterxml.jackson.annotation.*;
 
 public enum TextLanguageMode {
     LANG_C, LANG_HAXE, LANG_JS, LANG_JSON, LANG_LOG, LANG_LUA, LANG_MARKDOWN, LANG_PYTHON, LANG_RUBY, LANG_XML;
 
     @JsonValue
     public String toValue() {
-        switch (this) {
-            case LANG_C: return "LangC";
-            case LANG_HAXE: return "LangHaxe";
-            case LANG_JS: return "LangJS";
-            case LANG_JSON: return "LangJson";
-            case LANG_LOG: return "LangLog";
-            case LANG_LUA: return "LangLua";
-            case LANG_MARKDOWN: return "LangMarkdown";
-            case LANG_PYTHON: return "LangPython";
-            case LANG_RUBY: return "LangRuby";
-            case LANG_XML: return "LangXml";
-        }
-        return null;
+        return switch (this) {
+            case LANG_C -> "LangC";
+            case LANG_HAXE -> "LangHaxe";
+            case LANG_JS -> "LangJS";
+            case LANG_JSON -> "LangJson";
+            case LANG_LOG -> "LangLog";
+            case LANG_LUA -> "LangLua";
+            case LANG_MARKDOWN -> "LangMarkdown";
+            case LANG_PYTHON -> "LangPython";
+            case LANG_RUBY -> "LangRuby";
+            case LANG_XML -> "LangXml";
+        };
     }
 
     @JsonCreator

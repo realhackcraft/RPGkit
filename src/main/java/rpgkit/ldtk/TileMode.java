@@ -1,7 +1,9 @@
 package rpgkit.ldtk;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import java.io.IOException;
-import com.fasterxml.jackson.annotation.*;
 
 /**
  * Defines how tileIds array is used Possible values: `Single`, `Stamp`
@@ -11,11 +13,10 @@ public enum TileMode {
 
     @JsonValue
     public String toValue() {
-        switch (this) {
-            case SINGLE: return "Single";
-            case STAMP: return "Stamp";
-        }
-        return null;
+        return switch (this) {
+            case SINGLE -> "Single";
+            case STAMP -> "Stamp";
+        };
     }
 
     @JsonCreator

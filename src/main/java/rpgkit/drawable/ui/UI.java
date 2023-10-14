@@ -8,8 +8,8 @@ import java.awt.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class UI implements Drawable {
-    public long[] nextScreenPosition = {0, 0};
-    public CopyOnWriteArrayList<Item> inventory = new CopyOnWriteArrayList<>();
+    public final long[] nextScreenPosition = {0, 0};
+    public final CopyOnWriteArrayList<Item> inventory = new CopyOnWriteArrayList<>();
     private RPGKit rpgKit;
 
     public long[] nextScreenPosition() {
@@ -44,7 +44,7 @@ public class UI implements Drawable {
     }
 
     public void addItem(rpgkit.drawable.entity.item.Item itemEntity) {
-        Item item = null;
+        Item item;
         item = rpgKit.itemToUIConverter.convertToUIItem(itemEntity, 1);
 
         if (item == null) return;

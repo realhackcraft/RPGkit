@@ -1,7 +1,9 @@
 package rpgkit.ldtk;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import java.io.IOException;
-import com.fasterxml.jackson.annotation.*;
 
 /**
  * "Image export" option when saving project. Possible values: `None`, `OneImagePerLayer`,
@@ -12,13 +14,12 @@ public enum ImageExportMode {
 
     @JsonValue
     public String toValue() {
-        switch (this) {
-            case LAYERS_AND_LEVELS: return "LayersAndLevels";
-            case NONE: return "None";
-            case ONE_IMAGE_PER_LAYER: return "OneImagePerLayer";
-            case ONE_IMAGE_PER_LEVEL: return "OneImagePerLevel";
-        }
-        return null;
+        return switch (this) {
+            case LAYERS_AND_LEVELS -> "LayersAndLevels";
+            case NONE -> "None";
+            case ONE_IMAGE_PER_LAYER -> "OneImagePerLayer";
+            case ONE_IMAGE_PER_LEVEL -> "OneImagePerLevel";
+        };
     }
 
     @JsonCreator
