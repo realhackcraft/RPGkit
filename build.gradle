@@ -5,6 +5,12 @@ plugins {
 group = 'net.hackcraft'
 version = '1.0-SNAPSHOT'
 
+java {
+  toolchain {
+    languageVersion.set(JavaLanguageVersion.of(21))
+  }
+}
+
 sourceSets {
     main {
         java {
@@ -12,6 +18,17 @@ sourceSets {
             exclude '**/main/**'
         }
     }
+
+    sampleTest {
+        java {
+            srcDir 'src/test/java'
+        }
+        resources {
+            srcDir 'src/test/resources'
+        }
+        compileClasspath += sourceSets.main.compileClasspath + sourceSets.main.output
+        runtimeClasspath += sourceSets.main.runtimeClasspath + sourceSets.main.output
+  }
 }
 
 repositories {
@@ -28,4 +45,13 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+task sampleTest(type: JavaExec) {
+    classpath = sourceSets.sampleTest.runtimeClasspath
+    mainClass = 'main.Main'  // Replace with the actual fully qualified name of your Main class
+}
+
+task showMeCache doLast() {
+    configurations.compileClasspath.each { println it }
 }
