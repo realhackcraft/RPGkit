@@ -9,5 +9,6 @@ import rpgkit.ldtk.tile.TileProperties;
 import java.io.IOException;
 
 public interface InteractableLoader {
-    Interactable loadInteractable(String interaction, TileInstance tile, TileSet tileset, Level targetLevel, TileProperties properties) throws IOException;
+  Interactable loadInteractable(String interaction, TileInstance tile, TileSet tileset, Level targetLevel,
+      TileProperties properties) throws IOException;
 }

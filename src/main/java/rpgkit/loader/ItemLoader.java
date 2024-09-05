@@ -7,5 +7,5 @@ import rpgkit.manager.EntityManger;
 import java.util.List;
 
 public interface ItemLoader {
-    Item loadItem(List<String> tags, EntityInstance entity, EntityManger entityManger);
+  Item loadItem(List<String> tags, EntityInstance entity, EntityManger entityManger);
 }
